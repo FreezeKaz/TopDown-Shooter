@@ -8,25 +8,28 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    public Weapon weapon;
 
-    public int fireRate = 60;
-    public int interval = 0;
+    private float fireRate;
+    private float interval;
     public float bulletForce = 20f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        fireRate = weapon.FireRate;
+        interval = 1f / fireRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && interval <= 0)
         {
             Shoot();
+            interval = 1 / fireRate;
         }
-
+        interval -= Time.deltaTime;
     }
 
     void Shoot()
