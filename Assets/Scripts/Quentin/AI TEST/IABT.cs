@@ -16,7 +16,7 @@ public class IABT : Tree
             new Sequence(new List<Node>
             {
                 new CheckPlayerInRange(transform),
-                new AttackTarget(transform),
+                new GoInRange(transform),
             }),
             new Patrol(transform, waypoints),
         });

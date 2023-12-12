@@ -4,11 +4,11 @@ using UnityEngine;
 
 using BehaviorTree;
 
-public class AttackTarget : Node
+public class GoInRange : Node
 {
     private Transform _transform;
 
-    public AttackTarget(Transform transform)
+    public GoInRange(Transform transform)
     {
         _transform = transform;
     }
