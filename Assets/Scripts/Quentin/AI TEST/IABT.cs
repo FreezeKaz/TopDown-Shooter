@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BehaviorTree;
 
 public class IABT : Tree
@@ -8,7 +9,7 @@ public class IABT : Tree
     protected override Node SetupTree()
     {
         Node root = new Patrol(transform, waypoints);
-        throw new System.NotImplementedException(); //false
+        return root;
     }
 
 }

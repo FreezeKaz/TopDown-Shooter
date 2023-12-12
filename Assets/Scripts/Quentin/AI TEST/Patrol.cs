@@ -45,15 +45,13 @@ namespace BehaviorTree
                 else
                 {
                     _transform.position = Vector3.MoveTowards(_transform.position, wp.position, IABT.speed * Time.deltaTime);
-                    _transform.LookAt(wp.position);
+                    //_transform.LookAt(wp.position);
                 }
             }
-
 
             state = NodeState.RUNNING;
             return state;
         }
-    }
     }
 }
 
