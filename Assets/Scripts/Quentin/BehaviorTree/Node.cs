@@ -14,7 +14,7 @@ namespace BehaviorTree
         protected NodeState state;
 
         public Node parent;
-        protected List<Node> children;
+        protected List<Node> children = new List<Node>();
 
         private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
 
@@ -63,8 +63,6 @@ namespace BehaviorTree
 
         public bool ClearData(string key)
         {
-            object value = null;
-
             if (_dataContext.ContainsKey(key))
             {
                 _dataContext.Remove(key);

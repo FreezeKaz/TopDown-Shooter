@@ -40,7 +40,7 @@ namespace BehaviorTree
                     _waitCounter = 0f;
                     _waiting = true;
 
-                    _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Length;
+                    _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Length; 
                 }
                 else
                 {
