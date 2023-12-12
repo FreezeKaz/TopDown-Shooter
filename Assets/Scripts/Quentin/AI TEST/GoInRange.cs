@@ -17,6 +17,7 @@ public class GoInRange : Node
     {
         Transform target = (Transform)GetData("target");
 
+
         if(Vector3.Distance(_transform.position, target.position) > IABT.range)
         {
             _transform.position = Vector3.MoveTowards(_transform.position, target.position, IABT.speed * Time.deltaTime);
