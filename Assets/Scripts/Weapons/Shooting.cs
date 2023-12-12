@@ -5,6 +5,9 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
 
+    [SerializeField] private AudioClip[] shootingSoundClips;
+    [SerializeField][Range(0, 1)] private float volumeSFX;
+
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -36,5 +39,7 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
+        SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
     }
 }
