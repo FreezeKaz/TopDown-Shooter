@@ -11,20 +11,17 @@ public class Shooting : MonoBehaviour
     [SerializeField][Range(0, 1)] private float volumeSFX;
 
     public Transform firePoint;
-    public GameObject bulletPrefab;
-
-    public Weapon weapon;
-
+    public Weapon currentWeapon;
+    private Bullet bullet;
     private float fireRate;
     private float interval;
-    public float bulletForce = 20f;
     private bool _shooting = false;
-
     // Start is called before the first frame update
     void Start()
     {
-        fireRate = weapon.FireRate;
-
+        bullet = currentWeapon.bullet.GetComponent<Bullet>();
+        fireRate = currentWeapon.FireRate;
+        interval = 1f / fireRate;
     }
 
 
@@ -37,8 +34,10 @@ public class Shooting : MonoBehaviour
             if (interval <= 0)
             {
                 interval = 1 / fireRate;
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                GameObject myBullet = Instantiate(bullet.gameObject, firePoint.position, Quaternion.identity);
+                myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bullet.bulletForce, ForceMode2D.Impulse);
+                SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+
                 return;
             }
             interval -= Time.deltaTime;
@@ -49,12 +48,31 @@ public class Shooting : MonoBehaviour
         _shooting = true;
 
         //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
-        //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
-    }
 
+    }
+    
     public void StopShooting(InputAction.CallbackContext input)
     {
         Debug.Log("wiao bye");
         _shooting = false;
+    }
+
+    private void ChangeWeapon(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+        bullet = currentWeapon.bullet.GetComponent<Bullet>();
+        fireRate = currentWeapon.FireRate;
+        interval = 1f / fireRate;
+    }
+
+
+    private void OnEnable()
+    {
+        WeaponChange.OnWeaponChange += ChangeWeapon;
+    }
+
+    private void OnDisable()
+    {
+        WeaponChange.OnWeaponChange -= ChangeWeapon;
     }
 }

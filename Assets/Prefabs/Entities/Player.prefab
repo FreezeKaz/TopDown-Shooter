@@ -148,6 +148,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &3081131247014956812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3276208549863597770}
+  - component: {fileID: 3588000660105172804}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3276208549863597770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081131247014956812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9096204904325929518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3588000660105172804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081131247014956812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d31667edf60ed44aae38958221706c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems: []
+  weapons:
+  - {fileID: 11400000, guid: 49b0affe1e68d9043841bf939b289821, type: 2}
+  - {fileID: 11400000, guid: 657783e2a2d49d943ba51b6ef1d894a1, type: 2}
+  - {fileID: 11400000, guid: abb6cc7d9da9f4b4da60e5fc6d13438d, type: 2}
 --- !u!1 &3837032630453073913
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +208,7 @@ GameObject:
   - component: {fileID: 9096204904325929518}
   - component: {fileID: 7237388022160125511}
   - component: {fileID: 979417864185442029}
+  - component: {fileID: 3560063907371676143}
   m_Layer: 0
   m_Name: Actions
   m_TagString: Untagged
@@ -180,6 +230,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6324614935874961749}
+  - {fileID: 3276208549863597770}
   m_Father: {fileID: 6347431522334094052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7237388022160125511
@@ -211,9 +262,19 @@ MonoBehaviour:
   shootingSoundClips: []
   volumeSFX: 0
   firePoint: {fileID: 563250924578714245}
-  bulletPrefab: {fileID: 4556095689883910936, guid: a527591e175e1a74396a42167a0c24bc, type: 3}
-  weapon: {fileID: 11400000, guid: 657783e2a2d49d943ba51b6ef1d894a1, type: 2}
-  bulletForce: 20
+  currentWeapon: {fileID: 0}
+--- !u!114 &3560063907371676143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837032630453073913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0dbc60c1347b3498919d56a9b97d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5954633274377842451
 GameObject:
   m_ObjectHideFlags: 0

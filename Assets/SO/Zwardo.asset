@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9832c73239f53ac4480c92d575c39573, type: 3}
-  m_Name: Rifle
+  m_Name: Zwardo
   m_EditorClassIdentifier: 
-  FireRate: 4
-  bullet: {fileID: 4607090301224169144, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+  FireRate: 18
+  bullet: {fileID: 6789327395259774098, guid: 29bc8a86bb2ea6b4d9fa7555b905dce6, type: 3}
