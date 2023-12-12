@@ -20,15 +20,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
-        LookAtMouse();
         // moveInput.x = Input.  
     }
 
-    private void LookAtMouse()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.up = mousePos - new Vector2(transform.position.x, transform.position.y);
-    }
+   
 
     private void Move()
     {

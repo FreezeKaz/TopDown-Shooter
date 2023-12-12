@@ -5,7 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Tom.unity
+    guid: 903caecc4e7fa4645ab5bcf97a217ee2
+  - enabled: 1
+    path: Assets/Scenes/Francesca.unity
+    guid: 78912d727ac7ac44887c2dda79c17c27
+  - enabled: 1
+    path: Assets/Scenes/Quentin.unity
+    guid: 54e7ee81b861bd2429e5dd2b4872d876
+  - enabled: 1
+    path: Assets/Scenes/Hugo.unity
+    guid: 8bfe501b75cea214aa32cbfcf1350214
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: d25d2d65c20103d4a9d73315e6beadc3
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
