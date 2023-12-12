@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class Shooting : MonoBehaviour
     private Bullet bullet;
     private float fireRate;
     private float interval;
-
+    private bool _shooting = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,23 +24,35 @@ public class Shooting : MonoBehaviour
         interval = 1f / fireRate;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        if (Input.GetButton("Fire1") && interval <= 0)
+        // Update is called once per frame
+        if (_shooting)
         {
-            Shoot();
-            interval = 1 / fireRate;
+            Debug.Log("hahaha");
+            if (interval <= 0)
+            {
+                interval = 1 / fireRate;
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                return;
+            }
+            interval -= Time.deltaTime;
         }
-        interval -= Time.deltaTime;
+    }
+    public void Shoot(InputAction.CallbackContext input)
+    {
+        _shooting = true;
+
+        //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
+        //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
     }
 
-    void Shoot()
+    public void StopShooting(InputAction.CallbackContext input)
     {
-        GameObject bulletGO = Instantiate(currentWeapon.bullet, firePoint.position, Quaternion.identity);
-        bulletGO.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bullet.bulletForce, ForceMode2D.Impulse);
-        //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
-        SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+        Debug.Log("wiao bye");
+        _shooting = false;
     }
 
     private void WeaponChange(Weapon newWeapon)
@@ -52,11 +66,11 @@ public class Shooting : MonoBehaviour
 
     private void OnEnable()
     {
-        global::WeaponChange.OnWeaponChange += WeaponChange;
+        WeaponChange.OnWeaponChange += WeaponChange;
     }
 
     private void OnDisable()
     {
-        global::WeaponChange.OnWeaponChange -= WeaponChange;
+        WeaponChange.OnWeaponChange -= WeaponChange;
     }
 }
