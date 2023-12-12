@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675806c177d2cd5449441c129ff6c9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1336311649}
 --- !u!1 &228789626
 GameObject:
   m_ObjectHideFlags: 3
@@ -545,10 +546,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562d2c255bead6649b621111fda3c4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingSoundClips: []
+  volumeSFX: 0
   firePoint: {fileID: 2118790897}
-  bulletPrefab: {fileID: 4556095689883910936, guid: a527591e175e1a74396a42167a0c24bc, type: 3}
-  weapon: {fileID: 11400000, guid: 657783e2a2d49d943ba51b6ef1d894a1, type: 2}
-  bulletForce: 20
+  currentWeapon: {fileID: 11400000, guid: 657783e2a2d49d943ba51b6ef1d894a1, type: 2}
 --- !u!1 &1624435482
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    InputActionReference move, look, fire;
     public Rigidbody2D rgBd;
     private Vector2 moveInput;
     public float speed = 5f;
@@ -27,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        
         Console.Write("I'm moving");
         var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rgBd.velocity = input.normalized * speed;

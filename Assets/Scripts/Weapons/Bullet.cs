@@ -1,7 +1,7 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "Bullet", menuName = "Create Bullet", order = 1)]
 
-public class Bullet : ScriptableObject
+public class Bullet : MonoBehaviour
 {
     public float Damage = 4;
+    public float bulletForce = 20;
 }

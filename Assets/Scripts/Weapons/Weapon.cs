@@ -3,5 +3,5 @@ using UnityEngine;
 public class Weapon : ScriptableObject
 {
     public float FireRate = 4;
-    public ScriptableObject bullet;
+    public GameObject bullet;
 }

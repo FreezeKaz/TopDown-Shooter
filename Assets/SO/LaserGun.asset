@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae60c3aaf9d01af49bdf96c58e0e8d39, type: 3}
-  m_Name: Bullet
+  m_Script: {fileID: 11500000, guid: 9832c73239f53ac4480c92d575c39573, type: 3}
+  m_Name: LaserGun
   m_EditorClassIdentifier: 
-  Damage: 4
+  FireRate: 3
+  bullet: {fileID: 6021293680533888264, guid: 6222788765f109e41b0eea307d67208f, type: 3}

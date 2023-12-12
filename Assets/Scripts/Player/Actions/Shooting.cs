@@ -9,18 +9,16 @@ public class Shooting : MonoBehaviour
     [SerializeField][Range(0, 1)] private float volumeSFX;
 
     public Transform firePoint;
-    public GameObject bulletPrefab;
-
-    public Weapon weapon;
-
+    public Weapon currentWeapon;
+    private Bullet bullet;
     private float fireRate;
     private float interval;
-    public float bulletForce = 20f;
 
     // Start is called before the first frame update
     void Start()
     {
-        fireRate = weapon.FireRate;
+        bullet = currentWeapon.bullet.GetComponent<Bullet>();
+        fireRate = currentWeapon.FireRate;
         interval = 1f / fireRate;
     }
 
@@ -37,9 +35,28 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        GameObject bulletGO = Instantiate(currentWeapon.bullet, firePoint.position, Quaternion.identity);
+        bulletGO.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bullet.bulletForce, ForceMode2D.Impulse);
         //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
         SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+    }
+
+    private void WeaponChange(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+        bullet = currentWeapon.bullet.GetComponent<Bullet>();
+        fireRate = currentWeapon.FireRate;
+        interval = 1f / fireRate;
+    }
+
+
+    private void OnEnable()
+    {
+        global::WeaponChange.OnWeaponChange += WeaponChange;
+    }
+
+    private void OnDisable()
+    {
+        global::WeaponChange.OnWeaponChange -= WeaponChange;
     }
 }
