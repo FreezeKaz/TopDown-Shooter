@@ -10,19 +10,14 @@ public class FollowMouse : MonoBehaviour
     // Start is called before the first frame update
 
 
-    // Update is called once per frame
-    void Update()
+
+    public void LookAtMouse(InputAction.CallbackContext input)
     {
-        LookAtMouse();
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = input.ReadValue<Vector2>();
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         mousePos.z = 0;
         transform.position = mousePos;
-    }
-
-    private void LookAtMouse()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        rb.transform.up = mousePos - new Vector2(rb.transform.position.x, rb.transform.position.y);
+        Vector2 mousePosToCam = Camera.main.ScreenToWorldPoint(input.ReadValue<Vector2>());
+        rb.transform.up = mousePosToCam - new Vector2(rb.transform.position.x, rb.transform.position.y);
     }
 }
