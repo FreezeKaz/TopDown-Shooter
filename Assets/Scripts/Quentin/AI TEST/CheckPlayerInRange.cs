@@ -11,9 +11,9 @@ public class CheckPlayerInRange : Node
 
     float minDepth = -Mathf.Infinity;
     float maxDepth = Mathf.Infinity;
-    public CheckPlayerInRange(Transform transform)
+    public CheckPlayerInRange(GameObject gameObject)
     {
-        _transform = transform;
+        _transform = gameObject.transform;
     }
 
     public override NodeState Evaluate()

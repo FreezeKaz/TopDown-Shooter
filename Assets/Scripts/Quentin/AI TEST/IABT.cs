@@ -6,20 +6,21 @@ public class IABT : Tree
 {
     public UnityEngine.Transform[] waypoints;
 
+
     public static float speed = 2f;
-    public static float fovRange = 8f;
-    public static float range = 6f;
+    public static float fovRange = 15f;
+    public static float range = 15f;
     protected override Node SetupTree()
     {
         Node root = new Selector(new List<Node>
         {
             new Sequence(new List<Node>
             {
-                new CheckPlayerInRange(transform),
-                new GoInRange(transform),
-                new Attack(transform),
+                new CheckPlayerInRange(gameObject),
+                new GoInRange(gameObject),
+                new Attack(gameObject),
             }),
-            new Patrol(transform, waypoints),
+            new Patrol(gameObject, waypoints),
         });
         return root;
     }
