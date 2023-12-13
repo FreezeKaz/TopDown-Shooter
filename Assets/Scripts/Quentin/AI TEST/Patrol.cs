@@ -8,6 +8,7 @@ namespace BehaviorTree
     {
         private Transform _transform;
         private Transform[] _waypoints;
+        private Rigidbody2D _rb;
 
         private int _currentWaypointIndex = 0;
 
@@ -19,6 +20,7 @@ namespace BehaviorTree
         {
             _transform = transform;          
             _waypoints = waypoints;
+            _rb = _transform.GetComponent<Rigidbody2D>();
         }
 
         public override NodeState Evaluate()
@@ -45,6 +47,8 @@ namespace BehaviorTree
                 else
                 {
                     _transform.position = Vector3.MoveTowards(_transform.position, wp.position, IABT.speed * Time.deltaTime);
+                    Vector2 vector2 = wp.position;
+                    _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
                     //_transform.LookAt(wp.position);
                 }
             }
