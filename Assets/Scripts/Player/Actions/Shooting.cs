@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,10 +10,14 @@ public class Shooting : MonoBehaviour
 
     [SerializeField] private AudioClip[] shootingSoundClips;
     [SerializeField][Range(0, 1)] private float volumeSFX;
+    [SerializeField][Range(7, 8)] private int shooter;
 
     public Transform firePoint;
     public Weapon currentWeapon;
     private Bullet bullet;
+
+    
+
     private float fireRate;
     private float interval;
     private bool _shooting = false;
@@ -30,33 +35,40 @@ public class Shooting : MonoBehaviour
         // Update is called once per frame
         if (_shooting)
         {
-            Debug.Log("hahaha");
+           
             if (interval <= 0)
             {
                 interval = 1 / fireRate;
                 GameObject myBullet = Instantiate(bullet.gameObject, firePoint.position, Quaternion.identity);
                 myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bullet.bulletForce, ForceMode2D.Impulse);
-                SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+                myBullet.layer = shooter;
+                //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
 
                 return;
             }
             interval -= Time.deltaTime;
         }
     }
-    public void Shoot(InputAction.CallbackContext input)
+    public void EnableShoot(InputAction.CallbackContext input)
+    {
+        StartShooting();
+    }
+    
+    public void DisableShoot(InputAction.CallbackContext input)
+    {
+        StopShooting(); //only for input
+    }
+
+    public void StartShooting()
     {
         _shooting = true;
 
-        //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
-
     }
-    
-    public void StopShooting(InputAction.CallbackContext input)
+    public void StopShooting()
     {
-        Debug.Log("wiao bye");
         _shooting = false;
-    }
 
+    }
     private void ChangeWeapon(Weapon newWeapon)
     {
         currentWeapon = newWeapon;

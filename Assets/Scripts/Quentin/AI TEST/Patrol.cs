@@ -16,9 +16,9 @@ namespace BehaviorTree
         private float _waitCounter = 0f;
         private bool _waiting = false;
 
-        public Patrol(Transform transform, Transform[] waypoints)
+        public Patrol(GameObject gameObject, Transform[] waypoints)
         {
-            _transform = transform;          
+            _transform = gameObject.transform;          
             _waypoints = waypoints;
             _rb = _transform.GetComponent<Rigidbody2D>();
         }

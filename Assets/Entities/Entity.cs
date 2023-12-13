@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-
     [SerializeField] protected EntityStat stat;
+    [SerializeField] protected GameObject parent;
 
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour
 
     private void initStats ()
     {
-        new Dictionary<Attribute, Stat<float>>();
+        Stats = new Dictionary<Attribute, Stat<float>>();
 
         Stats[Attribute.HP] = new(stat.HP);
         Stats[Attribute.Attack] = new(stat.Attack);
@@ -59,5 +59,13 @@ public class Entity : MonoBehaviour
     {
         Level++;
         //increase value 
+    }
+
+    public void TakeDamage(int amount)
+    {
+        Debug.Log(CurrentHP);
+        CurrentHP -= amount;
+
+        if (CurrentHP <= 0) Destroy(parent);
     }
 }

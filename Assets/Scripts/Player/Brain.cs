@@ -20,8 +20,8 @@ public class Brain : MonoBehaviour
         _move.action.performed += _moveComp.Move;
         _move.action.canceled += _moveComp.Move;
 
-        _shoot.action.started += _shootingComp.Shoot;
-        _shoot.action.canceled += _shootingComp.StopShooting;
+        _shoot.action.started += _shootingComp.EnableShoot;
+        _shoot.action.canceled += _shootingComp.DisableShoot;
 
         _pointer.action.started += _followMouseComp.LookAtMouse;
         _pointer.action.performed += _followMouseComp.LookAtMouse;
@@ -39,8 +39,8 @@ public class Brain : MonoBehaviour
         _move.action.performed -= _moveComp.Move;
         _move.action.canceled -= _moveComp.Move;
 
-        _shoot.action.started -= _shootingComp.Shoot;
-        _shoot.action.canceled -= _shootingComp.StopShooting;
+        _shoot.action.started -= _shootingComp.EnableShoot;
+        _shoot.action.canceled -= _shootingComp.DisableShoot;
 
         _pointer.action.started -= _followMouseComp.LookAtMouse;
         _pointer.action.performed -= _followMouseComp.LookAtMouse;
