@@ -30,7 +30,7 @@ namespace BehaviorTree
             }
         }
 
-        private void Attach(Node node) 
+        public void Attach(Node node) 
         {
             node.parent = this;
             children.Add(node);
