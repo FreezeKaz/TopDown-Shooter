@@ -20,6 +20,11 @@ namespace BehaviorTree
             DrawNodes();
             DrawConnections();
             ProcessEvents(Event.current);
+
+            if(GUI.changed)
+            {
+                Repaint();
+            }
         }
 
 

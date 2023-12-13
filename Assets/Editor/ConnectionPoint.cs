@@ -44,6 +44,7 @@ namespace BehaviorTree
             if(GUI.Button(rect, ""))
             {
                 onClickConnectionPoint?.Invoke(node, CPtype);
+                GUI.changed = true;
             }
         }
     }
