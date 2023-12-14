@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    public IdleState(GameObject _npc, UnityEngine.AI.NavMeshAgent _agent, Animator _anim,
-                Transform _player) : base( _npc, _agent, _anim, _player)
+    public IdleState(GameObject _npc, Animator _anim,
+                Transform _player) : base( _npc, _anim, _player)
     {
         name = STATE.IDLE;
     }
@@ -18,19 +18,25 @@ public class IdleState : State
 
     public override void Update()
     {
-        if (CanSeePlayer()) {
-            nextState = new PursueState(npc, agent, anim, player);
+        /*if (CanSeePlayer()) {
+            nextState = new PursueState(npc, anim, player);
             stage = EVENT.EXIT;
-        }
-        if (Random.Range(0, 100) < 10) {
-            nextState = new PatrolState(npc, agent, anim, player);
-            stage = EVENT.EXIT;
-        }
+        }*/
     }
 
     public override void Exit()
     {
         anim.ResetTrigger("isIdle");
         base.Exit();
+    }
+
+    public override void Leave()
+    {
+        stage = EVENT.EXIT;
+    }
+
+    public override bool CanEnterState()
+    {
+        return false;
     }
 }

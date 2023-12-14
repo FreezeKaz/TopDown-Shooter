@@ -8,44 +8,38 @@ public class PatrolState : State
     int currentIndex = -1;
     Vector3 destination =  new Vector3(0, 0, 0);
 
-    public PatrolState(GameObject _npc, NavMeshAgent _agent, Animator _anim,
-                Transform _player) : base( _npc, _agent, _anim, _player)
+    public PatrolState(GameObject _npc, Animator _anim,
+                Transform _player) : base( _npc, _anim, _player)
     {
         name = STATE.PATROL;
-        //agent.speed = 2;
-        //agent.isStopped = false;
+    }
+
+    void NewDestination()
+    {
+        int i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count);
+
+        while (i == currentIndex)
+            i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count);
+        currentIndex = i;
+        destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
     }
 
     public override void Enter()
     {
         float lastDist = Mathf.Infinity;
-        for (int i = 0; i < GameEnvironment.Singleton.Checkpoints.Count; i++) {
-            float distance = Vector3.Distance(npc.transform.position,
-            GameEnvironment.Singleton.Checkpoints[i].transform.position);
-            if  (distance < lastDist) {
-                currentIndex = i;
-                lastDist = distance;
-            }
-        }
         anim.SetTrigger("isWalking");
         base.Enter();
-        destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;        
+        NewDestination();
     }
 
     public override void Update()
     {
-        
-        if (Vector3.Distance(npc.transform.position, destination) < 1) {
-            if (currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1) {
-                currentIndex = 0;
-            } else
-                currentIndex++;
-            destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
-        }
-        if (CanSeePlayer()) {
-            nextState = new PursueState(npc, agent, anim, player);
+        if (Vector3.Distance(npc.transform.position, destination) < 1)
+            NewDestination();
+        /*if (CanSeePlayer()) {
+            nextState = new PursueState(npc, anim, player);
             stage = EVENT.EXIT;
-        }
+        }*/
         npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 2 * Time.deltaTime);
         if (npc.transform.position.x > destination.x)
             npc.transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -57,5 +51,17 @@ public class PatrolState : State
     {
         anim.ResetTrigger("isWalking");
         base.Exit();
+    }
+
+    public override void Leave()
+    {
+        stage = EVENT.EXIT;
+    }
+
+    public override bool CanEnterState()
+    {
+        if (!CanSeePlayer() && !CanAttackPlayer())
+            return true;
+        return false;
     }
 }
