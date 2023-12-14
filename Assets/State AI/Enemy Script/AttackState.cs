@@ -7,17 +7,15 @@ public class AttackState : State
     //float rotationSpeed = 2.0f;
    // AudioSource shoot;
 
-    public AttackState(GameObject _npc, UnityEngine.AI.NavMeshAgent _agent, Animator _anim,
-                Transform _player) : base( _npc, _agent, _anim, _player)
+    public AttackState(GameObject _npc, Animator _anim,
+                Transform _player) : base( _npc, _anim, _player)
     {
         name = STATE.ATTACK;
-       // shoot = npc.GetComponent<AudioSource>();
     }
 
     public override void Enter()
     {
         anim.SetTrigger("isShooting");
-       // agent.isStopped = true;
        // shoot.Play();
         base.Enter();
     }
@@ -32,7 +30,7 @@ public class AttackState : State
                                 Quaternion.LookRotation(direction), 
                                 Time.deltaTime * rotationSpeed);*/
         if (!CanAttackPlayer()) {
-            nextState = new PursueState(npc, agent, anim, player);
+            nextState = new PursueState(npc, anim, player);
             stage = EVENT.EXIT;
         }
     }

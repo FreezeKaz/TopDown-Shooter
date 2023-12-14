@@ -5,12 +5,10 @@ using UnityEngine;
 public class PursueState : State
 {
     Vector3 destination =  new Vector3(0, 0, 0);
-    public PursueState(GameObject _npc, UnityEngine.AI.NavMeshAgent _agent, Animator _anim,
-                Transform _player) : base( _npc, _agent, _anim, _player)
+    public PursueState(GameObject _npc, Animator _anim,
+                Transform _player) : base( _npc, _anim, _player)
     {
         name = STATE.PURSUE;
-      //  agent.speed = 5;
-        //agent.isStopped = false;
     }
 
     public override void Enter()
@@ -28,18 +26,13 @@ public class PursueState : State
         else
             npc.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        //npc.transform.Translate(player.position);
-        //agent.SetDestination(player.position);
-
-        //if (agent.hasPath) {
-            if (CanAttackPlayer()) {
-                nextState = new AttackState(npc, agent, anim, player);
-                stage = EVENT.EXIT;
-            } else if (!CanSeePlayer()) {
-                nextState = new PatrolState(npc, agent, anim, player);
-                stage = EVENT.EXIT;
-            }
-       // }
+        if (CanAttackPlayer()) {
+            nextState = new AttackState(npc, anim, player);
+            stage = EVENT.EXIT;
+        } else if (!CanSeePlayer()) {
+            nextState = new PatrolState(npc, anim, player);
+            stage = EVENT.EXIT;
+        }
     }
 
     public override void Exit()
