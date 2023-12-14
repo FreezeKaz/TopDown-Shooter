@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class State
 {
@@ -19,7 +18,6 @@ public class State
     protected EVENT stage;
     protected GameObject npc;
     protected Animator anim;
-    protected NavMeshAgent agent;
     protected Transform player;
     protected State nextState;
 
@@ -27,11 +25,10 @@ public class State
    // float visAngle = 30.0f;
     float shootDist = 0.5f;
 
-    public State(GameObject _npc, NavMeshAgent _agent, Animator _anim,
+    public State(GameObject _npc, Animator _anim,
                 Transform _player)
     {
         npc = _npc;
-        agent = _agent;
         anim = _anim;
         player = _player;
         stage = EVENT.ENTER;

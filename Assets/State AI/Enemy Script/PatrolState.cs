@@ -8,12 +8,10 @@ public class PatrolState : State
     int currentIndex = -1;
     Vector3 destination =  new Vector3(0, 0, 0);
 
-    public PatrolState(GameObject _npc, NavMeshAgent _agent, Animator _anim,
-                Transform _player) : base( _npc, _agent, _anim, _player)
+    public PatrolState(GameObject _npc, Animator _anim,
+                Transform _player) : base( _npc, _anim, _player)
     {
         name = STATE.PATROL;
-        //agent.speed = 2;
-        //agent.isStopped = false;
     }
 
     public override void Enter()
@@ -43,7 +41,7 @@ public class PatrolState : State
             destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
         }
         if (CanSeePlayer()) {
-            nextState = new PursueState(npc, agent, anim, player);
+            nextState = new PursueState(npc, anim, player);
             stage = EVENT.EXIT;
         }
         npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 2 * Time.deltaTime);
