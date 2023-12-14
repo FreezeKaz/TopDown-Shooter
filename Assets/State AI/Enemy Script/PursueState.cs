@@ -26,18 +26,25 @@ public class PursueState : State
         else
             npc.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        if (CanAttackPlayer()) {
+        /*if (CanAttackPlayer()) {
             nextState = new AttackState(npc, anim, player);
             stage = EVENT.EXIT;
         } else if (!CanSeePlayer()) {
             nextState = new PatrolState(npc, anim, player);
             stage = EVENT.EXIT;
-        }
+        }*/
     }
 
     public override void Exit()
     {
        anim.ResetTrigger("isRunning");
        base.Exit();
+    }
+
+    public override bool CanEnterState()
+    {
+        if (CanSeePlayer() && !CanAttackPlayer())
+            return true;
+        return false;
     }
 }

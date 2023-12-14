@@ -18,19 +18,25 @@ public class IdleState : State
 
     public override void Update()
     {
-        if (CanSeePlayer()) {
+        /*if (CanSeePlayer()) {
             nextState = new PursueState(npc, anim, player);
             stage = EVENT.EXIT;
-        }
-        if (Random.Range(0, 100) < 10) {
-            nextState = new PatrolState(npc, anim, player);
-            stage = EVENT.EXIT;
-        }
+        }*/
     }
 
     public override void Exit()
     {
         anim.ResetTrigger("isIdle");
         base.Exit();
+    }
+
+    public override void Leave()
+    {
+        stage = EVENT.EXIT;
+    }
+
+    public override bool CanEnterState()
+    {
+        return false;
     }
 }
