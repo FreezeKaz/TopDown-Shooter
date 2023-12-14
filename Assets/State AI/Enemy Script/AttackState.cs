@@ -29,10 +29,6 @@ public class AttackState : State
         npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation,
                                 Quaternion.LookRotation(direction), 
                                 Time.deltaTime * rotationSpeed);*/
-        if (!CanAttackPlayer()) {
-            nextState = new PursueState(npc, anim, player);
-            stage = EVENT.EXIT;
-        }
     }
 
     public override void Exit()
@@ -40,5 +36,12 @@ public class AttackState : State
         anim.ResetTrigger("isShooting");
         //shoot.Stop();
         base.Exit();
+    }
+
+    public override bool CanEnterState()
+    {
+        if (CanAttackPlayer())
+            return true;
+        return false;
     }
 }
