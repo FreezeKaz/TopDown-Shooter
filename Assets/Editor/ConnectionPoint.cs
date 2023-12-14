@@ -28,20 +28,20 @@ namespace BehaviorTree
 
         public void Draw(NodeView node)
         {
-            rect.y = node.rect.y + node.rect.height * .5f - rect.height * .5f;
+            rect.x = node.rect.x + node.rect.width * .5f - rect.width * .5f;
 
             switch (CPtype)
             {
                 case ConnectionPointType.In:
-                    rect.x = node.rect.x - rect.width + 8f;
+                    rect.y = node.rect.y - rect.height + 8f;
                     break;
                 case ConnectionPointType.Out:
-                    rect.x = node.rect.x + node.rect.width - 8f;
+                    rect.y = node.rect.y + node.rect.height - 8f;
                     break;
                 default:
                     break;
             }
-            if(GUI.Button(rect, ""))
+            if (GUI.Button(rect, ""))
             {
                 onClickConnectionPoint?.Invoke(node, CPtype);
             }

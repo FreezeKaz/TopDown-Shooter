@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BehaviorTree
 {
@@ -9,7 +10,7 @@ namespace BehaviorTree
         FAILURE
     }
 
-    public class Node
+    public class Node : ScriptableObject
     {
         protected NodeState state;
 
@@ -34,6 +35,12 @@ namespace BehaviorTree
         {
             node.parent = this;
             children.Add(node);
+        }
+
+        public void Remove(Node node)
+        {
+            node.parent.Remove(this);
+            children.Remove(node);
         }
 
         public virtual NodeState Evaluate() => NodeState.FAILURE;
