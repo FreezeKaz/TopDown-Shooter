@@ -64,6 +64,7 @@ namespace BehaviorTree
         {
             if (connections == null) return;
             //Debug.Log("Connections: " + connections.Count);
+            //Debug.Log(connections.Count);
             for (int i = 0; i < connections.Count; i++)
             {
                 connections[i].Draw();
@@ -111,12 +112,27 @@ namespace BehaviorTree
 
         internal virtual void OnClickConnectionPoint(NodeView node, ConnectionPointType type)
         {
+            switch (type)
+            {
+                case ConnectionPointType.In:
+                    selectedNodeIn = node;
+                    if (selectedNodeOut == null) return;
+                    break;
+                case ConnectionPointType.Out:
+                    selectedNodeOut = node;
+                    if (selectedNodeIn == null) return;
+                    break;
+                default:
+                    break;
+            }
             if (selectedNodeOut != selectedNodeIn)
             {
                 if (connections.Exists(c => c.InNode == selectedNodeIn && c.OutNode == selectedNodeOut))
                     Debug.LogWarning("A connection has already been established between these two nodes.");
                 else
+                {
                     CreateConnection(selectedNodeOut, selectedNodeIn);
+                }
             }
             ClearConnectionSelection();
         }
@@ -129,13 +145,13 @@ namespace BehaviorTree
             if (indexOfNodeIn < 0) return;
             if (connections == null)
                 connections = new List<Connection>();
-            List<Connection> connectionToRemove = new List<Connection>();
-            if(nodeOut.node == null)
-            {
-                return;
-            }
+            //if(nodeOut.node == null)
+            //{
+            //    return;
+            //}
             connections.Add(new Connection(nodeIn, nodeOut, OnClickRemoveConnection));
-            nodeOut.node.Attach(nodeIn.node);
+            //Debug.Log(connections.Count);
+            //nodeOut.node.Attach(nodeIn.node);
         }
 
         internal virtual List<NodeView> GetChildren(NodeView nodeView)
