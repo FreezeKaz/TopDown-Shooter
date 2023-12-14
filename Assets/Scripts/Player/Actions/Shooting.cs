@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     [SerializeField][Range(0, 1)] private float volumeSFX;
     [SerializeField][Range(7, 8)] private int shooter;
 
-    public Transform firePoint;
+    public FirePoints firePoint;
     public Weapon currentWeapon;
     private Bullet bullet;
 
@@ -39,9 +39,13 @@ public class Shooting : MonoBehaviour
             if (interval <= 0)
             {
                 interval = 1 / fireRate;
-                GameObject myBullet = Instantiate(bullet.gameObject, firePoint.position, Quaternion.identity);
-                myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bullet.bulletForce, ForceMode2D.Impulse);
-                myBullet.layer = shooter;
+                foreach (var index in currentWeapon.firePoints)
+                {
+                    GameObject myBullet = Instantiate(bullet.gameObject, firePoint.points[index].transform.position, Quaternion.identity);
+                    myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.points[index].transform.up * bullet.bulletForce, ForceMode2D.Impulse);
+                    myBullet.layer = shooter;
+                }
+
                 //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
 
                 return;
@@ -69,7 +73,7 @@ public class Shooting : MonoBehaviour
         _shooting = false;
 
     }
-    private void ChangeWeapon(Weapon newWeapon)
+    public void ChangeWeapon(Weapon newWeapon)
     {
         currentWeapon = newWeapon;
         bullet = currentWeapon.bullet.GetComponent<Bullet>();
@@ -77,14 +81,4 @@ public class Shooting : MonoBehaviour
         interval = 1f / fireRate;
     }
 
-
-    private void OnEnable()
-    {
-        WeaponChange.OnWeaponChange += ChangeWeapon;
-    }
-
-    private void OnDisable()
-    {
-        WeaponChange.OnWeaponChange -= ChangeWeapon;
-    }
 }

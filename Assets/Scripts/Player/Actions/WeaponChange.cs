@@ -7,13 +7,13 @@ using UnityEngine.InputSystem;
 public class WeaponChange : MonoBehaviour
 {
 
-    Inventory inventory;
+    [SerializeField] Inventory inventory;
+    [SerializeField] Shooting shootingScript;
     List<Weapon> weapons;
-    public static event Action<Weapon> OnWeaponChange;
+ 
 
     private void Start()
     {
-        inventory = GetComponent<Inventory>();
         weapons = inventory.GetWeapons();
     }
     // Update is called once per frame
@@ -21,15 +21,15 @@ public class WeaponChange : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            OnWeaponChange?.Invoke(weapons[0]);
+            shootingScript.ChangeWeapon(weapons[0]);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            OnWeaponChange?.Invoke(weapons[1]);
+            shootingScript.ChangeWeapon(weapons[1]);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            OnWeaponChange?.Invoke(weapons[2]);
+            shootingScript.ChangeWeapon(weapons[2]);
         }
     }
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireRate: 3
   bullet: {fileID: 6021293680533888264, guid: 6222788765f109e41b0eea307d67208f, type: 3}
+  firePoints: 00000000
