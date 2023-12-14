@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
-
+    
     public static ScenesManager Instance { get; private set; }
+
+    private string sceneName;
+
+
 
     private void Awake()
     {
@@ -20,8 +24,24 @@ public class ScenesManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     // Start is called before the first frame update
-    public void ChangeScene(string scene)
+    public void ChangeScene()
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+    }
+
+    public void SetScene(string scene)
+    {
+        sceneName = scene ;
+        ChangeScene();
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance.Lost)
+        {
+            sceneName = "GameOver";
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
