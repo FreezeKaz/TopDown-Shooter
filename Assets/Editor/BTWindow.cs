@@ -75,11 +75,10 @@ namespace BehaviorTree
             }
         }
 
-        internal virtual NodeView CreateNodeView(Node node, Vector2 position)
+        internal virtual NodeView CreateNodeViewLotre(Vector2 position)
         {
             position.x -= 200 * .5f;
             position.y -= 50 * .5f;
-            //Type nodeType = node.GetType();
             NodeView nodeView = new NodeView(new Rect(position,  new Vector2(200, 50)),
                 new ConnectionPoint(new Vector2(10f,10f), ConnectionPointType.In, OnClickConnectionPoint),
                 new ConnectionPoint(new Vector2(10f, 10f), ConnectionPointType.Out, OnClickConnectionPoint),
