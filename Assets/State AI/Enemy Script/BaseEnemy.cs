@@ -11,6 +11,7 @@ public class BaseEnemy : MonoBehaviour
    // public EnemyAttackState AttackState { get; set; }
     public PatrolState patrolState { get; set; }
     public PursueState pursueState { get; set; }
+    public AttackState attackState { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -18,18 +19,17 @@ public class BaseEnemy : MonoBehaviour
         anim = this.GetComponent<Animator>();
 
         stateMachine = new StateMachine();
-        
         idleState = new IdleState(this.gameObject, anim, player);
         patrolState = new PatrolState(this.gameObject, anim, player);
         pursueState = new PursueState(this.gameObject, anim, player);
+        attackState = new AttackState(this.gameObject, anim, player);
         
         stateMachine.Initialize(idleState);
-
-        Debug.Log("Start");
-
         stateMachine.addState(idleState);
         stateMachine.addState(patrolState);
         stateMachine.addState(pursueState);
+        stateMachine.addState(pursueState);
+        stateMachine.addState(attackState);
     }
 
     // Update is called once per frame
