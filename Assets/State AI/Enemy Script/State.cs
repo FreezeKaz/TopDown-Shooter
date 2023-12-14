@@ -65,12 +65,17 @@ public class State
         return this;
     }
 
+    public virtual void Leave()
+    {
+        stage = EVENT.EXIT;
+    }
+
     public bool CanSeePlayer()
     {
         Vector3 direction = player.position - npc.transform.position;
         float angle = Vector3.Angle(direction, npc.transform.forward);
 
-        Debug.Log(angle + ";\n");
+       // Debug.Log(angle + ";\n");
         if (direction.magnitude < visDist /*&& angle < visAngle*/)
             return true;
         return false;
@@ -82,6 +87,11 @@ public class State
 
         if (direction.magnitude < shootDist)
             return true;
+        return false;
+    }
+
+    public virtual bool CanEnterState()
+    {
         return false;
     }
 }

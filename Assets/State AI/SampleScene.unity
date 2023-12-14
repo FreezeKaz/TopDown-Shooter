@@ -67,9 +67,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -789,7 +786,7 @@ GameObject:
   - component: {fileID: 1834339722}
   - component: {fileID: 1834339721}
   - component: {fileID: 1834339720}
-  - component: {fileID: 1834339724}
+  - component: {fileID: 1834339725}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Untagged
@@ -799,7 +796,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &1834339720
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -813,6 +810,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -885,7 +883,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.461, y: 0, z: 0}
---- !u!114 &1834339724
+--- !u!114 &1834339725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,7 +892,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1834339719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5acc90d3deed2c44a53681e090c1914, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ced1fca7264a2d4ba88e9dd38c7ea92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1344255636}
