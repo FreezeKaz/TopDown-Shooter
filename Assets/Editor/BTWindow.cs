@@ -16,7 +16,7 @@ namespace BehaviorTree
             if (file == null) BTSave = CreateInstance<BTSave>();
             else BTSave = (file as BTSave).Clone();
 
-            BTSave = file as BehaviorTree;
+            BTSave = file as BTSave;
 
             if (BTSave == null) BTSave = CreateInstance<BTSave>();
 
