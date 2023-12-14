@@ -21,7 +21,7 @@ namespace BehaviorTree
 
         public void Draw()
         {
-            Handles.DrawBezier(InNode.inPoint.rect.center, OutNode.outPoint.rect.center, InNode.inPoint.rect.center, OutNode.outPoint.rect.center, Color.black, null, 2f);
+            Handles.DrawBezier(InNode.inPoint.rect.center, OutNode.outPoint.rect.center, InNode.inPoint.rect.center, OutNode.outPoint.rect.center, Color.cyan, null, 2f);
             //Handles.DrawLine(InNode.inPoint.rect.center, OutNode.outPoint.rect.center);
 
             if (true && Handles.Button((InNode.rect.center + OutNode.rect.center) * .5f, Quaternion.identity, 4, 8, Handles.RectangleHandleCap))

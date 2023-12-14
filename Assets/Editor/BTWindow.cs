@@ -36,7 +36,11 @@ namespace BehaviorTree
                     if (e.button == 1)
                     {
                         GenericMenu genericMenu = new GenericMenu();
-                        genericMenu.AddItem(new GUIContent("Actions/sodo"), false, () => CreateNodeViewLotre(e.mousePosition));
+                        var nodeType = TypeCache.GetTypesDerivedFrom<Node>();
+                        foreach(var type in nodeType)
+                        {
+                            genericMenu.AddItem(new GUIContent("Actions/" + type.Name), false, () => CreateNodeViewLotre(e.mousePosition));
+                        }
                         genericMenu.ShowAsContext();
                     }
                     break;
@@ -71,10 +75,11 @@ namespace BehaviorTree
             }
         }
 
-        internal virtual NodeView CreateNodeViewLotre(Vector2 position)
+        internal virtual NodeView CreateNodeView(Node node, Vector2 position)
         {
             position.x -= 200 * .5f;
             position.y -= 50 * .5f;
+            //Type nodeType = node.GetType();
             NodeView nodeView = new NodeView(new Rect(position,  new Vector2(200, 50)),
                 new ConnectionPoint(new Vector2(10f,10f), ConnectionPointType.In, OnClickConnectionPoint),
                 new ConnectionPoint(new Vector2(10f, 10f), ConnectionPointType.Out, OnClickConnectionPoint),
