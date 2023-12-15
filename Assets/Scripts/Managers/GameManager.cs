@@ -54,5 +54,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Wave started!");
         WaveGenerator.Instance.StartWave();
     }
-    
+    public void GameOver()
+    {
+        WaveGenerator.Instance.StopWaves();
+        EnemyPoolManager.Instance.ResetPool();
+        BulletPoolManager.Instance.ResetPool();
+    }
 }

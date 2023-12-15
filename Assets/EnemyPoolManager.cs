@@ -52,5 +52,13 @@ public class EnemyPoolManager : MonoBehaviour
 
         return newEnemy;
     }
+
+    public void ResetPool()
+    {
+        foreach (GameObject obj in objectPool)
+        {
+            obj.SetActive(false);
+        }
+    }
     
 }
