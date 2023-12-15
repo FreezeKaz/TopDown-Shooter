@@ -33,7 +33,7 @@ public class Entity : MonoBehaviour
         checkLevel();
     }
 
-    private void initStats ()
+    private void initStats()
     {
         Stats = new Dictionary<Attribute, Stat<float>>();
 
@@ -41,19 +41,19 @@ public class Entity : MonoBehaviour
         Stats[Attribute.Attack] = new(stat.Attack);
         Stats[Attribute.FireRateRatio] = new(stat.FireRateRatio);
         Stats[Attribute.MoveSpeedRatio] = new(stat.MoveSpeedRatio);
-        
+
         CurrentHP = Stats[Attribute.HP].Value;
 
     }
     private void checkLevel()
     {
-        if(XP >= XPToGet)
+        if (XP >= XPToGet)
         {
             XP = XP - XPToGet;
             //actionToUILevelUp -> what to level up as a param of level up
             levelUp();
         }
-    }   
+    }
 
     private void levelUp()
     {
@@ -65,12 +65,12 @@ public class Entity : MonoBehaviour
     {
         //Debug.Log(CurrentHP);
         CurrentHP -= amount;
-        
+
         if (CurrentHP <= 0)
         {
-            Destroy(parent);
+            parent.SetActive(false);
             WaveGenerator.Instance.TotalEnemies--;
         }
-           
+
     }
 }
