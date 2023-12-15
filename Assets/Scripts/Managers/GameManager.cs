@@ -6,14 +6,16 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance { get; private set; }
-    public int Wave { get; private set; }
-    public int mapID { get; private set; }
-    public bool Lost { get; private set; }
+    public int Wave { get; set; }
+    private float DelayBeforeWave { get; set; }
+    public int mapID { get; set; }
+    public bool Lost { get; set; }
+    public bool GameStart { get; set; }
     /*public List<Map> {get; private set;}*/ //Map change handler
 
     private void Awake()
     {
-        Wave = 0;
+      
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -22,5 +24,35 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this);
+      
     }
+
+    public void StartGame()
+    {
+        Wave = 0;
+        PrepareNextWave(5f);
+    }
+    public void PrepareNextWave(float timeBeforeWave)
+    {
+        DelayBeforeWave = timeBeforeWave;
+        StartCoroutine(StartWave());
+    }
+
+    IEnumerator StartWave()
+    {
+        float timer = DelayBeforeWave;
+       
+        while (timer > 0f)
+        {
+            // Update the timer display (you can replace this with updating a UI Text component)
+
+            yield return null; // Wait for the next frame
+            timer -= Time.deltaTime;
+        }
+
+        // When the timer reaches zero, start the wave
+        Debug.Log("Wave started!");
+        WaveGenerator.Instance.StartWave();
+    }
+    
 }

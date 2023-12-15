@@ -344,6 +344,7 @@ MonoBehaviour:
   TotalEnemies: 0
   waves:
   - {fileID: 11400000, guid: 3c235c2a0649e2a49bb4f69b584f91a4, type: 2}
+  - {fileID: 11400000, guid: 99cafb2adfe3b064ea8778cc2c25907a, type: 2}
   spawnPoints: {fileID: 65427567}
   enemy: {fileID: 2590738222878651580, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
 --- !u!4 &279089725

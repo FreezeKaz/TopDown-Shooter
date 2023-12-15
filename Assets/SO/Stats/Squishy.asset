@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d6b4d3ebc2f92469137bdbf76b6467, type: 3}
   m_Name: Squishy
   m_EditorClassIdentifier: 
-  HP: 0
-  MoveSpeedRatio: 0
-  FireRateRatio: 0
-  Attack: 0
+  HP: 20
+  MoveSpeedRatio: 2
+  FireRateRatio: 1
+  Attack: 1

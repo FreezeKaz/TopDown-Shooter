@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour
 {
-    // private WaveSO waveData;
+    // private WaveSO waveData;**
+
+    public static WaveGenerator Instance { get; private set; }
     public int EnemiesOnField;
-    public int TotalEnemies;
+    public int TotalEnemies = 0;
     private string mobToSpawn;
+    float timer = 0f;
     int indexOfEnemy;
     bool WaveReady = false;
     private WaveSO waveData;
@@ -22,45 +25,38 @@ public class WaveGenerator : MonoBehaviour
 
     private void Awake()
     {
-        StartWave();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(this);
     }
     private void InitWaveState()
     {
+
         waveData = waves[GameManager.Instance.Wave];
         waveState = new Dictionary<string, int>();
         foreach (var element in waveData.enemiesInWave)
         {
             waveState[element.enemySO.enemyName] = element.numberOfEnemies;
         }
+        TotalEnemies += waveState.Values.Sum();
     }
 
-
-
-    private void StartWave()
+    public void StartWave()
     {
         InitWaveState();
-        GetNumberOfEnemies();
         InvokeRepeating("Spawn", 0f, 5f);
     }
 
 
-    private void GetNumberOfEnemies()
-    {
-        foreach (var item in waveState.Values)
-        {
-            TotalEnemies += item;
-            Debug.Log(TotalEnemies);
-        }
-    }
 
     private bool checkIfWaveEnded()
     {
-        int i = 0;
-        foreach (var item in waveState.Values)
-        {
-            i += item == 0 ? 1 : 0;
-        }
-        return i == waveState.Values.Count ? true : false;
+        return waveState.Values.All(item => item == 0);
     }
 
 
@@ -84,9 +80,25 @@ public class WaveGenerator : MonoBehaviour
         {
             SpawnSingleEnemy();
         }
-        else CancelInvoke("Spawn");
+        else
+        {
+            CancelInvoke("Spawn");
+            InvokeRepeating("CallingNextWave", 0f, 1f);
+        }
 
-      
+    }
+
+    private void CallingNextWave()
+    {
+        timer += 1f;
+        Debug.Log(timer);
+        if (timer == waveData.TimeToClearAfterEverythingSpawn || TotalEnemies == 0)
+        {
+            CancelInvoke("CallingNextWave");
+            GameManager.Instance.Wave++;
+            Debug.Log("Calling wave " + GameManager.Instance.Wave);
+            GameManager.Instance.PrepareNextWave(0f);
+        }
 
     }
 }
