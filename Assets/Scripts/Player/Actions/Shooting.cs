@@ -1,45 +1,84 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
 
     [SerializeField] private AudioClip[] shootingSoundClips;
     [SerializeField][Range(0, 1)] private float volumeSFX;
+    [SerializeField][Range(7, 8)] private int shooter;
 
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    public FirePoints firePoint;
+    public Weapon currentWeapon;
+    private Bullet bullet;
 
-    public Weapon weapon;
+    
 
     private float fireRate;
     private float interval;
-    public float bulletForce = 20f;
-
+    private bool _shooting = false;
     // Start is called before the first frame update
     void Start()
     {
-        fireRate = weapon.FireRate;
+        bullet = currentWeapon.bullet.GetComponent<Bullet>();
+        fireRate = currentWeapon.FireRate;
         interval = 1f / fireRate;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        if (Input.GetButton("Fire1") && interval <= 0)
+        // Update is called once per frame
+        if (_shooting)
         {
-            Shoot();
-            interval = 1 / fireRate;
+           
+            if (interval <= 0)
+            {
+                interval = 1 / fireRate;
+                foreach (var index in currentWeapon.firePoints)
+                {
+                    GameObject myBullet = Instantiate(bullet.gameObject, firePoint.points[index].transform.position, Quaternion.identity);
+                    myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.points[index].transform.up * bullet.bulletForce, ForceMode2D.Impulse);
+                    myBullet.layer = shooter;
+                }
+
+                //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+
+                return;
+            }
+            interval -= Time.deltaTime;
         }
-        interval -= Time.deltaTime;
+    }
+    public void EnableShoot(InputAction.CallbackContext input)
+    {
+        StartShooting();
+    }
+    
+    public void DisableShoot(InputAction.CallbackContext input)
+    {
+        StopShooting(); //only for input
     }
 
-    void Shoot()
+    public void StartShooting()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
-        SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+        _shooting = true;
+
     }
+    public void StopShooting()
+    {
+        _shooting = false;
+
+    }
+    public void ChangeWeapon(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+        bullet = currentWeapon.bullet.GetComponent<Bullet>();
+        fireRate = currentWeapon.FireRate;
+        interval = 1f / fireRate;
+    }
+
 }

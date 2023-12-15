@@ -5,26 +5,20 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
 
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    public GameObject Actions;
+    public GameObject Physics;
+    public GameObject EntityBehaviour;
 
-    public Weapon weapon;
+    [SerializeField] Entity myEntityStats;
+    [SerializeField] Shooting myShootingScript;
 
-    private float fireRate;
-    private float interval;
-    public float bulletForce = 20f;
-
-    void Start()
+    public void SetStats(EntityStat stats)
     {
-        fireRate = weapon.FireRate;
-        interval = 1f / fireRate;
+        myEntityStats.stat = stats;
     }
 
-    public void Shoot()
+    public void SetWeapon(Weapon weapon)
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
-        //SoundFXManager.instance.PlaySoundFXClip(shootingSoundClip, transform, volumeSFX);
-        //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+        myShootingScript.currentWeapon = weapon;
     }
 }
