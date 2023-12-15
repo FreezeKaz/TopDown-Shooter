@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a4e312ca85b4840ab2ec5f1a465364, type: 3}
   m_Name: LowDamage
   m_EditorClassIdentifier: 
-  scale: 0.7
+  scale: 0.2

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   FireRate: 4
-  bullet: {fileID: 4607090301224169144, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+  bullet: {fileID: 11400000, guid: 41cff615b8429b244b726c10cca9cc69, type: 2}
+  Damage: 10
+  bulletForce: 40
   firePoints: 000000000100000002000000

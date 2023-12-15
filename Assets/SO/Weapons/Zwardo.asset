@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Zwardo
   m_EditorClassIdentifier: 
   FireRate: 18
-  bullet: {fileID: 6789327395259774098, guid: 29bc8a86bb2ea6b4d9fa7555b905dce6, type: 3}
+  bullet: {fileID: 11400000, guid: e5b88ce8f66769343acbe8bacdcbb42a, type: 2}
+  Damage: 2
+  bulletForce: 40
   firePoints: 00000000
