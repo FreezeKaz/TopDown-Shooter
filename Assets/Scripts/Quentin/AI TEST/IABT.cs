@@ -24,5 +24,4 @@ public class IABT : Tree
         });
         return root;
     }
-
 }

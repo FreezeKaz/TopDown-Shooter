@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BehaviorTree
 {
@@ -9,12 +10,16 @@ namespace BehaviorTree
         FAILURE
     }
 
-    public class Node
+    public class Node : ScriptableObject
     {
+        public string guid;
+
         protected NodeState state;
 
+        public Vector2 positionOnView;
+
         public Node parent;
-        protected List<Node> children = new List<Node>();
+        public List<Node> children = new List<Node>();
 
         private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
 
@@ -30,10 +35,21 @@ namespace BehaviorTree
             }
         }
 
-        private void Attach(Node node) 
+        public void Attach(Node node) 
         {
             node.parent = this;
             children.Add(node);
+        }
+
+        public void Remove(Node node)
+        {
+            node.parent.Remove(this);
+            children.Remove(node);
+        }
+
+        public virtual Node Clone()
+        {
+            return Instantiate(this);
         }
 
         public virtual NodeState Evaluate() => NodeState.FAILURE;
@@ -78,6 +94,11 @@ namespace BehaviorTree
                 node = node.parent;
             }
             return false;
+        }
+
+        public virtual void CopyData(Node source)
+        {
+            positionOnView = source.positionOnView;
         }
     }
 }
