@@ -8,13 +8,15 @@ public class WaveGenerator : MonoBehaviour
 {
     // private WaveSO waveData;**
 
-    public static WaveGenerator Instance { get; private set; }
+    private static WaveGenerator _instance;
+    public static WaveGenerator Instance => _instance;
+
     public int EnemiesOnField;
     public int TotalEnemies = 0;
     private string mobToSpawn;
     float timer = 0f;
     int indexOfEnemy;
-    bool WaveReady = false;
+ 
     private WaveSO waveData;
     [SerializeField] private List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
@@ -25,13 +27,13 @@ public class WaveGenerator : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this);
             return;
         }
 
-        Instance = this;
+        _instance = this;
         DontDestroyOnLoad(this);
     }
     private void InitWaveState()
@@ -52,13 +54,10 @@ public class WaveGenerator : MonoBehaviour
         InvokeRepeating("Spawn", 0f, 5f);
     }
 
-
-
     private bool checkIfWaveEnded()
     {
         return waveState.Values.All(item => item == 0);
     }
-
 
     private void SpawnSingleEnemy()
     {
