@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
     [SerializeField] public EntityStat stat;
-    [SerializeField] protected GameObject parent;
+    [SerializeField] protected GameObject myParent;
 
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
@@ -68,7 +69,12 @@ public class Entity : MonoBehaviour
 
         if (CurrentHP <= 0)
         {
-            parent.SetActive(false);
+            if(myParent.name != "Player")
+            {
+                myParent.SetActive(false);
+                //GameOverFromGameInstance;
+            }
+            
             WaveGenerator.Instance.TotalEnemies--;
         }
 

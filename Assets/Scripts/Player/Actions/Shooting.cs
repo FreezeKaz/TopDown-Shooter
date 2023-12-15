@@ -44,6 +44,7 @@ public class Shooting : MonoBehaviour
                     myBullet.transform.position = firePoint.points[index].transform.position;
                     myBullet.transform.localScale = new Vector3(bullet.scale, bullet.scale, bullet.scale);
                     myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.points[index].transform.up * currentWeapon.bulletForce, ForceMode2D.Impulse);
+                    myBullet.GetComponent<BulletDamage>().damage = currentWeapon.Damage;
                     myBullet.layer = shooter;
                 }
 
