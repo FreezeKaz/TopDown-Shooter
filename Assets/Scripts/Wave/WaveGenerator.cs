@@ -16,8 +16,6 @@ public class WaveGenerator : MonoBehaviour
     [SerializeField] private SpawnPoints spawnPoints;
     [SerializeField] private GameObject enemy;
 
-
-    private float interval = 1f / 40;
     private Dictionary<string, int> waveState;
 
 
@@ -74,7 +72,7 @@ public class WaveGenerator : MonoBehaviour
         } while (waveState[mobToSpawn] == 0);
         waveState[mobToSpawn]--;
 
-        GameObject myEnemy = Instantiate(enemy, spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position, Quaternion.identity);
+        Instantiate(enemy, spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position, Quaternion.identity);
     }
     private void Spawn()
     {
