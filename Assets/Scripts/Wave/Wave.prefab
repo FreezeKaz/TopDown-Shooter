@@ -53,6 +53,9 @@ MonoBehaviour:
   spawnPoints: {fileID: 3042170839719169774}
   enemy: {fileID: 2590738222878651580, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
   IA: {fileID: 7088450506576898939, guid: 05de8434be3ad204ea3cf2f76e3ed26b, type: 3}
+  WayPoints:
+  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
+  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!1 &7727055144336647294
 GameObject:
   m_ObjectHideFlags: 0

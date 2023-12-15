@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] Entity myEntityStats;
     [SerializeField] Shooting myShootingScript;
+    
 
     public void SetStats(EntityStat stats)
     {
@@ -20,5 +21,14 @@ public class EnemyManager : MonoBehaviour
     public void SetWeapon(Weapon weapon)
     {
         myShootingScript.currentWeapon = weapon;
+    }
+
+    public void OnEnable()
+    {
+    }
+
+    public void OnDisable()
+    {
+        myShootingScript.StopShooting();
     }
 }
