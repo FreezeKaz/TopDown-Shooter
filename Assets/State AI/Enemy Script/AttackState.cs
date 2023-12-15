@@ -21,7 +21,7 @@ public class AttackState : State
 
     public override void Update()
     {
-        //npc.GetComponent<EnemyManager>().Actions.gameObject.GetComponent<Shooting>().StartShooting();
+        enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
         /*Vector3 direction = player.position - npc.transform.position;
         float angle = Vector3.Angle(direction, npc.transform.forward);
 
