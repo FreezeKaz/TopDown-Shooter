@@ -9,19 +9,20 @@ public class PatrolState : State
     Vector3 destination =  new Vector3(0, 0, 0);
 
     public PatrolState(GameObject _npc, Animator _anim,
-                Transform _player) : base( _npc, _anim, _player)
+                EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.PATROL;
     }
 
     void NewDestination()
     {
-        int i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count);
+        int i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
 
         while (i == currentIndex)
-            i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count);
+            i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
         currentIndex = i;
-        destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
+        if (GameEnvironment.Singleton.Checkpoints[currentIndex] != null)
+            destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
     }
 
     public override void Enter()
