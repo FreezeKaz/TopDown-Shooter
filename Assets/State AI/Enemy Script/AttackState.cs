@@ -5,10 +5,9 @@ using UnityEngine;
 public class AttackState : State
 {
     //float rotationSpeed = 2.0f;
-   // AudioSource shoot;
 
     public AttackState(GameObject _npc, Animator _anim,
-                Transform _player) : base( _npc, _anim, _player)
+                EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.ATTACK;
     }
@@ -22,6 +21,7 @@ public class AttackState : State
 
     public override void Update()
     {
+        //npc.GetComponent<EnemyManager>().Actions.gameObject.GetComponent<Shooting>().StartShooting();
         /*Vector3 direction = player.position - npc.transform.position;
         float angle = Vector3.Angle(direction, npc.transform.forward);
 
@@ -34,7 +34,7 @@ public class AttackState : State
     public override void Exit()
     {
         anim.ResetTrigger("isShooting");
-        //shoot.Stop();
+       // shoot.Stop();
         base.Exit();
     }
 

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    public Transform player;
+    Transform player;
+    public List<Transform> waypoints;
+
     Animator anim;
     public StateMachine stateMachine { get; set; }
     public IdleState idleState { get; set; }
@@ -12,17 +14,20 @@ public class BaseEnemy : MonoBehaviour
     public PatrolState patrolState { get; set; }
     public PursueState pursueState { get; set; }
     public AttackState attackState { get; set; }
+    EnemyManager enemyManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = this.GetComponent<Animator>();
+        enemyManager = this.GetComponent<EnemyManager>();
 
         stateMachine = new StateMachine();
-        idleState = new IdleState(this.gameObject, anim, player);
-        patrolState = new PatrolState(this.gameObject, anim, player);
-        pursueState = new PursueState(this.gameObject, anim, player);
-        attackState = new AttackState(this.gameObject, anim, player);
+        idleState = new IdleState(this.gameObject, anim, enemyManager, player);
+        patrolState = new PatrolState(this.gameObject, anim, enemyManager, player);
+        pursueState = new PursueState(this.gameObject, anim, enemyManager, player);
+        attackState = new AttackState(this.gameObject, anim, enemyManager, player);
         
         stateMachine.Initialize(idleState);
         stateMachine.addState(idleState);

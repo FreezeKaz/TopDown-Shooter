@@ -39,6 +39,7 @@ public class Shooting : MonoBehaviour
                 interval = 1 / fireRate;
                 foreach (var index in currentWeapon.firePoints)
                 {
+                    Debug.Log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
                     GameObject myBullet = BulletPoolManager.Instance.GetPoolObject();
                     myBullet.SetActive(true);
                     myBullet.transform.position = firePoint.points[index].transform.position;
