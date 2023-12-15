@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
+  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!114 &5117473658285657620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Actions: {fileID: 89613512760133084}
+  Physics: {fileID: 8345524657035484085}
+  EntityBehaviour: {fileID: 4283806706271858856}
 --- !u!50 &7595803491858947750
 Rigidbody2D:
   serializedVersion: 4
@@ -606,7 +608,7 @@ GameObject:
   - component: {fileID: 2497296095609528012}
   - component: {fileID: 3241955027544382066}
   - component: {fileID: 2392646242818963712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Physics
   m_TagString: Enemy
   m_Icon: {fileID: 0}

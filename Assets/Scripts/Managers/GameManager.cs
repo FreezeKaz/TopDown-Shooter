@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Wave = 0;
         if (Instance != null && Instance != this)
         {
             Destroy(this);

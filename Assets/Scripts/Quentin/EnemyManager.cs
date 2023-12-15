@@ -6,4 +6,6 @@ public class EnemyManager : MonoBehaviour
 {
 
     public GameObject Actions;
+    public GameObject Physics;
+    public GameObject EntityBehaviour;
 }

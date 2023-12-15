@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e532564b6571746b2f3cdb59788965, type: 3}
+  m_Name: Wave1
+  m_EditorClassIdentifier: 
+  SpawnerUsed:
+  - {fileID: 7443155965766978098, guid: 15edfc5e26a6d2949b473d8a2c69b36f, type: 3}
+  - {fileID: 7624873087337777275, guid: e99df0841b40b1e499233b74e834a280, type: 3}
+  - {fileID: 921182333733880048, guid: a13699f10812da14ba62eac0ec917d53, type: 3}
+  - {fileID: 1335458711205175964, guid: 8a9b42aa13b7a6241ae4325f44d5c80f, type: 3}
+  - {fileID: 6613117550557393870, guid: ce4e301f3d7caa646a095afe76522eac, type: 3}
+  enemiesInWave:
+  - enemySO: {fileID: 11400000, guid: 605f59d566334ae4c89f9c6f2ed397aa, type: 2}
+    numberOfEnemies: 20
+  BossRoom: 0
