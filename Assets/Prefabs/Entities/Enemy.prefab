@@ -255,6 +255,8 @@ MonoBehaviour:
   Actions: {fileID: 89613512760133084}
   Physics: {fileID: 8345524657035484085}
   EntityBehaviour: {fileID: 4283806706271858856}
+  myEntityStats: {fileID: 6307414538515139123}
+  myShootingScript: {fileID: 5188139326345223804}
 --- !u!50 &7595803491858947750
 Rigidbody2D:
   serializedVersion: 4

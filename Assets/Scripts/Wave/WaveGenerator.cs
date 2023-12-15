@@ -10,6 +10,7 @@ public class WaveGenerator : MonoBehaviour
     public int EnemiesOnField;
     public int TotalEnemies;
     private string mobToSpawn;
+    int indexOfEnemy;
     bool WaveReady = false;
     private WaveSO waveData;
     [SerializeField] private List<WaveSO> waves;
@@ -29,7 +30,7 @@ public class WaveGenerator : MonoBehaviour
         waveState = new Dictionary<string, int>();
         foreach (var element in waveData.enemiesInWave)
         {
-            waveState[element.enemySO.name] = element.numberOfEnemies;
+            waveState[element.enemySO.enemyName] = element.numberOfEnemies;
         }
     }
 
@@ -65,14 +66,16 @@ public class WaveGenerator : MonoBehaviour
 
     private void SpawnSingleEnemy()
     {
-        Debug.Log("spawning");
         do
         {
-            mobToSpawn = waveState.ElementAt(UnityEngine.Random.Range(0, waveState.Count)).Key;
+            indexOfEnemy = UnityEngine.Random.Range(0, waveState.Count);
+            mobToSpawn = waveState.ElementAt(indexOfEnemy).Key;
         } while (waveState[mobToSpawn] == 0);
         waveState[mobToSpawn]--;
 
-        Instantiate(enemy, spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position, Quaternion.identity);
+        GameObject myEnemy = Instantiate(enemy, spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position, Quaternion.identity);
+        myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
+        myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
     }
     private void Spawn()
     {
