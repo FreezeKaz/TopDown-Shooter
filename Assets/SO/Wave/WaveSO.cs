@@ -15,6 +15,9 @@ public class WaveSO : ScriptableObject
     public List<GameObject> SpawnerUsed;
     public List<EnemyWave> enemiesInWave;
 
+    public float SpawnDelay;
+    public float TimeToClearAfterEverythingSpawn;
+
     public bool BossRoom;
     //public BossSO
 }

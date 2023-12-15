@@ -41,7 +41,7 @@ public class Entity : MonoBehaviour
         Stats[Attribute.Attack] = new(stat.Attack);
         Stats[Attribute.FireRateRatio] = new(stat.FireRateRatio);
         Stats[Attribute.MoveSpeedRatio] = new(stat.MoveSpeedRatio);
-
+        
         CurrentHP = Stats[Attribute.HP].Value;
 
     }
@@ -63,9 +63,14 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        Debug.Log(CurrentHP);
+        //Debug.Log(CurrentHP);
         CurrentHP -= amount;
-
-        if (CurrentHP <= 0) Destroy(parent);
+        
+        if (CurrentHP <= 0)
+        {
+            Destroy(parent);
+            WaveGenerator.Instance.TotalEnemies--;
+        }
+           
     }
 }

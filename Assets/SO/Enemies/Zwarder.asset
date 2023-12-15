@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b94e9e0cc79e44c93a505a5f745774, type: 3}
   m_Name: Zwarder
   m_EditorClassIdentifier: 
-  enemyName: 
-  stats: {fileID: 0}
-  weapon: {fileID: 0}
+  enemyName: Zwarder
+  stats: {fileID: 11400000, guid: 7b566ae3a5c5f9b4686a4ee311063403, type: 2}
+  weapon: {fileID: 11400000, guid: abb6cc7d9da9f4b4da60e5fc6d13438d, type: 2}
