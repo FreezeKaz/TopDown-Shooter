@@ -19,7 +19,7 @@ namespace BehaviorTree
         public Vector2 positionOnView;
 
         public Node parent;
-        protected List<Node> children = new List<Node>();
+        public List<Node> children = new List<Node>();
 
         private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
 
@@ -47,7 +47,7 @@ namespace BehaviorTree
             children.Remove(node);
         }
 
-        public Node Clone()
+        public virtual Node Clone()
         {
             return Instantiate(this);
         }
@@ -94,6 +94,11 @@ namespace BehaviorTree
                 node = node.parent;
             }
             return false;
+        }
+
+        public virtual void CopyData(Node source)
+        {
+            positionOnView = source.positionOnView;
         }
     }
 }

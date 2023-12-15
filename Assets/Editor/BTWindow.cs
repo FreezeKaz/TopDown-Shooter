@@ -345,8 +345,8 @@ namespace BehaviorTree
             nodesView = new List<NodeView>();
 
             if (BTSave.root == null) BTSave.root = (Root)BTSave.CreateNode(typeof(Root));
-            Vector2 rootPos = BTSave.root.child == null ? GetDefaultRootPosition() : BTSave.root.child.positionOnView + new Vector2(0, -50f);
-            CreateNodeView(BTSave.root, rootPos);
+            //Vector2 rootPos = BTSave.root.child == null ? new Vector2(position.width * 0.5f, 100f) : BTSave.root.child.positionOnView + new Vector2(0, -50f);
+            CreateNodeView(BTSave.root, new Vector2(50f,50f));
 
             for (int i = 0; i < BTSave.nodes.Count; i++)
             {
@@ -401,10 +401,17 @@ namespace BehaviorTree
         public virtual void Save()
         {
             if (!hasUnsavedChanges) return;
-            if (file == null)
+            UnityEngine.Debug.Log("Nodes saved: " + BTSave.nodes.Count);
+            BTSave btFile = file as BTSave;
+            if (btFile == null)
             {
-                file = CreateInstance<BTSave>();
+                btFile = BTSave.SaveToNew(fileName);
             }
+            else
+            {
+                BTSave.SaveTo(ref btFile);
+            }
+            file = btFile;
             foreach (var nodeView in nodesView)
             {
                 nodeView.node.positionOnView = new Vector2(nodeView.rect.position.x, nodeView.rect.position.y);
@@ -419,7 +426,10 @@ namespace BehaviorTree
                         nodeView.node.Attach(childNodeInTree);
                     }
                 }
+                //Debug.Log(nodeView.node.name)
             }
+
+
 
             if (!AssetDatabase.IsValidFolder("Assets/Resources"))
             {
@@ -435,6 +445,10 @@ namespace BehaviorTree
                 AssetDatabase.CreateAsset(file, assetPath);
             }
             SaveChanges();
+
+
+
+            Load(file);
         }
 
         public override void SaveChanges()
@@ -448,7 +462,7 @@ namespace BehaviorTree
             EditorGUIUtility.PingObject(Selection.activeObject);
             // TODO: test if assetdatabase refresh is needed & if it has great performance impact in large projects
 
-            Debug.Log("Nodes saved successfully to file " + file.name, file);
+            //Debug.Log("Nodes saved successfully to file " + file.name, file);
             base.SaveChanges();
         }
 
