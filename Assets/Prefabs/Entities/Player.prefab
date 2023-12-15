@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: eee521b6373920b4390ee0d6505867f1, type: 2}
-  parent: {fileID: 0}
+  myParent: {fileID: 2217757127003541112}
 --- !u!1 &6852050820559140121
 GameObject:
   m_ObjectHideFlags: 0

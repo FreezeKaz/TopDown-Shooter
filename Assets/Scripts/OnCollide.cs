@@ -14,9 +14,9 @@ public class OnCollide : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
-        {   
-            Bullet bulletInfo = collision.gameObject.GetComponent<Bullet>();
-            entity.TakeDamage((int)bulletInfo.Damage); 
+        {
+           BulletDamage bulletInfo = collision.gameObject.GetComponent<BulletDamage>();
+           entity.TakeDamage((int)bulletInfo.damage); 
         }
     }
 }
