@@ -7,12 +7,9 @@ using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour
 {
-    // private WaveSO waveData;**
-
     private static WaveGenerator _instance;
     public static WaveGenerator Instance => _instance;
 
-    public int EnemiesOnField;
     public int TotalEnemies = 0;
     private string mobToSpawn;
     float timer = 0f;
@@ -22,9 +19,7 @@ public class WaveGenerator : MonoBehaviour
     [SerializeField] private List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
     [SerializeField] private GameObject enemy;
-    [SerializeField] private IABT IA;
-
-
+    [SerializeField] public List<Transform> WayPoints; //get them from the ennemy
 
     private Dictionary<string, int> waveState;
 
@@ -62,9 +57,9 @@ public class WaveGenerator : MonoBehaviour
 
     private bool checkIfWaveEnded()
     {
-        foreach(int index in waveState.Values)
+        foreach (int index in waveState.Values)
         {
-            Debug.Log("there's " +  index + "left of ennemies type ");
+            Debug.Log("there's " + index + "left of ennemies type ");
         }
         return waveState.Values.All(item => item == 0);
     }
@@ -80,14 +75,17 @@ public class WaveGenerator : MonoBehaviour
 
         GameObject myEnemy = EnemyPoolManager.Instance.GetPoolObject();
         myEnemy.SetActive(true);
+        SetDefaultPoolEnemy(myEnemy);
+    }
+
+    private void SetDefaultPoolEnemy(GameObject myEnemy)
+    {
+        Destroy(myEnemy.GetComponent<IABT>());
         myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
         myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
         myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
-        Destroy(myEnemy.GetComponent<IABT>());
-        myEnemy.AddComponent<IABT>();
-        myEnemy.GetComponent<IABT>().waypoints = IA.waypoints;
-
-
+        var newEnemyIA = myEnemy.AddComponent<IABT>();
+        newEnemyIA.waypoints = WayPoints;
     }
     IEnumerator Spawn()
     {

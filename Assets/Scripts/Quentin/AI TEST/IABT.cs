@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using BehaviorTree;
+using UnityEngine;
 
-public class IABT : Tree
+public class IABT : BehaviorTree.Tree
 {
-    public UnityEngine.Transform[] waypoints;
+    public List<Transform> waypoints;
 
 
     public static float speed = 2f;
