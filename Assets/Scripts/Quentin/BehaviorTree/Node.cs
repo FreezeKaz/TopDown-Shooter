@@ -12,7 +12,11 @@ namespace BehaviorTree
 
     public class Node : ScriptableObject
     {
+        public string guid;
+
         protected NodeState state;
+
+        public Vector2 positionOnView;
 
         public Node parent;
         protected List<Node> children = new List<Node>();
@@ -41,6 +45,11 @@ namespace BehaviorTree
         {
             node.parent.Remove(this);
             children.Remove(node);
+        }
+
+        public Node Clone()
+        {
+            return Instantiate(this);
         }
 
         public virtual NodeState Evaluate() => NodeState.FAILURE;

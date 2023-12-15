@@ -3,46 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.PackageManager.UI;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace BehaviorTree
 {
     public class BTWindow : EditorWindow
     {
-        BTSave BTSave;
-
-        internal override void PopulateView()
-        {
-            if (file == null) BTSave = CreateInstance<BTSave>();
-            else BTSave = (file as BTSave).Clone();
-
-            BTSave = file as BTSave;
-
-            if (BTSave == null) BTSave = CreateInstance<BTSave>();
-
-            nodeViews = new List<NodeView>();
-
-            if (BTSave.root == null) BTSave.root = (RootNode)BTSave.CreateNode(typeof(RootNode));
-            Vector2 rootPos = BTSave.root.child == null ? GetDefaultRootPosition() : BTSave.root.child.positionOnView + new Vector2(0, -50f);
-            CreateNodeView(BTSave.root, rootPos);
-
-            for (int i = 0; i < BTSave.nodes.Count; i++)
-            {
-                CreateNodeView(BTSave.nodes[i].Clone(), BTSave.nodes[i].positionOnView, false);
-            }
-        }
-
         [MenuItem("Tools/Behavior Tree editor")]
+
         public static BTWindow OpenBTWindow()
         {
             BTWindow window = CreateWindow<BTWindow>("BT");
             return window;
         }
 
+        internal virtual void OnEnable()
+        {
+            PopulateView();
+        }
+
         internal virtual void OnGUI()
         {
             DrawNodes();
             DrawConnections();
+            DrawToolbar();
             ProcessEvents(Event.current);
 
             ProcessNodeEvents(Event.current);
@@ -83,6 +68,8 @@ namespace BehaviorTree
             return false;
         }
 
+        #region Node
+
         internal virtual void ProcessNodeEvents(Event e)
         {
             if (nodesView == null) return;
@@ -98,28 +85,7 @@ namespace BehaviorTree
 
         public Node CreateNode(Type type)
         {
-            return 
-        }
-
-        internal virtual void DrawNodes()
-        {
-            if (nodesView == null) return;
-
-            for (int i = 0; i < nodesView.Count; i++)
-            {
-                nodesView[i].Draw();
-            }
-        }
-
-        internal virtual void DrawConnections()
-        {
-            if (connections == null) return;
-            //Debug.Log("Connections: " + connections.Count);
-            //Debug.Log(connections.Count);
-            for (int i = 0; i < connections.Count; i++)
-            {
-                connections[i].Draw();
-            }
+            return BTSave.CreateNode(type);
         }
 
         internal virtual NodeView CreateNodeView(Node node, Vector2 position)
@@ -165,6 +131,65 @@ namespace BehaviorTree
             //hasUnsavedChanges = true;
         }
 
+        internal virtual void DrawNodes()
+        {
+            if (nodesView == null) return;
+
+            for (int i = 0; i < nodesView.Count; i++)
+            {
+                nodesView[i].Draw();
+            }
+        }
+
+        #endregion
+
+        #region Connection
+
+        internal virtual void DrawConnections()
+        {
+            if (connections == null) return;
+            //Debug.Log("Connections: " + connections.Count);
+            //Debug.Log(connections.Count);
+            for (int i = 0; i < connections.Count; i++)
+            {
+                connections[i].Draw();
+            }
+        }
+
+        internal virtual void CreateConnection(NodeView nodeOut, NodeView nodeIn)
+        {
+            int indexOfNodeOut = nodesView.IndexOf(nodeOut);
+            if (indexOfNodeOut < 0) return;
+            int indexOfNodeIn = nodesView.IndexOf(nodeIn);
+            if (indexOfNodeIn < 0) return;
+            if (connections == null)
+                connections = new List<Connection>();
+            //if(nodeOut.node == null)
+            //{
+            //    return;
+            //}
+            connections.Add(new Connection(nodeIn, nodeOut, OnClickRemoveConnection));
+            //Debug.Log(connections.Count);
+            //nodeOut.node.Attach(nodeIn.node);
+        }
+
+        #endregion
+
+        internal virtual List<NodeView> GetChildren(NodeView nodeView)
+        {
+            List<NodeView> children = new List<NodeView>();
+            foreach (var connection in connections)
+            {
+                if (connection.OutNode == nodeView)
+                {
+                    children.Add(connection.InNode);
+                }
+            }
+            return children;
+        }
+
+        #region Action
+
         internal virtual void OnClickConnectionPoint(NodeView node, ConnectionPointType type)
         {
             switch (type)
@@ -190,36 +215,6 @@ namespace BehaviorTree
                 }
             }
             ClearConnectionSelection();
-        }
-
-        internal virtual void CreateConnection(NodeView nodeOut, NodeView nodeIn)
-        {
-            int indexOfNodeOut = nodesView.IndexOf(nodeOut);
-            if (indexOfNodeOut < 0) return;
-            int indexOfNodeIn = nodesView.IndexOf(nodeIn);
-            if (indexOfNodeIn < 0) return;
-            if (connections == null)
-                connections = new List<Connection>();
-            //if(nodeOut.node == null)
-            //{
-            //    return;
-            //}
-            connections.Add(new Connection(nodeIn, nodeOut, OnClickRemoveConnection));
-            //Debug.Log(connections.Count);
-            //nodeOut.node.Attach(nodeIn.node);
-        }
-
-        internal virtual List<NodeView> GetChildren(NodeView nodeView)
-        {
-            List<NodeView> children = new List<NodeView>();
-            foreach (var connection in connections)
-            {
-                if (connection.OutNode == nodeView)
-                {
-                    children.Add(connection.InNode);
-                }
-            }
-            return children;
         }
 
         internal virtual void OnClickRemoveConnection(Connection connection)
@@ -329,5 +324,208 @@ namespace BehaviorTree
             DeselectAllNodes();
             ClearConnectionSelection();
         }
+
+        #endregion
+
+        #region Save
+
+        public string fileName = "New File";
+        BTSave BTSave;
+        public BTSave file;
+
+        internal void PopulateView()
+        {
+            if (file == null) BTSave = CreateInstance<BTSave>();
+            else BTSave = (file as BTSave).Clone();
+
+            BTSave = file as BTSave;
+
+            if (BTSave == null) BTSave = CreateInstance<BTSave>();
+
+            nodesView = new List<NodeView>();
+
+            if (BTSave.root == null) BTSave.root = (Root)BTSave.CreateNode(typeof(Root));
+            Vector2 rootPos = BTSave.root.child == null ? GetDefaultRootPosition() : BTSave.root.child.positionOnView + new Vector2(0, -50f);
+            CreateNodeView(BTSave.root, rootPos);
+
+            for (int i = 0; i < BTSave.nodes.Count; i++)
+            {
+                CreateNodeView(BTSave.nodes[i].Clone(), BTSave.nodes[i].positionOnView);
+            }
+        }
+
+        internal virtual void NewFile()
+        {
+            if (!UnsavedChangesCheck()) return;
+
+            fileName = $"New {"Node Structure"}";
+            file = default;
+            nodesView = new List<NodeView>();
+            connections = new List<Connection>();
+            PopulateView();
+            ClearConnectionSelection();
+            hasUnsavedChanges = false;
+        }
+
+        internal virtual bool UnsavedChangesCheck()
+        {
+            if (hasUnsavedChanges)
+            {
+                int result = EditorUtility.DisplayDialogComplex("Unsaved Changes Detected", saveChangesMessage, "Yes", "Cancel", "Discard");
+                switch (result)
+                {
+                    case 0:
+                        // Yes
+                        if (this is BTWindow)
+                        {
+                            (this as BTWindow).Save(); // Vies//
+                        }
+                        else
+                        {
+                            Save(); // TODO: Does not call overridden method
+                        }
+                        break;
+                    case 1:
+                        // Cancel
+                        return false;
+                    case 2:
+                        // Discard
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return true;
+        }
+
+        public virtual void Save()
+        {
+            if (!hasUnsavedChanges) return;
+            if (file == null)
+            {
+                file = CreateInstance<BTSave>();
+            }
+            foreach (var nodeView in nodesView)
+            {
+                nodeView.node.positionOnView = new Vector2(nodeView.rect.position.x, nodeView.rect.position.y);
+                List<Connection> outgoingConnections = connections.FindAll(c => c.OutNode == nodeView);
+                // Get all the child nodes from those connections
+                List<NodeView> childNodes = outgoingConnections.ConvertAll(c => c.InNode);
+                foreach (var childNode in childNodes)
+                {
+                    Node childNodeInTree = BTSave.nodes.Find(n => n.guid == childNode.node.guid);
+                    if (childNodeInTree != null)
+                    {
+                        nodeView.node.Attach(childNodeInTree);
+                    }
+                }
+            }
+
+            if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+            {
+                AssetDatabase.CreateFolder("Assets", "Resources");
+            }
+            if (!AssetDatabase.IsValidFolder("Assets/Resources/Nodes"))
+            {
+                AssetDatabase.CreateFolder("Assets/Resources", "Nodes");
+            }
+            if (string.IsNullOrWhiteSpace(AssetDatabase.GetAssetPath(file)))
+            {
+                string assetPath = AssetDatabase.GenerateUniqueAssetPath($"Assets/Resources/Nodes/{fileName}.asset");
+                AssetDatabase.CreateAsset(file, assetPath);
+            }
+            SaveChanges();
+        }
+
+        public override void SaveChanges()
+        {
+            EditorUtility.SetDirty(file);
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            EditorUtility.FocusProjectWindow();
+            Selection.activeObject = file;
+            EditorGUIUtility.PingObject(Selection.activeObject);
+            // TODO: test if assetdatabase refresh is needed & if it has great performance impact in large projects
+
+            Debug.Log("Nodes saved successfully to file " + file.name, file);
+            base.SaveChanges();
+        }
+
+        public virtual bool Load(BTSave structure)
+        {
+            if (!UnsavedChangesCheck()) return false;
+            if (structure == null)
+            {
+                NewFile();
+                return true;
+            }
+
+            nodesView.Clear();
+            connections.Clear();
+
+            file = structure;
+            hasUnsavedChanges = false;
+            ClearConnectionSelection();
+            return true;
+        }
+
+        #endregion
+
+        #region ToolBar
+
+        private float toolbarHeight = 30f;
+        private float toolbarButtonWidth = 50f;
+
+
+
+        public void DrawToolbar()
+        {
+            Rect menuBarRect = new Rect(0, 0, position.width, toolbarHeight);
+            GUILayout.BeginArea(menuBarRect, EditorStyles.toolbar);
+            GUILayout.BeginHorizontal();
+
+            if (file == null)
+                fileName = EditorGUILayout.TextField(fileName, GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
+            BTSave oldReference = file;
+            EditorGUI.BeginChangeCheck();
+            BTSave newReference = (BTSave)EditorGUILayout.ObjectField(file, typeof(BTSave), false, GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
+            if (EditorGUI.EndChangeCheck())
+            {
+                Debug.Log("New file selected");
+                if (Load(newReference))
+                {
+                    file = newReference;
+                }
+                else
+                {
+                    file = oldReference;
+                }
+            }
+
+            if (!hasUnsavedChanges) GUI.enabled = false;
+            if (GUILayout.Button("Save", EditorStyles.toolbarButton, GUILayout.Width(toolbarButtonWidth)))
+            {
+                Save();
+            }
+            GUI.enabled = true;
+            if (file == null && !hasUnsavedChanges)
+            {
+                GUI.enabled = false;
+            }
+            if (GUILayout.Button("New", EditorStyles.toolbarButton, GUILayout.Width(toolbarButtonWidth)))
+            {
+                NewFile();
+            }
+            GUI.enabled = true;
+
+
+            GUILayout.EndHorizontal();
+            GUILayout.EndArea();
+        }
+
+
+
+        #endregion
     }
 }
