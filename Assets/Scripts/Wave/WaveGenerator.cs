@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour
@@ -16,11 +17,14 @@ public class WaveGenerator : MonoBehaviour
     private string mobToSpawn;
     float timer = 0f;
     int indexOfEnemy;
- 
+
     private WaveSO waveData;
     [SerializeField] private List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private IABT IA;
+
+
 
     private Dictionary<string, int> waveState;
 
@@ -45,7 +49,9 @@ public class WaveGenerator : MonoBehaviour
         {
             waveState[element.enemySO.enemyName] = element.numberOfEnemies;
         }
+        Debug.Log(TotalEnemies + " + " + waveState.Values.Sum());
         TotalEnemies += waveState.Values.Sum();
+        Debug.Log(TotalEnemies);
     }
 
     public void StartWave()
@@ -56,6 +62,10 @@ public class WaveGenerator : MonoBehaviour
 
     private bool checkIfWaveEnded()
     {
+        foreach(int index in waveState.Values)
+        {
+            Debug.Log("there's " +  index + "left of ennemies type ");
+        }
         return waveState.Values.All(item => item == 0);
     }
 
@@ -73,31 +83,55 @@ public class WaveGenerator : MonoBehaviour
         myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
         myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
         myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
+        Destroy(myEnemy.GetComponent<IABT>());
+        myEnemy.AddComponent<IABT>();
+        myEnemy.GetComponent<IABT>().waypoints = IA.waypoints;
+
+
     }
     IEnumerator Spawn()
     {
 
-        while(!checkIfWaveEnded())
+        while (!checkIfWaveEnded())
         {
             SpawnSingleEnemy();
             yield return new WaitForSeconds(waveData.SpawnDelay);
-        }    
+        }
+        Debug.Log("wave has finished spawning");
+        StartCoroutine(CallingNextWave());
 
-            StartCoroutine(CallingNextWave());
-    
     }
 
     IEnumerator CallingNextWave()
     {
-        while (timer != waveData.TimeToClearAfterEverythingSpawn && TotalEnemies != 0)
+        timer = 0f;
+        while (timer < waveData.TimeToClearAfterEverythingSpawn && TotalEnemies != 0)
         {
-            timer += 1f;
-            Debug.Log(timer);
-            yield return new WaitForSeconds(1f);
+            timer += Time.deltaTime;
+            Debug.Log("Waiting for " + (waveData.TimeToClearAfterEverythingSpawn - timer) + " seconds to start the next wave...");
+
+            if (TotalEnemies == 0)
+            {
+                // If all enemies are defeated before the time is up, break the loop
+                break;
+            }
+            yield return null;
         }
         GameManager.Instance.Wave++;
+        if (GameManager.Instance.Wave >= waves.Count)
+        {
+            GameManager.Instance.Wave = 0;
+        }
         Debug.Log("Calling wave " + GameManager.Instance.Wave);
         GameManager.Instance.PrepareNextWave(0f);
+    }
+
+    public void StopWaves()
+    {
+        StopAllCoroutines();
+        GameManager.Instance.Wave = 0;
+        timer = 0f;
+        TotalEnemies = 0;
     }
 }
 

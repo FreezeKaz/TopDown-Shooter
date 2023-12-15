@@ -16,7 +16,6 @@ MonoBehaviour:
   enemiesInWave:
   - enemySO: {fileID: 11400000, guid: 605f59d566334ae4c89f9c6f2ed397aa, type: 2}
     numberOfEnemies: 2
-  SpawnDelay: 2
-  TimeBeforeSpawn: 5
-  TimeToClear: 40
+  SpawnDelay: 5
+  TimeToClearAfterEverythingSpawn: 5
   BossRoom: 0
