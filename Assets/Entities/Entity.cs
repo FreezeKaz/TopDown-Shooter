@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] protected EntityStat stat;
+    [SerializeField] public EntityStat stat;
     [SerializeField] protected GameObject parent;
 
     //Entity just holds statwise, weapon will be handled with player or enemy object
