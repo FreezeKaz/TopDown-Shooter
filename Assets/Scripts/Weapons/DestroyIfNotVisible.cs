@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class DestroyIfNotVisible : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
+        gameObject.SetActive(false);
     }
 }

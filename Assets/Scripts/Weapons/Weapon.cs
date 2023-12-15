@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class Weapon : ScriptableObject
 {
     public float FireRate = 4;
-    public GameObject bullet;
+    public BulletSO bullet;
+    public float Damage;
+    public float bulletForce;
     public List<int> firePoints;
 }
