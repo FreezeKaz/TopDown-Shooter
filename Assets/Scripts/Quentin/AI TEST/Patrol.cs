@@ -37,13 +37,11 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            Debug.Log(base.transform.name);
             if (_first)
             {
                 Init();
             }
             _first = true;
-            Debug.Log("uwu");
             if (_waiting)
             {
                 _waitCounter += Time.deltaTime;
@@ -65,7 +63,6 @@ namespace BehaviorTree
                 }
                 else
                 {
-                    Debug.Log("icicmove");
                     transform.position = Vector3.MoveTowards(transform.position, wp.position, 5f * Time.deltaTime);
                     Vector2 vector2 = wp.position;
                     _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);

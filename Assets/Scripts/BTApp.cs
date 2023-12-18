@@ -31,7 +31,6 @@ public class BTApp : BehaviorTree.Tree
         GO = GetComponent<Transform>();
         root = _save.root;
         applyChildren(root);
-        Debug.Log(root.children.Count);
         return root;
     }
 }

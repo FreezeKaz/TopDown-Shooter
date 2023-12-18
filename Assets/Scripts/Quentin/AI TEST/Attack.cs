@@ -6,7 +6,6 @@ using BehaviorTree;
 
 public class Attack : ActionNode
 {
-    private Transform _transform;
     private Rigidbody2D _rb;
 
     public float attackTime = 0.2f;
@@ -16,18 +15,23 @@ public class Attack : ActionNode
 
     public EnemyManager _enemyManager;
 
+    private void Awake()
+    {
+        type = NodeType.TASK;
+    }
+
     public Attack(GameObject gameObject)
     {
-        _transform = gameObject.transform;
-        _enemyManager = _transform.GetComponent<EnemyManager>(); 
-        _rb = _transform.GetComponent<Rigidbody2D>();
+        transform = gameObject.transform;
+        _enemyManager = transform.GetComponent<EnemyManager>(); 
+        _rb = transform.GetComponent<Rigidbody2D>();
     }
 
     public override NodeState Evaluate()
     {
 
         Transform target = (Transform)GetData("target");
-        if (Vector3.Distance(_transform.position, target.position) <= IABT.range)
+        if (Vector3.Distance(transform.position, target.position) <= IABT.range)
         {
             Vector2 vector2 = target.position;
             _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);

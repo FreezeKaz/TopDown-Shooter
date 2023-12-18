@@ -7,13 +7,17 @@ public class CheckPlayerInRange : Node
 {
     private static int _playerLayer = 1 << 6;
 
-    private Transform _transform;
-
     float minDepth = -Mathf.Infinity;
     float maxDepth = Mathf.Infinity;
+
+    private void Awake()
+    {
+        type = NodeType.TASK;
+    }
+
     public CheckPlayerInRange(GameObject gameObject)
     {
-        _transform = gameObject.transform;
+        transform = gameObject.transform;
     }
 
     public override NodeState Evaluate()
@@ -21,7 +25,7 @@ public class CheckPlayerInRange : Node
         object t = GetData("target");
         if (t == null)
         {   
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(_transform.position, IABT.fovRange, _playerLayer, minDepth, maxDepth);            
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, IABT.fovRange, _playerLayer, minDepth, maxDepth);            
             
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)
