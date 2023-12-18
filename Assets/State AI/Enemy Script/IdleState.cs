@@ -5,7 +5,7 @@ using UnityEngine;
 public class IdleState : State
 {
     public IdleState(GameObject _npc, Animator _anim,
-                Transform _player) : base( _npc, _anim, _player)
+                EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.IDLE;
     }

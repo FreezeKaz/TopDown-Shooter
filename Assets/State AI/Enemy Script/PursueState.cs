@@ -6,7 +6,7 @@ public class PursueState : State
 {
     Vector3 destination =  new Vector3(0, 0, 0);
     public PursueState(GameObject _npc, Animator _anim,
-                Transform _player) : base( _npc, _anim, _player)
+                EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.PURSUE;
     }
@@ -20,7 +20,7 @@ public class PursueState : State
     public override void Update()
     {
         destination = player.position;
-        npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 3 * Time.deltaTime);
+        npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 4 * Time.deltaTime);
         if (npc.transform.position.x > destination.x)
             npc.transform.rotation = Quaternion.Euler(0, 180, 0);
         else

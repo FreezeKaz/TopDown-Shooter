@@ -72,10 +72,18 @@ public class Entity : MonoBehaviour
             if(myParent.name != "Player")
             {
                 myParent.SetActive(false);
+                WaveGenerator.Instance.TotalEnemies--;
                 //GameOverFromGameInstance;
             }
+            else
+            {
+                myParent.SetActive(false);
+                GameManager.Instance.GameOver();
+                ScenesManager.Instance.SetScene("GameTitle");
+                ScenesManager.Instance.ChangeScene();
+            }
             
-            WaveGenerator.Instance.TotalEnemies--;
+           
         }
 
     }

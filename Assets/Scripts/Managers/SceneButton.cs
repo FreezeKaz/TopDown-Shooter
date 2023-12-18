@@ -13,5 +13,9 @@ public class SceneButton : MonoBehaviour
     {
         Debug.Log(Scene);
         ScenesManager.Instance.SetScene(Scene);
+        if(Scene == "Tom")
+        {
+            GameManager.Instance.StartGame();
+        }
     }
 }

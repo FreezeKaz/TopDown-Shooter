@@ -7,7 +7,7 @@ namespace BehaviorTree
     public class Patrol : Node
     {
         private Transform _transform;
-        private Transform[] _waypoints;
+        private List<Transform> _waypoints;
         private Rigidbody2D _rb;
 
         private int _currentWaypointIndex = 0;
@@ -16,7 +16,7 @@ namespace BehaviorTree
         private float _waitCounter = 0f;
         private bool _waiting = false;
 
-        public Patrol(GameObject gameObject, Transform[] waypoints)
+        public Patrol(GameObject gameObject, List<Transform> waypoints)
         {
             _transform = gameObject.transform;          
             _waypoints = waypoints;
@@ -42,7 +42,7 @@ namespace BehaviorTree
                     _waitCounter = 0f;
                     _waiting = true;
 
-                    _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Length; 
+                    _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count; 
                 }
                 else
                 {

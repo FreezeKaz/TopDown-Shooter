@@ -54,4 +54,12 @@ public class BulletPoolManager : MonoBehaviour
         return newBullet;
     }
 
+    public void ResetPool()
+    {
+        foreach (GameObject obj in objectPool)
+        {
+            obj.SetActive(false);
+        }
+    }
+
 }

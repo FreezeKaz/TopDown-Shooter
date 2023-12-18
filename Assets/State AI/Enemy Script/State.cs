@@ -20,18 +20,21 @@ public class State
     protected Animator anim;
     protected Transform player;
     protected State nextState;
+    protected EnemyManager enemyManager;
 
-    float visDist = 5.0f;
+
+    float visDist = 10.0f;
    // float visAngle = 30.0f;
-    float shootDist = 0.5f;
+    float shootDist = 5f;
 
     public State(GameObject _npc, Animator _anim,
-                Transform _player)
+                EnemyManager _enemyManager, Transform _player)
     {
         npc = _npc;
         anim = _anim;
         player = _player;
         stage = EVENT.ENTER;
+        enemyManager = _enemyManager;
     }
 
     public virtual void Enter()
@@ -85,7 +88,7 @@ public class State
     {
         Vector3 direction = player.position - npc.transform.position;
 
-        if (direction.magnitude < shootDist)
+        if (direction.magnitude <= shootDist)
             return true;
         return false;
     }
