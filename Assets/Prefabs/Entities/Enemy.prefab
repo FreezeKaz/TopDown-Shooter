@@ -144,10 +144,10 @@ GameObject:
   m_Component:
   - component: {fileID: 468718824198609346}
   - component: {fileID: 371009101215662659}
-  - component: {fileID: 6458622251550968776}
   - component: {fileID: 5117473658285657620}
   - component: {fileID: 7595803491858947750}
   - component: {fileID: 8164045628397358304}
+  - component: {fileID: -3157580436511971936}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -226,21 +226,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6458622251550968776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2590738222878651580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77cc5839720d3468602f44f9b898cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
-  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!114 &5117473658285657620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +292,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3157580436511971936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590738222878651580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18d04ff8bc322c4f9841481db3afb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _save: {fileID: 11400000, guid: 7a9bde5be658a76478d3570b223314eb, type: 2}
+  waypoints:
+  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
+  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!1 &3334985617367353272
 GameObject:
   m_ObjectHideFlags: 0

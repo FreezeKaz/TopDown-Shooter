@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 
@@ -160,8 +158,10 @@ namespace BehaviorTree
             // Then every other node
             foreach (Node nodeAsset in treeFile.nodes)
             {
-                    List<Node> childNodes = nodeAsset.children;
-                    List<Node> newChildList = new List<Node>();
+                List<Node> childNodes = nodeAsset.children;
+                List<Node> newChildList = new List<Node>();
+                if (childNodes != null)
+                {
                     childNodes = childNodes.OrderBy(x => x.positionOnView.x).ToList();
                     for (int i = 0; i < childNodes.Count; i++)
                     {
@@ -178,6 +178,7 @@ namespace BehaviorTree
                         }
                         newChildList.Add(childNode);
                     }
+                }
             }
             AssetDatabase.SaveAssets();
         }
