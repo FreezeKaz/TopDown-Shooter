@@ -9,12 +9,6 @@ public class BTApp : BehaviorTree.Tree
     Node root;
     //public Transform[] waypoints;
 
-    private void Start()
-    {
-        GO = GetComponent<Transform>();
-        root = _save.root;
-        applyChildren(root);
-    }
     public void applyChildren(Node node)
     {
         foreach (Node child in node.children)
@@ -23,7 +17,7 @@ public class BTApp : BehaviorTree.Tree
             {
                 if(child.type == NodeType.TASK)
                 {
-                    child.GO = GO;
+                    child.transform = GO;
                 }
                 else
                 {
@@ -34,6 +28,9 @@ public class BTApp : BehaviorTree.Tree
     }
     protected override Node SetupTree()
     {
+        GO = GetComponent<Transform>();
+        root = _save.root;
+        applyChildren(root);
         Debug.Log(root.children.Count);
         return root;
     }

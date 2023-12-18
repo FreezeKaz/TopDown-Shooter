@@ -7,8 +7,6 @@ namespace BehaviorTree
     public class Patrol : Node
     {
 
-
-        public Transform _transform;
         [SerializeField] private List<Transform> _waypoints;
         private Rigidbody2D _rb;
 
@@ -21,10 +19,9 @@ namespace BehaviorTree
 
         public Patrol(GameObject gameObject, List<Transform> waypoints)
         {
-            _transform = GO.GetComponent<Transform>();   
             
             _waypoints = waypoints;
-            _rb = _transform.GetComponent<Rigidbody2D>();
+            _rb = transform.GetComponent<Rigidbody2D>();
         }
 
         private void Awake()
@@ -35,12 +32,12 @@ namespace BehaviorTree
         private void Init()
         {
             //_transform = GO.GetComponent<Transform>();
-            _rb = _transform.GetComponent<Rigidbody2D>();
+            _rb = transform.GetComponent<Rigidbody2D>();
         }
 
         public override NodeState Evaluate()
         {
-            Debug.Log(GO.name);
+            Debug.Log(base.transform.name);
             if (_first)
             {
                 Init();
@@ -58,9 +55,9 @@ namespace BehaviorTree
             else
             {
                 Transform wp = _waypoints[_currentWaypointIndex];
-                if (Vector3.Distance(_transform.position, wp.position) < 0.01f)
+                if (Vector3.Distance(transform.position, wp.position) < 0.01f)
                 {
-                    _transform.position = wp.position;
+                    transform.position = wp.position;
                     _waitCounter = 0f;
                     _waiting = true;
 
@@ -69,7 +66,7 @@ namespace BehaviorTree
                 else
                 {
                     Debug.Log("icicmove");
-                    _transform.position = Vector3.MoveTowards(_transform.position, wp.position, 5f * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, wp.position, 5f * Time.deltaTime);
                     Vector2 vector2 = wp.position;
                     _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
                     //_transform.LookAt(wp.position);

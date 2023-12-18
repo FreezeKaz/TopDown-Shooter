@@ -16,6 +16,7 @@ namespace BehaviorTree
 
         private void Update()
         {
+            Debug.Log(_root);
             if (_root != null)
             {
                 _root.Evaluate();
