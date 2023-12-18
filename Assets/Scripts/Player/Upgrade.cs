@@ -13,8 +13,9 @@ public class Upgrade : MonoBehaviour
     private float AddPercent(float value) => value * (1 + (_percentage / 100));
 
 
-    private void AddUpgrade()
+    public void AddUpgrade()
     {
+
         _playerStats.Stats[_modifiedStat].AddModifier(AddPercent);
     }
 }

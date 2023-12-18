@@ -1,12 +1,16 @@
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class Entity : MonoBehaviour
 {
     [SerializeField] public EntityStat stat;
     [SerializeField] protected GameObject myParent;
+    [SerializeField] protected UpgradeManager UpgradeManager;
 
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
@@ -21,8 +25,9 @@ public class Entity : MonoBehaviour
     public virtual Dictionary<Attribute, Stat<float>> Stats { get; set; }
 
     public int Level { get; private set; }
-    public int XP { get; private set; }
-    public int XPToGet { get; private set; }
+    public int XP { get; set; }
+    public float BaseXP { get; private set; }
+    public float XPToGet { get; private set; }
 
     public void Awake()
     {
@@ -37,7 +42,6 @@ public class Entity : MonoBehaviour
     private void initStats()
     {
         Stats = new Dictionary<Attribute, Stat<float>>();
-        float hp = Stats[Attribute.HP].Value;
         Stats[Attribute.HP] = new(stat.HP);
         Stats[Attribute.Attack] = new(stat.Attack);
         Stats[Attribute.FireRateRatio] = new(stat.FireRateRatio);
@@ -45,13 +49,17 @@ public class Entity : MonoBehaviour
 
         CurrentHP = Stats[Attribute.HP].Value;
 
+        XPToGet = 50;
+        BaseXP = 50;
+
     }
     private void checkLevel()
     {
         if (XP >= XPToGet)
         {
-            XP = XP - XPToGet;
-            //actionToUILevelUp -> what to level up as a param of level up
+            XP = XP - (int)XPToGet;
+            XPToGet = BaseXP * math.pow(1.5f, Level);
+            XPToGet = (int)XPToGet; //take off decimal part
             levelUp();
         }
     }
@@ -59,7 +67,7 @@ public class Entity : MonoBehaviour
     private void levelUp()
     {
         Level++;
-        //increase value 
+        UpgradeManager.OnLevelUp();
     }
 
     public void TakeDamage(int amount)
@@ -72,6 +80,7 @@ public class Entity : MonoBehaviour
             if(myParent.name != "Player")
             {
                 myParent.SetActive(false);
+                GameManager.Instance.HandleEnemyDefeat(this);
                 WaveGenerator.Instance.TotalEnemies--;
                 //GameOverFromGameInstance;
             }

@@ -8,6 +8,8 @@ public class UpgradeSO : ScriptableObject
     // Start is called before the first frame update
     public string Name;
     public string Descritpion;
+    public Sprite Image;
+    
     public Entity.Attribute Stat;
     public int percentage;
 }
