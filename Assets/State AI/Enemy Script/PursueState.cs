@@ -19,20 +19,13 @@ public class PursueState : State
 
     public override void Update()
     {
+        Debug.Log("Pursue\n");
         destination = player.position;
         npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 4 * Time.deltaTime);
         if (npc.transform.position.x > destination.x)
             npc.transform.rotation = Quaternion.Euler(0, 180, 0);
         else
             npc.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-        /*if (CanAttackPlayer()) {
-            nextState = new AttackState(npc, anim, player);
-            stage = EVENT.EXIT;
-        } else if (!CanSeePlayer()) {
-            nextState = new PatrolState(npc, anim, player);
-            stage = EVENT.EXIT;
-        }*/
     }
 
     public override void Exit()

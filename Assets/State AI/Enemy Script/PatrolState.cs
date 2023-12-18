@@ -16,11 +16,16 @@ public class PatrolState : State
 
     void NewDestination()
     {
-        int i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
+        currentIndex++;
+        if (currentIndex < 0)
+            currentIndex = 0;
+        if (currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1)
+            currentIndex = 0;
+        //int i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
 
-        while (i == currentIndex)
-            i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
-        currentIndex = i;
+       // while (i == currentIndex)
+          //  i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
+        //currentIndex = i;
         if (GameEnvironment.Singleton.Checkpoints[currentIndex] != null)
             destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
     }
@@ -35,12 +40,9 @@ public class PatrolState : State
 
     public override void Update()
     {
+        Debug.Log("Patrol\n");
         if (Vector3.Distance(npc.transform.position, destination) < 1)
             NewDestination();
-        /*if (CanSeePlayer()) {
-            nextState = new PursueState(npc, anim, player);
-            stage = EVENT.EXIT;
-        }*/
         npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 2 * Time.deltaTime);
         if (npc.transform.position.x > destination.x)
             npc.transform.rotation = Quaternion.Euler(0, 180, 0);

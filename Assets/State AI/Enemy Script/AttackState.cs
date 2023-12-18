@@ -5,11 +5,15 @@ using UnityEngine;
 public class AttackState : State
 {
     //float rotationSpeed = 2.0f;
+    Shooting shooter;
+    GameObject firepoint;
 
     public AttackState(GameObject _npc, Animator _anim,
                 EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.ATTACK;
+        shooter = enemyManager.Actions.gameObject.GetComponent<Shooting>();
+        firepoint = npc.transform.Find("FirePoints").gameObject;
     }
 
     public override void Enter()
@@ -21,7 +25,12 @@ public class AttackState : State
 
     public override void Update()
     {
-        enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
+        Debug.Log("Update\n");
+        
+        shooter.StartShooting();
+        Vector3 direction = player.position - npc.transform.position;
+        float angle = Mathf.Atan2(direction.y , direction.x) * Mathf.Rad2Deg + 45;
+        firepoint.transform.rotation = Quaternion.Euler(0, 0, angle -180);
         /*Vector3 direction = player.position - npc.transform.position;
         float angle = Vector3.Angle(direction, npc.transform.forward);
 
