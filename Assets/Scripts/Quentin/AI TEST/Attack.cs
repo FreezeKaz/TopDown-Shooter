@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BehaviorTree;
 
-public class Attack : Node
+public class Attack : ActionNode
 {
     private Transform _transform;
     private Rigidbody2D _rb;

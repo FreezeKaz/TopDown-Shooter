@@ -49,6 +49,9 @@ MonoBehaviour:
   positionOnView: {x: 300, y: 323}
   parent: {fileID: -2460846911446245876}
   children: []
+  _waypoints:
+  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
+  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!114 &8990855233797255142
 MonoBehaviour:
   m_ObjectHideFlags: 0

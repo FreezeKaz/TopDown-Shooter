@@ -13,6 +13,7 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
+            Debug.Log("jhjhjh");
             foreach (Node node in children)
             {
                 switch (node.Evaluate())
