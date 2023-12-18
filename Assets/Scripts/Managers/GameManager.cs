@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
         }
 
         // When the timer reaches zero, start the wave
-        Debug.Log("Wave started!");
         WaveGenerator.Instance.StartWave();
     }
     public void GameOver()

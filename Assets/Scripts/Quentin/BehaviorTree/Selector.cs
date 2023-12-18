@@ -11,6 +11,11 @@ namespace BehaviorTree
         public Selector() : base() { }
         public Selector(List<Node> children) : base(children) { }
 
+        private void Awake()
+        {
+            type = NodeType.VERIF;
+        }
+
         public override NodeState Evaluate()
         {
             Debug.Log("jhjhjh");

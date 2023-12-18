@@ -10,9 +10,18 @@ namespace BehaviorTree
         FAILURE
     }
 
+    public enum NodeType
+    {
+        TASK,
+        VERIF,
+    }
+
     public class Node : ScriptableObject
     {
         public string guid;
+
+        public Transform GO;
+        public NodeType type;
 
         protected NodeState state;
 

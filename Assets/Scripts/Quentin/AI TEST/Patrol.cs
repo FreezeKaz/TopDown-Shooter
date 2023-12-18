@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class Patrol : ActionNode
+    public class Patrol : Node
     {
 
 
@@ -21,9 +21,15 @@ namespace BehaviorTree
 
         public Patrol(GameObject gameObject, List<Transform> waypoints)
         {
-            _transform = GO.GetComponent<Transform>();          
+            _transform = GO.GetComponent<Transform>();   
+            
             _waypoints = waypoints;
             _rb = _transform.GetComponent<Rigidbody2D>();
+        }
+
+        private void Awake()
+        {
+            type = NodeType.TASK;
         }
 
         private void Init()
@@ -34,7 +40,8 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            if(_first)
+            Debug.Log(GO.name);
+            if (_first)
             {
                 Init();
             }

@@ -9,6 +9,11 @@ namespace BehaviorTree
         public Root() : base() { }
         public Root(List<Node> children) : base(children) { }
 
+
+        private void Awake()
+        {
+            type = NodeType.VERIF;
+        }
         public override NodeState Evaluate()
         {
             bool anyChildIsRunning = false;

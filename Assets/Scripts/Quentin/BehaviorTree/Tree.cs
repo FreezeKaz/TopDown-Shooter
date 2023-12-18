@@ -11,6 +11,7 @@ namespace BehaviorTree
         private void Start()
         {
             _root = SetupTree();
+            Debug.Log("qdf");
         }
 
         private void Update()
