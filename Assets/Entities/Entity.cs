@@ -37,7 +37,7 @@ public class Entity : MonoBehaviour
     private void initStats()
     {
         Stats = new Dictionary<Attribute, Stat<float>>();
-
+        float hp = Stats[Attribute.HP].Value;
         Stats[Attribute.HP] = new(stat.HP);
         Stats[Attribute.Attack] = new(stat.Attack);
         Stats[Attribute.FireRateRatio] = new(stat.FireRateRatio);
