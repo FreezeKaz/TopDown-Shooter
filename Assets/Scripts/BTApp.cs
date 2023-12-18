@@ -1,6 +1,7 @@
 using UnityEngine;
 using BehaviorTree;
-using Unity.VisualScripting;
+using UnityEditor;
+using System;
 
 public class BTApp : BehaviorTree.Tree
 {
@@ -33,4 +34,6 @@ public class BTApp : BehaviorTree.Tree
         applyChildren(root);
         return root;
     }
+    public CustomBTEditor blackboard = new CustomBTEditor();
+ 
 }

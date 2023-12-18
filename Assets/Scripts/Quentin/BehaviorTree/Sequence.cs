@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-
-
+using UnityEngine;
 namespace BehaviorTree
 {
     public class Sequence : Node
@@ -16,7 +15,7 @@ namespace BehaviorTree
         public override NodeState Evaluate()
         {
             bool anyChildIsRunning = false;
-
+            Debug.Log(children.Count);
             foreach(Node node in children)
             {
                 switch(node.Evaluate())
