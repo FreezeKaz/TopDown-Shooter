@@ -18,10 +18,7 @@ public class IdleState : State
 
     public override void Update()
     {
-        /*if (CanSeePlayer()) {
-            nextState = new PursueState(npc, anim, player);
-            stage = EVENT.EXIT;
-        }*/
+        Debug.Log("Idle\n");
     }
 
     public override void Exit()
