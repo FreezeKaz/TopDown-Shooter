@@ -80,13 +80,13 @@ public class WaveGenerator : MonoBehaviour
 
     private void SetDefaultPoolEnemy(GameObject myEnemy)
     {
-        //Destroy(myEnemy.GetComponent<IABT>());
-        Destroy(myEnemy.GetComponent<BaseEnemy>());
+        Destroy(myEnemy.GetComponent<IABT>());
+        //Destroy(myEnemy.GetComponent<BaseEnemy>());
         myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
         myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
         myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
-        //var newEnemyIA = myEnemy.AddComponent<IABT>();
-        var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
+        var newEnemyIA = myEnemy.AddComponent<IABT>();
+        //var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
 
         newEnemyIA.waypoints = WayPoints;
     }
