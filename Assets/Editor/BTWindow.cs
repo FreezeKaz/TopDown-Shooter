@@ -335,7 +335,11 @@ namespace BehaviorTree
 
         internal void PopulateView()
         {
-            if (file == null) BTSave = CreateInstance<BTSave>();
+            if (file == null)
+            {
+                BTSave = CreateInstance<BTSave>();
+                Debug.Log("File null");
+            }
             else BTSave = (file as BTSave).Clone();
 
             BTSave = file as BTSave;

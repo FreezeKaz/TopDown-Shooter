@@ -11,7 +11,10 @@ namespace BehaviorTree
         public NodeView InNode;
         public NodeView OutNode;
         public Action<Connection> OnRemove;
+        public Connection()
+        {
 
+        }
         public Connection(NodeView inNode, NodeView outNode, Action<Connection> onRemove)
         {
             InNode = inNode;

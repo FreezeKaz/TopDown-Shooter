@@ -34,6 +34,5 @@ public class BTApp : BehaviorTree.Tree
         applyChildren(root);
         return root;
     }
-    public CustomBTEditor blackboard = new CustomBTEditor();
  
 }

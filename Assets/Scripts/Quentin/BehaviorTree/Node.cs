@@ -32,6 +32,8 @@ namespace BehaviorTree
 
         private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
 
+        public int _executionOrder;
+
         public Node()
         {
             parent = null;

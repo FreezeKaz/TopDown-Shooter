@@ -14,7 +14,6 @@ namespace BehaviorTree
         public Root root;
         public List<Node> nodes = new List<Node>();
 
-
         public Node CreateNode(Type type)
         {
             Node node = CreateInstance(type) as Node;

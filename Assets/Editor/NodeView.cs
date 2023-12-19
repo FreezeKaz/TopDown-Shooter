@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BehaviorTree
 {
@@ -22,6 +23,9 @@ namespace BehaviorTree
         public Action<NodeView> OnClickUp;
         public Action<NodeView> OnRemoveNode;
         public Action<NodeView> OnDragNode;
+
+        public GUIStyle regularStyle;
+        public GUIStyle selectedStyle;
 
         public NodeView(Rect rect, ConnectionPoint inPoint, ConnectionPoint outPoint, Action<NodeView, ConnectionPointType> onClickConnectionPoint, Node node
             , Action<NodeView> OnClickNode, Action<NodeView> OnClickUp, Action<NodeView> OnRemoveNode, Action<NodeView> OnDragNode)
