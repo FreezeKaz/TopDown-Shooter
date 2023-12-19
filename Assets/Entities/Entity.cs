@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-
+  
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] public EntityStat stat;
+    
+    [SerializeField] public float HP;
+    [SerializeField] public float Attack;
+    [SerializeField] public float FireRateRatio;
+    [SerializeField] public float MoveSpeedRatio;
+    [SerializeField] public float XPGiven;
+
     [SerializeField] protected GameObject myParent;
     [SerializeField] protected UpgradeManager UpgradeManager;
 
@@ -42,10 +48,10 @@ public class Entity : MonoBehaviour
     private void initStats()
     {
         Stats = new Dictionary<Attribute, Stat<float>>();
-        Stats[Attribute.HP] = new(stat.HP);
-        Stats[Attribute.Attack] = new(stat.Attack);
-        Stats[Attribute.FireRateRatio] = new(stat.FireRateRatio);
-        Stats[Attribute.MoveSpeedRatio] = new(stat.MoveSpeedRatio);
+        Stats[Attribute.HP] = new(HP);
+        Stats[Attribute.Attack] = new(Attack);
+        Stats[Attribute.FireRateRatio] = new(FireRateRatio);
+        Stats[Attribute.MoveSpeedRatio] = new(MoveSpeedRatio);
 
         CurrentHP = Stats[Attribute.HP].Value;
 
