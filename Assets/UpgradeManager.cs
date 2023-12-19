@@ -13,18 +13,15 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] public Upgrade _playerUpgrade;
 
 
-    public void Awake()
+    public void Start()
     {
         _cardPanel.SetActive(false);
     }
     public void OnLevelUp()
     {
-      
-
         List<UpgradeSO> choosenUpgrades = SelectRandomItems(allUpgrades, 3);
         Debug.Log("dispalying");
         _cardPanel.SetActive(true);
-
 
         for (int i = 0; i < choosenUpgrades.Count; i++)
         {
@@ -39,10 +36,7 @@ public class UpgradeManager : MonoBehaviour
         _cardPanel.SetActive(false);
         Time.timeScale = 1.0f; //pause the game
     }
-    
+
     static List<T> SelectRandomItems<T>(List<T> list, int count)
-    {
-        List<T> shuffledList = list.OrderBy(x => Guid.NewGuid()).ToList();
-        return shuffledList.Take(count).ToList();
-    }
+        => list.OrderBy(x => Guid.NewGuid()).Take(count).ToList();
 }

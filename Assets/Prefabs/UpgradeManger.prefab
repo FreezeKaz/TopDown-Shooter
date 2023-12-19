@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e384601e2c5b9cc4c9c335cd49a2e371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPanel: {fileID: 701591972856565682}
+  _cardPanel: {fileID: 1350159495360763516}
   _cards:
   - {fileID: 5859685985813454940}
   - {fileID: 8251767107901613141}
@@ -816,7 +816,7 @@ MonoBehaviour:
   Description: {fileID: 6864728240920817226}
   Image: {fileID: 1272670989104846189}
   UpgradeManager: {fileID: 885285807824198566}
-  _upgradeData: {fileID: 11400000, guid: 11ca51be7f9ef89489d2f6b0a8137ff9, type: 2}
+  _upgradeData: {fileID: 11400000, guid: f320ed9565f7d1846bef7ffdb9c8a442, type: 2}
 --- !u!1 &4083232707174350778
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
   Description: {fileID: 7470018987422166179}
   Image: {fileID: 8279179198481042510}
   UpgradeManager: {fileID: 885285807824198566}
-  _upgradeData: {fileID: 11400000, guid: 04e679a2779baa94a9fab944a68b8b8d, type: 2}
+  _upgradeData: {fileID: 11400000, guid: 11ca51be7f9ef89489d2f6b0a8137ff9, type: 2}
 --- !u!1 &4413842558861849040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   Description: {fileID: 6864728240920817226}
   Image: {fileID: 6628722296857291994}
   UpgradeManager: {fileID: 885285807824198566}
-  _upgradeData: {fileID: 11400000, guid: f320ed9565f7d1846bef7ffdb9c8a442, type: 2}
+  _upgradeData: {fileID: 11400000, guid: 04e679a2779baa94a9fab944a68b8b8d, type: 2}
 --- !u!1 &5120088562024817545
 GameObject:
   m_ObjectHideFlags: 0
