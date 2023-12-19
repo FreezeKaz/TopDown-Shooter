@@ -37,7 +37,7 @@ public class Shooting : MonoBehaviour
            
             if (interval <= 0)
             {
-                interval = 1 / (fireRate / shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
+                interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
                 foreach (var index in currentWeapon.firePoints)
                 {
                     GameObject myBullet = BulletPoolManager.Instance.GetPoolObject();

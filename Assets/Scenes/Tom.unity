@@ -523,6 +523,14 @@ PrefabInstance:
       propertyPath: _playerUpgrade
       value: 
       objectReference: {fileID: 2946807848803416066}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: allUpgrades.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2324f0123aabbe74e9a8fce20ed4a8e5, type: 2}
     - target: {fileID: 1536187140906835760, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
       propertyPath: m_Name
       value: UpgradeManger (1)

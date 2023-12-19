@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody2D rgBd;
+    public Entity EntityStat;
     public float speed = 5f;
 
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext input)
     {
       
-        rgBd.velocity = input.ReadValue<Vector2>() * speed;
+        rgBd.velocity = input.ReadValue<Vector2>() * speed * EntityStat.Stats[Entity.Attribute.MoveSpeedRatio].Value;
     }
 
 }
