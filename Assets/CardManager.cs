@@ -13,17 +13,10 @@ public class CardManager : MonoBehaviour
     [SerializeField] public Image Image;
     [SerializeField] public UpgradeManager UpgradeManager;
 
-    public UpgradeSO _upgradeData;
+    private UpgradeSO _upgradeData;
 
 
-    public void OnEnable()
-    {
-        Debug.Log("I'm showing up");
-        Description.text = _upgradeData.Descritpion;
-        UpgradeName.text = _upgradeData.Name;
-        Image.sprite = _upgradeData.Image;
-    }
-
+    
     public void OnButtonClick()
     {
         
@@ -31,5 +24,16 @@ public class CardManager : MonoBehaviour
         UpgradeManager._playerUpgrade.upgradeData = _upgradeData;
         UpgradeManager._playerUpgrade.AddUpgrade();
         UpgradeManager.CardSelected();
+    }
+
+    public void SetData(UpgradeSO upgradeData)
+    {
+
+        _upgradeData = upgradeData;
+        UpgradeName.text = _upgradeData.Name;
+        Description.text = _upgradeData.Descritpion;
+
+        Debug.Log("setting data for " +  _upgradeData.Name);
+        Debug.Log(UpgradeName.text + Description.text);
     }
 }

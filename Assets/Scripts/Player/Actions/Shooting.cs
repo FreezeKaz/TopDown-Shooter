@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
 {
 
     [SerializeField] private AudioClip[] shootingSoundClips;
+    [SerializeField] private Entity shootingEntity;
     [SerializeField][Range(0, 1)] private float volumeSFX;
     [SerializeField][Range(7, 8)] private int shooter;
 
@@ -36,7 +37,7 @@ public class Shooting : MonoBehaviour
            
             if (interval <= 0)
             {
-                interval = 1 / fireRate;
+                interval = 1 / (fireRate / shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
                 foreach (var index in currentWeapon.firePoints)
                 {
                     GameObject myBullet = BulletPoolManager.Instance.GetPoolObject();
