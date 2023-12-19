@@ -24,6 +24,8 @@ public class UpgradeManager : MonoBehaviour
         List<UpgradeSO> choosenUpgrades = SelectRandomItems(allUpgrades, 3);
         Debug.Log("dispalying");
         _cardPanel.SetActive(true);
+
+
         for (int i = 0; i < choosenUpgrades.Count; i++)
         {
             _cards[i]._upgradeData = choosenUpgrades[i];

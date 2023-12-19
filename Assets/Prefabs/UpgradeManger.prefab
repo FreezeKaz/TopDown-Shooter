@@ -168,7 +168,7 @@ RectTransform:
   - {fileID: 7645183182854606475}
   - {fileID: 3484897495700249151}
   - {fileID: 1154655990073270564}
-  m_Father: {fileID: 2786457810694593392}
+  m_Father: {fileID: 6219169591494004635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -452,6 +452,38 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1350159495360763516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6219169591494004635}
+  m_Layer: 0
+  m_Name: Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6219169591494004635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350159495360763516}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.183821, y: 1.9169797, z: -1.9052452}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6538005876168333870}
+  m_Father: {fileID: 2786457810694593392}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1536187140906835760
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +514,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6538005876168333870}
+  - {fileID: 6219169591494004635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &885285807824198566
@@ -837,7 +869,7 @@ MonoBehaviour:
   Description: {fileID: 7470018987422166179}
   Image: {fileID: 8279179198481042510}
   UpgradeManager: {fileID: 885285807824198566}
-  _upgradeData: {fileID: 11400000, guid: f320ed9565f7d1846bef7ffdb9c8a442, type: 2}
+  _upgradeData: {fileID: 11400000, guid: 04e679a2779baa94a9fab944a68b8b8d, type: 2}
 --- !u!1 &4413842558861849040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1056,7 @@ MonoBehaviour:
   Description: {fileID: 6864728240920817226}
   Image: {fileID: 6628722296857291994}
   UpgradeManager: {fileID: 885285807824198566}
-  _upgradeData: {fileID: 11400000, guid: 04e679a2779baa94a9fab944a68b8b8d, type: 2}
+  _upgradeData: {fileID: 11400000, guid: f320ed9565f7d1846bef7ffdb9c8a442, type: 2}
 --- !u!1 &5120088562024817545
 GameObject:
   m_ObjectHideFlags: 0
