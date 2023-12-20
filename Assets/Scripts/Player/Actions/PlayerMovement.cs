@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody2D rgBd;
+    public Animator _animator;
     public Entity EntityStat;
     public float speed = 5f;
 
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
   
     public void Move(InputAction.CallbackContext input)
     {
-      
+        _animator.SetTrigger("isRunning");
         rgBd.velocity = input.ReadValue<Vector2>() * speed * EntityStat.Stats[Entity.Attribute.MoveSpeedRatio].Value;
     }
 
