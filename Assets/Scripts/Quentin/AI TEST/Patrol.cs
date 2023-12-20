@@ -33,11 +33,12 @@ namespace BehaviorTree
         {
             //_transform = GO.GetComponent<Transform>();
             _rb = transform.GetComponent<Rigidbody2D>();
+            Debug.Log("Je suis en Patrol sale fdp");
+
         }
 
         public override NodeState Evaluate()
         {
-            Debug.Log("Je suis en Patrol sale fdp");
 
             if (_first)
             {

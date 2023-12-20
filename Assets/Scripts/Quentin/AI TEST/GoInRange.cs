@@ -8,11 +8,15 @@ public class GoInRange : Node
 {
     private Rigidbody2D _rb;
     private EnemyManager _enemyManager;
-    bool one = true;
 
-    private void Awake()
+
+    public override void Init()
     {
         type = NodeType.TASK;
+        _rb = transform.GetComponent<Rigidbody2D>();
+        _enemyManager = transform.GetComponent<EnemyManager>();
+
+
     }
 
     public GoInRange(GameObject gameObject)
@@ -23,15 +27,9 @@ public class GoInRange : Node
     }
 
     public override NodeState Evaluate()
-    {
-        if(one)
-        {
-            _rb = transform.GetComponent<Rigidbody2D>();
-            _enemyManager = transform.GetComponent<EnemyManager>();
-            one = false;
-        }
-        Debug.Log("Je suis en GoInRange");
-        Transform target = (Transform)DataContext["target"];
+    {            
+
+        Transform target = (Transform)GetData(GOType.TARGET);
         //Debug.Log(Vector3.Distance(transform.position, target.position));
         Debug.Log(target);
 

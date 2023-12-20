@@ -6,27 +6,28 @@ namespace BehaviorTree
 {
     public class Root : Node
     {
-        public Root() : base() { 
-            _dataContext = new Dictionary<string, object>();
-        }
-        public Root(List<Node> children) : base(children) {
-            _dataContext = new Dictionary<string, object>();
-        }
-
-        bool one = false;
+        public Root() : base() {}
+        public Root(List<Node> children) : base(children) {}
 
         private void Awake()
         {
             type = NodeType.VERIF;
+            children.Sort(SortByOrder);
+            _dataContext = new Dictionary<GOType, object>();
+        }
+
+        public override void Init()
+        {
+            type = NodeType.VERIF;
+            children.Sort(SortByOrder);
+            _dataContext = new Dictionary<GOType, object>();
+            foreach (Node node in children)
+            {
+                node.Init();
+            }
         }
         public override NodeState Evaluate()
         {
-            //Debug.Log(GetData("target"));
-            if (!one)
-            {
-                children.Sort(SortByOrder);                
-                one = true;
-            }
 
             bool anyChildIsRunning = false;
 

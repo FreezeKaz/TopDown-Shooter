@@ -9,7 +9,7 @@ public class BTApp : BehaviorTree.Tree
     Node root;
     public static float speed = 1f;
     public static float fovRange = 15f;
-    public static float range = 15f;
+    public static float range = 30f;
     [HideInInspector] public List<Transform> waypoints;
 
     public void applyChildren(Node node)

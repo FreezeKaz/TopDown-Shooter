@@ -30,9 +30,15 @@ namespace BehaviorTree
         public Node parent;
         public List<Node> children = new List<Node>();
 
-        protected Dictionary<string, object> _dataContext;
+        protected Dictionary<GOType, object> _dataContext;
 
-        public Dictionary<string, object> DataContext => _dataContext == null ? parent.DataContext : _dataContext;
+        public enum GOType
+        {
+            TARGET = 0,
+            NONE = 1
+        }
+
+        public Dictionary<GOType, object> DataContext => _dataContext == null ? parent.DataContext : _dataContext;
 
         public int _executionOrder;
 
@@ -64,15 +70,18 @@ namespace BehaviorTree
         {
             return Instantiate(this);
         }
+        public virtual void Init()
+        {
 
+        }
         public virtual NodeState Evaluate() => NodeState.FAILURE;
 
-        public void SetData(string key, object value)
+        public void SetData(GOType key, object value)
         {
             DataContext[key] = value;
         }
 
-        public object GetData(string key)
+        public object GetData(GOType key)
         {
             object value = null;
 
@@ -87,7 +96,7 @@ namespace BehaviorTree
             return null;
         }
 
-        public bool ClearData(string key)
+        public bool ClearData(GOType key)
         {
             if (_dataContext.ContainsKey(key))
             {

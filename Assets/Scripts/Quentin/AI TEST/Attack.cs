@@ -14,12 +14,13 @@ public class Attack : ActionNode
     public GameObject bulletPrefab;
 
     private EnemyManager _enemyManager;
-    bool one = true;
 
-    private void Awake()
+
+    public override void Init()
     {
         type = NodeType.TASK;
-        
+        _enemyManager = transform.GetComponent<EnemyManager>();
+
     }
 
     public Attack(GameObject gameObject)
@@ -29,13 +30,10 @@ public class Attack : ActionNode
 
     public override NodeState Evaluate()
     {
-        if(one)
-        {
-            _enemyManager = transform.GetComponent<EnemyManager>();
-            one = false;
-        }
-        Debug.Log("Je suis en Attack");
-        Transform target = (Transform)DataContext["target"];
+
+   
+
+        Transform target = (Transform)GetData(GOType.TARGET);
         if (Vector3.Distance(transform.position, target.position) <= BTApp.range)
         {
             _enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();

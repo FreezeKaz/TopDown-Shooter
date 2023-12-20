@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.XR.OpenVR;
 using UnityEditor.Rendering;
 using UnityEngine;
 namespace BehaviorTree
@@ -9,21 +10,17 @@ namespace BehaviorTree
         public Sequence() : base() { }
         public Sequence(List<Node> children) : base(children) { }
 
-        bool one = true;
-
-        private void Awake()
+        public override void Init()
         {
             type = NodeType.VERIF;
+            children.Sort(SortByOrder);
+            foreach (Node node in children)
+            {
+                node.Init();
+            }
         }
-
         public override NodeState Evaluate()
         {
-            GetData("target");
-            if (one)
-            {
-                children.Sort(SortByOrder);
-                one = false;
-            }
             bool anyChildIsRunning = false;
             foreach(Node node in children)
             {

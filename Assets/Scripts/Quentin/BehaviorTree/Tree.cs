@@ -11,6 +11,7 @@ namespace BehaviorTree
         private void Start()
         {
             _root = SetupTree();
+            _root.Init();
         }
 
         private void Update()
