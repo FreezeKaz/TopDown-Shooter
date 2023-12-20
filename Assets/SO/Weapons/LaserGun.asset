@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   FireRate: 2
-  bullet: {fileID: 4607090301224169144, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+  bullet: {fileID: 784160622316908585, guid: 98422ea8775aec3449d1a04a9e8c9871, type: 3}
   Damage: 40
   bulletForce: 30
   firePoints: 00000000
