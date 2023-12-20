@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 namespace BehaviorTree
 {
@@ -8,7 +9,7 @@ namespace BehaviorTree
         public Sequence() : base() { }
         public Sequence(List<Node> children) : base(children) { }
 
-        bool one = false;
+        bool one = true;
 
         private void Awake()
         {
@@ -17,10 +18,11 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            if (!one)
+            Debug.Log(GetData("target"));
+            if (one)
             {
                 children.Sort(SortByOrder);
-                one = true;
+                one = false;
             }
             bool anyChildIsRunning = false;
             foreach(Node node in children)

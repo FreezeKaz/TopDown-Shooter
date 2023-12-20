@@ -15,7 +15,7 @@ public class CheckPlayerInRange : Node
         type = NodeType.TASK;
     }
 
-    public CheckPlayerInRange(GameObject gameObject)
+    public CheckPlayerInRange(GameObject gameObject) : base()
     {
         transform = gameObject.transform;
     }
@@ -23,11 +23,13 @@ public class CheckPlayerInRange : Node
     public override NodeState Evaluate()
     {
         Debug.Log("Je suis en CheckInRange sale fdp");
+        Debug.Log(GetData("target"));
+
         object t = GetData("target");
         if (t == null)
-        {   
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, BTApp.fovRange, _playerLayer, minDepth, maxDepth);            
-            
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, BTApp.fovRange, _playerLayer, minDepth, maxDepth);
+
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)
             {

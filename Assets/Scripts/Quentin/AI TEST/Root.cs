@@ -9,6 +9,7 @@ namespace BehaviorTree
         public Root() : base() { }
         public Root(List<Node> children) : base(children) { }
 
+        bool one = false;
 
         private void Awake()
         {
@@ -16,6 +17,13 @@ namespace BehaviorTree
         }
         public override NodeState Evaluate()
         {
+            //Debug.Log(GetData("target"));
+            if (!one)
+            {
+                children.Sort(SortByOrder);                
+                one = true;
+            }
+
             bool anyChildIsRunning = false;
 
             foreach (Node node in children)

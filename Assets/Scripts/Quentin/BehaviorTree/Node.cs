@@ -74,8 +74,10 @@ namespace BehaviorTree
         {
             object value = null;
 
-            //Debug.Log(key);
-            //Debug.Log(_dataContext[key]);
+            //if(_dataContext == null)
+            //    _dataContext = new Dictionary<string, object>();
+
+            //Debug.Log(_dataContext.Values);
 
             if (_dataContext.TryGetValue(key, out value))
                 return value;

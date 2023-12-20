@@ -18,7 +18,7 @@ MonoBehaviour:
   positionOnView: {x: 378, y: 362}
   parent: {fileID: -1441210594850847429}
   children: []
-  _executionOrder: 0
+  _executionOrder: 3
   attackTime: 0
   attackCounter: 0
   bulletPrefab: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   - {fileID: 504726965231291779}
   - {fileID: -151221826750325341}
   - {fileID: -8858238579055606534}
-  _executionOrder: 0
+  _executionOrder: 1
 --- !u!114 &-794611143813061209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   positionOnView: {x: 380, y: 241}
   parent: {fileID: -8397104472866332501}
   children: []
-  _executionOrder: 0
+  _executionOrder: 2
   _waypoints: []
 --- !u!114 &-151221826750325341
 MonoBehaviour:
@@ -103,7 +103,7 @@ MonoBehaviour:
   positionOnView: {x: 176, y: 362}
   parent: {fileID: -1441210594850847429}
   children: []
-  _executionOrder: 0
+  _executionOrder: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,4 +141,4 @@ MonoBehaviour:
   positionOnView: {x: -29, y: 363}
   parent: {fileID: -1441210594850847429}
   children: []
-  _executionOrder: 0
+  _executionOrder: 1
