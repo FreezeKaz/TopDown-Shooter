@@ -85,10 +85,12 @@ public class WaveGenerator : MonoBehaviour
         myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
         myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
         myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
+
         var newEnemyIA = myEnemy.AddComponent<IABT>();
+        newEnemyIA.waypoints = WayPoints;
         //var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
 
-        newEnemyIA.waypoints = WayPoints;
+
     }
     IEnumerator Spawn()
     {
