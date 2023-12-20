@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-  
+using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class Entity : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Entity : MonoBehaviour
 
     [SerializeField] protected GameObject myParent;
     [SerializeField] protected UpgradeManager UpgradeManager;
+
+    [SerializeField] UnityEvent _onTakeDamage;
 
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
@@ -75,6 +78,15 @@ public class Entity : MonoBehaviour
         Level++;
         UpgradeManager.OnLevelUp();
     }
+    
+    private void KillEnemy()
+    {
+        myParent.transform.GetChild(0).gameObject.SetActive(true);
+        myParent.SetActive(false);
+
+        GameManager.Instance.HandleEnemyDefeat(this);
+        WaveGenerator.Instance.TotalEnemies--;
+    }
 
     public void TakeDamage(int amount)
     {
@@ -85,9 +97,11 @@ public class Entity : MonoBehaviour
         {
             if(myParent.name != "Player")
             {
-                myParent.SetActive(false);
-                GameManager.Instance.HandleEnemyDefeat(this);
-                WaveGenerator.Instance.TotalEnemies--;
+                // enemy death
+                _onTakeDamage.Invoke();
+               // for (int i = 0; i < myParent.transform.childCount; i++)
+                   myParent.transform.GetChild(0).gameObject.SetActive(false);
+                Invoke("KillEnemy", 0.3f);
                 //GameOverFromGameInstance;
             }
             else
