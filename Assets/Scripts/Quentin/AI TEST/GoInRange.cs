@@ -31,7 +31,7 @@ public class GoInRange : Node
 
         Transform target = (Transform)GetData(GOType.TARGET);
         //Debug.Log(Vector3.Distance(transform.position, target.position));
-        Debug.Log(target);
+        //Debug.Log(target);
 
         if (target == null)
         {

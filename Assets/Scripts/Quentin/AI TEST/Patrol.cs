@@ -17,21 +17,16 @@ namespace BehaviorTree
         private bool _waiting = false;
         private bool _first = true;
 
-        public Patrol(GameObject gameObject, List<Transform> waypoints)
-        {
-            
-            _waypoints = waypoints;
-            _rb = transform.GetComponent<Rigidbody2D>();
-        }
+        public Patrol(GameObject gameObject, List<Transform> waypoints) { }
+        
 
         private void Awake()
         {
-            type = NodeType.TASK;
         }
 
-        private void Init()
+        public override void Init()
         {
-            //_transform = GO.GetComponent<Transform>();
+            type = NodeType.TASK;
             _rb = transform.GetComponent<Rigidbody2D>();
             Debug.Log("Je suis en Patrol sale fdp");
 
@@ -39,12 +34,6 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-
-            if (_first)
-            {
-                Init();
-            }
-            _first = true;
             if (_waiting)
             {
                 _waitCounter += Time.deltaTime;
