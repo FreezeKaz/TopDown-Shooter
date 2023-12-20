@@ -29,7 +29,7 @@ namespace BehaviorTree
                 root = node as Root;
             }
 
-            EditorUtility.SetDirty(this);
+            EditorUtility.SetDirty(this); 
             AssetDatabase.SaveAssets();
             //Debug.Log(nodes[0]);
             return node;
