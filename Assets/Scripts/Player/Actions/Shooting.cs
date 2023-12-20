@@ -15,7 +15,7 @@ public class Shooting : MonoBehaviour
 
     public FirePoints firePoint;
     public Weapon currentWeapon;
-    private BulletSO bullet;
+    private GameObject prefabBullet;
 
     private float fireRate;
     private float interval;
@@ -23,9 +23,9 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bullet = currentWeapon.bullet;
+        prefabBullet = currentWeapon.bullet;
         fireRate = currentWeapon.FireRate;
-        interval = 1f / fireRate;
+        interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
     }
 
 
@@ -40,10 +40,9 @@ public class Shooting : MonoBehaviour
                 interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
                 foreach (var index in currentWeapon.firePoints)
                 {
-                    GameObject myBullet = BulletPoolManager.Instance.GetPoolObject();
-                    myBullet.SetActive(true);
+                    GameObject myBullet = EnemyPoolManager.Instance.GetPoolObject(prefabBullet.name);
                     myBullet.transform.position = firePoint.points[index].transform.position;
-                    myBullet.transform.localScale = new Vector3(bullet.scale, bullet.scale, bullet.scale);
+                    myBullet.SetActive(true);
                     myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.points[index].transform.up * currentWeapon.bulletForce, ForceMode2D.Impulse);
                     myBullet.GetComponent<BulletDamage>().damage = currentWeapon.Damage;
                     myBullet.layer = shooter;
@@ -79,7 +78,7 @@ public class Shooting : MonoBehaviour
     public void ChangeWeapon(Weapon newWeapon)
     {
         currentWeapon = newWeapon;
-        bullet = currentWeapon.bullet;
+        prefabBullet = currentWeapon.bullet;
         fireRate = currentWeapon.FireRate;
         interval = 1f / fireRate;
     }
