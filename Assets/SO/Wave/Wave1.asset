@@ -21,8 +21,10 @@ MonoBehaviour:
   enemiesInWave:
   - enemyUsed: {fileID: 5295143098812091305, guid: 4389ec1db6fe44c48adae9bc0627d5b7, type: 3}
     numberOfEnemies: 10
-  - enemyUsed: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
-    numberOfEnemies: 5
+  - enemyUsed: {fileID: 1406699763684350079, guid: 7a0a5a8595924ab4db57a88150e31aae, type: 3}
+    numberOfEnemies: 10
+  - enemyUsed: {fileID: 908179511781199073, guid: a05e81d70baf5e34493fa8cf473b30c4, type: 3}
+    numberOfEnemies: 10
   SpawnDelay: 1
   TimeToClearAfterEverythingSpawn: 5
   BossRoom: 0

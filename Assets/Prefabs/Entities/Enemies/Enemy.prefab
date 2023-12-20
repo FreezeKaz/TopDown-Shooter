@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingSoundClips: []
   shootingEntity: {fileID: 6307414538515139123}
+  _animator: {fileID: 0}
   volumeSFX: 0
   shooter: 8
   firePoint: {fileID: 7243892082627063410}
