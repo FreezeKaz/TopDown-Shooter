@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField][Range(0, 1)] private float volumeSFX;
     [SerializeField][Range(7, 8)] private int shooter;
+    [SerializeField] private AudioSource audioSource;
 
     public FirePoints firePoint;
     public Weapon currentWeapon;
@@ -21,6 +23,7 @@ public class Shooting : MonoBehaviour
     private float fireRate;
     private float interval;
     private bool _shooting = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +86,11 @@ public class Shooting : MonoBehaviour
     }
     public void ChangeWeapon(Weapon newWeapon)
     {
+        if (shootingSoundClips.Length > 1)
+        {
+            audioSource.clip = shootingSoundClips[1];
+            audioSource.Play();
+        }
         currentWeapon = newWeapon;
         prefabBullet = currentWeapon.bullet;
         fireRate = currentWeapon.FireRate;
