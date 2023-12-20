@@ -41,12 +41,16 @@ public class Shooting : MonoBehaviour
                 interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
                 foreach (var index in currentWeapon.firePoints)
                 {
+                    
                     GameObject myBullet = EnemyPoolManager.Instance.GetPoolObject(prefabBullet.name);
+                    Rigidbody2D rigidBody = myBullet.GetComponent<Rigidbody2D>();
                     myBullet.transform.position = firePoint.points[index].transform.position;
                     myBullet.SetActive(true);
-                    myBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.points[index].transform.up * currentWeapon.bulletForce, ForceMode2D.Impulse);
+                    rigidBody.AddForce(firePoint.points[index].transform.up * currentWeapon.bulletForce, ForceMode2D.Impulse);
                     myBullet.GetComponent<BulletDamage>().damage = currentWeapon.Damage;
                     myBullet.layer = shooter;
+                    float angulo = Mathf.Atan2(rigidBody.velocity.y, rigidBody.velocity.x) * Mathf.Rad2Deg;
+                    myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
                 }
 
                 //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
