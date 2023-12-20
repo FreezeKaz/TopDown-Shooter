@@ -51,6 +51,7 @@ public class EnemyPoolManager : MonoBehaviour
                 GameObject enemy = Instantiate(pool.prefab, transform);
                 enemy.name = pool.name;
                 gameObjectList.name = enemy.name;
+                gameObjectList.prefab = pool.prefab;
                 enemy.SetActive(false);
                 gameObjectList.gameObjects.Add(enemy);
             }
@@ -61,18 +62,21 @@ public class EnemyPoolManager : MonoBehaviour
 
     public GameObject GetPoolObject(string name)
     {
+
         foreach(GameObject gameObject in findGoodPool(name).gameObjects)
         {
             if (!gameObject.activeInHierarchy)
             {
                 return gameObject;
             }
+
         }
+
         GameObject newEnemy = Instantiate(findGoodPool(name).prefab, transform);
         newEnemy.SetActive(false);
         findGoodPool(name).gameObjects.Add(newEnemy);
-
         return newEnemy;
+
     }
 
     public GameObjectPools findGoodPool(string name)
