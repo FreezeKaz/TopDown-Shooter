@@ -22,8 +22,8 @@ public class CheckPlayerInRange : Node
 
     public override NodeState Evaluate()
     {
-        Debug.Log("Je suis en CheckInRange sale fdp");
-        Debug.Log(GetData("target"));
+        //Debug.Log("Je suis en CheckInRange sale fdp");
+        //Debug.Log(GetData("target"));
 
         object t = GetData("target");
         if (t == null)

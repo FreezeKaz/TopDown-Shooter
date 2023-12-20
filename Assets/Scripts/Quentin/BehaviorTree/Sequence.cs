@@ -18,7 +18,7 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            Debug.Log(GetData("target"));
+            GetData("target");
             if (one)
             {
                 children.Sort(SortByOrder);

@@ -14,22 +14,29 @@ public class Attack : ActionNode
     public GameObject bulletPrefab;
 
     private EnemyManager _enemyManager;
+    bool one = true;
 
     private void Awake()
     {
         type = NodeType.TASK;
+        
     }
 
     public Attack(GameObject gameObject)
     {
         transform = gameObject.transform;
-        _enemyManager = transform.GetComponent<EnemyManager>(); 
-        _rb = transform.GetComponent<Rigidbody2D>();
+        
     }
 
     public override NodeState Evaluate()
     {
-        Debug.Log("Je suis en Attack sale fdp");
+        if(one)
+        {
+            _enemyManager = transform.GetComponent<EnemyManager>();
+            _rb = transform.GetComponent<Rigidbody2D>();
+            one = false;
+        }
+        //Debug.Log("Je suis en Attack sale fdp");
         Transform target = (Transform)GetData("target");
         if (Vector3.Distance(transform.position, target.position) <= BTApp.range)
         {

@@ -23,7 +23,7 @@ public class GoInRange : Node
 
     public override NodeState Evaluate()
     {
-        Debug.Log("Je suis en GoInRange sale fdp");
+        //Debug.Log("Je suis en GoInRange sale fdp");
         Transform target = (Transform)GetData("target");
         if (target == null)
         {
