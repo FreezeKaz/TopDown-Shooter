@@ -6,8 +6,12 @@ namespace BehaviorTree
 {
     public class Root : Node
     {
-        public Root() : base() { }
-        public Root(List<Node> children) : base(children) { }
+        public Root() : base() { 
+            _dataContext = new Dictionary<string, object>();
+        }
+        public Root(List<Node> children) : base(children) {
+            _dataContext = new Dictionary<string, object>();
+        }
 
         bool one = false;
 

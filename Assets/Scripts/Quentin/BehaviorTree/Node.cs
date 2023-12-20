@@ -30,7 +30,9 @@ namespace BehaviorTree
         public Node parent;
         public List<Node> children = new List<Node>();
 
-        private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
+        protected Dictionary<string, object> _dataContext;
+
+        public Dictionary<string, object> DataContext => _dataContext == null ? parent.DataContext : _dataContext;
 
         public int _executionOrder;
 
@@ -77,19 +79,11 @@ namespace BehaviorTree
             //if(_dataContext == null)
             //    _dataContext = new Dictionary<string, object>();
 
-            //Debug.Log(_dataContext.Values);
+            //Debug.Log(_dataContext.Count);
 
-            if (_dataContext.TryGetValue(key, out value))
+            if (DataContext.TryGetValue(key, out value))
                 return value;
 
-            Node node = parent;
-            while (node != null)
-            {
-                value = node.GetData(key);
-                if(value != null) 
-                    return value;
-                node = node.parent;
-            }
             return null;
         }
 
