@@ -1,14 +1,16 @@
 using UnityEngine;
 using BehaviorTree;
-using UnityEditor;
-using System;
+using System.Collections.Generic;
 
 public class BTApp : BehaviorTree.Tree
 {
     [SerializeField] private BTSave _save;
     public Transform GO;
     Node root;
-    //public Transform[] waypoints;
+    public static float speed = 2f;
+    public static float fovRange = 15f;
+    public static float range = 15f;
+    public List<Transform> waypoints;
 
     public void applyChildren(Node node)
     {

@@ -500,6 +500,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 5295143098812091305, guid: 4389ec1db6fe44c48adae9bc0627d5b7, type: 3}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[0].name
+      value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[1].name
+      value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[2].name
+      value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 5295143098812091305, guid: 4389ec1db6fe44c48adae9bc0627d5b7, type: 3}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 4607090301224169144, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[0].poolSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[1].poolSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073719567424235699, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
+      propertyPath: pools.Array.data[2].poolSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4369823471172221661, guid: 3e6f05441fe7cac49833c0a69f001ded, type: 3}
       propertyPath: m_Name
       value: EnemyPool

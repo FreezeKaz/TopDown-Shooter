@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
 
     public void HandleEnemyDefeat(Entity enemyDefeated)
     {
-        Player.XP += enemyDefeated.stat.XPGiven;
-        Debug.Log("I win " + enemyDefeated.stat.XPGiven + "XP");
+        Player.XP += (int)enemyDefeated.XPGiven;
+        Debug.Log("I win " + enemyDefeated.XPGiven + "XP");
     }
     public void GameOver()
     {

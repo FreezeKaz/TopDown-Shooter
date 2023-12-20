@@ -780,7 +780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07cf630d6572514f9f92226aee6c714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: eee521b6373920b4390ee0d6505867f1, type: 2}
+  HP: 300
+  Attack: 1
+  FireRateRatio: 1
+  MoveSpeedRatio: 1
+  XPGiven: 0
   myParent: {fileID: 2217757127003541112}
   UpgradeManager: {fileID: 0}
 --- !u!1 &6852050820559140121
