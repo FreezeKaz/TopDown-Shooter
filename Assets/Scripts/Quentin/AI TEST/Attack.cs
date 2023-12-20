@@ -36,7 +36,7 @@ public class Attack : ActionNode
             _rb = transform.GetComponent<Rigidbody2D>();
             one = false;
         }
-        //Debug.Log("Je suis en Attack sale fdp");
+        Debug.Log("Je suis en Attack");
         Transform target = (Transform)GetData("target");
         if (Vector3.Distance(transform.position, target.position) <= BTApp.range)
         {

@@ -8,6 +8,7 @@ public class GoInRange : Node
 {
     private Rigidbody2D _rb;
     private EnemyManager _enemyManager;
+    bool one = true;
 
     private void Awake()
     {
@@ -23,8 +24,14 @@ public class GoInRange : Node
 
     public override NodeState Evaluate()
     {
-        //Debug.Log("Je suis en GoInRange sale fdp");
-        Transform target = (Transform)GetData("target");
+        if(one)
+        {
+            _rb = transform.GetComponent<Rigidbody2D>();
+            _enemyManager = transform.GetComponent<EnemyManager>();
+            one = false;
+        }
+        Debug.Log("Je suis en GoInRange");
+        Transform target = (Transform)DataContext["target"];
         if (target == null)
         {
             state = NodeState.FAILURE;
@@ -32,6 +39,7 @@ public class GoInRange : Node
         }
         if (Vector3.Distance(transform.position, target.position) > BTApp.range)
         {
+            Debug.Log("uwu");
             _enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
             _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
