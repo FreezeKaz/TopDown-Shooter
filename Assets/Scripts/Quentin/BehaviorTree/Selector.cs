@@ -11,18 +11,21 @@ namespace BehaviorTree
         public Selector() : base() { }
         public Selector(List<Node> children) : base(children) { }
 
+        bool one = false;
+
         private void Awake()
         {
             type = NodeType.VERIF;
         }
 
-        private void Start()
-        {
-            children.Sort();
-        }
 
         public override NodeState Evaluate()
         {
+            if (!one)
+            {               
+                children.Sort(SortByOrder);
+                one = true;
+            }
             foreach (Node node in children)
             {
                 switch (node.Evaluate())

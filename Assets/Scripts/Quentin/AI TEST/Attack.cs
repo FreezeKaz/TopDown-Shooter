@@ -29,7 +29,7 @@ public class Attack : ActionNode
 
     public override NodeState Evaluate()
     {
-
+        Debug.Log("Je suis en Attack sale fdp");
         Transform target = (Transform)GetData("target");
         if (Vector3.Distance(transform.position, target.position) <= BTApp.range)
         {

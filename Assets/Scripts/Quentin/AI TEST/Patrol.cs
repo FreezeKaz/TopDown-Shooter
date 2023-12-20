@@ -37,6 +37,8 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
+            Debug.Log("Je suis en Patrol sale fdp");
+
             if (_first)
             {
                 Init();

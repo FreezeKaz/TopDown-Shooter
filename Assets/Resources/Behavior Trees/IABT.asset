@@ -18,10 +18,10 @@ MonoBehaviour:
   positionOnView: {x: 701, y: 287}
   parent: {fileID: 5623323381277330000}
   children: []
-  _executionOrder: 5
+  _executionOrder: 3
   attackTime: 0
   attackCounter: 0
-  bulletPrefab: {fileID: 4607090301224169144, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+  bulletPrefab: {fileID: 0}
 --- !u!114 &-8497837777920079987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   positionOnView: {x: 509, y: 286}
   parent: {fileID: 5623323381277330000}
   children: []
-  _executionOrder: 4
+  _executionOrder: 2
 --- !u!114 &-4070178240203877831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   positionOnView: {x: 324, y: 288}
   parent: {fileID: 5623323381277330000}
   children: []
-  _executionOrder: 3
+  _executionOrder: 1
 --- !u!114 &-1064333306752454082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   positionOnView: {x: 294, y: 179}
   parent: {fileID: 1943648832816905449}
   children: []
-  _executionOrder: 1
+  _executionOrder: 2
   _waypoints:
   - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
   - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
@@ -143,4 +143,4 @@ MonoBehaviour:
   - {fileID: -4070178240203877831}
   - {fileID: -8497837777920079987}
   - {fileID: -9061037942864710638}
-  _executionOrder: 2
+  _executionOrder: 1

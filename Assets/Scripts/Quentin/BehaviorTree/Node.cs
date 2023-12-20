@@ -74,6 +74,9 @@ namespace BehaviorTree
         {
             object value = null;
 
+            //Debug.Log(key);
+            //Debug.Log(_dataContext[key]);
+
             if (_dataContext.TryGetValue(key, out value))
                 return value;
 
@@ -110,6 +113,11 @@ namespace BehaviorTree
         public virtual void CopyData(Node source)
         {
             positionOnView = source.positionOnView;
+        }
+
+        public int SortByOrder(Node n1, Node n2)
+        {
+            return n1._executionOrder.CompareTo(n2._executionOrder);
         }
     }
 }

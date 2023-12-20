@@ -44,9 +44,7 @@ public class WaveGenerator : MonoBehaviour
         {
             waveState[element.enemyUsed.name] = element.numberOfEnemies;   
         }
-        Debug.Log(TotalEnemies + " + " + waveState.Values.Sum());
         TotalEnemies += waveState.Values.Sum();
-        Debug.Log(TotalEnemies);
     }
 
     public void StartWave()
@@ -59,7 +57,7 @@ public class WaveGenerator : MonoBehaviour
     {
         foreach (int index in waveState.Values)
         {
-            Debug.Log("there's " + index + "left of ennemies type ");
+            //Debug.Log("there's " + index + "left of ennemies type ");
         }
         return waveState.Values.All(item => item == 0);
     }

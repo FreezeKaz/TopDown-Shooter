@@ -8,20 +8,21 @@ namespace BehaviorTree
         public Sequence() : base() { }
         public Sequence(List<Node> children) : base(children) { }
 
+        bool one = false;
+
         private void Awake()
         {
             type = NodeType.VERIF;
         }
 
-        private void Start()
-        {
-            children.Sort();
-        }
-
         public override NodeState Evaluate()
         {
+            if (!one)
+            {
+                children.Sort(SortByOrder);
+                one = true;
+            }
             bool anyChildIsRunning = false;
-            Debug.Log(children.Count);
             foreach(Node node in children)
             {
                 switch(node.Evaluate())
