@@ -44,7 +44,9 @@ public class WaveGenerator : MonoBehaviour
         {
             waveState[element.enemySO.enemyName] = element.numberOfEnemies;
         }
+        Debug.Log(TotalEnemies + " + " + waveState.Values.Sum());
         TotalEnemies += waveState.Values.Sum();
+        Debug.Log(TotalEnemies);
     }
 
     public void StartWave()
@@ -57,7 +59,7 @@ public class WaveGenerator : MonoBehaviour
     {
         foreach (int index in waveState.Values)
         {
-            //Debug.Log("there's " + index + "left of ennemies type ");
+            Debug.Log("there's " + index + "left of ennemies type ");
         }
         return waveState.Values.All(item => item == 0);
     }
@@ -78,15 +80,17 @@ public class WaveGenerator : MonoBehaviour
 
     private void SetDefaultPoolEnemy(GameObject myEnemy)
     {
-        //Destroy(myEnemy.GetComponent<IABT>());
+        Destroy(myEnemy.GetComponent<IABT>());
         //Destroy(myEnemy.GetComponent<BaseEnemy>());
         myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
         myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
         myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
-        //var newEnemyIA = myEnemy.AddComponent<IABT>();
+
+        var newEnemyIA = myEnemy.AddComponent<IABT>();
+        newEnemyIA.waypoints = WayPoints;
         //var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
 
-        //newEnemyIA.waypoints = WayPoints;
+
     }
     IEnumerator Spawn()
     {

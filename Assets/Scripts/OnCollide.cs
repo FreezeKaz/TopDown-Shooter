@@ -6,6 +6,7 @@ using UnityEngine;
 public class OnCollide : MonoBehaviour
 {
     [SerializeField] private Entity entity;
+    [SerializeField] private Entity myPlayerEntity;
     private void Awake()
     {
         Physics2D.IgnoreLayerCollision(6, 7);
@@ -16,7 +17,7 @@ public class OnCollide : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
            BulletDamage bulletInfo = collision.gameObject.GetComponent<BulletDamage>();
-           entity.TakeDamage((int)bulletInfo.damage); 
+           entity.TakeDamage((int)bulletInfo.damage);
         }
     }
 }

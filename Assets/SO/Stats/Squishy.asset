@@ -16,3 +16,4 @@ MonoBehaviour:
   MoveSpeedRatio: 2
   FireRateRatio: 1
   Attack: 1
+  XPGiven: 60
