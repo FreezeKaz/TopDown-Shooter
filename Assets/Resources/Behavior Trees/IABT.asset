@@ -21,8 +21,7 @@ MonoBehaviour:
   _executionOrder: 5
   attackTime: 0
   attackCounter: 0
-  bulletPrefab: {fileID: 0}
-  _enemyManager: {fileID: 0}
+  bulletPrefab: {fileID: 4607090301224169144, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
 --- !u!114 &-8497837777920079987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +79,9 @@ MonoBehaviour:
   parent: {fileID: 1943648832816905449}
   children: []
   _executionOrder: 1
-  _waypoints: []
+  _waypoints:
+  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
+  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
