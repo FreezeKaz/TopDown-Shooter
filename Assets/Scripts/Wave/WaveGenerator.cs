@@ -42,7 +42,7 @@ public class WaveGenerator : MonoBehaviour
         waveState = new Dictionary<string, int>();
         foreach (var element in waveData.enemiesInWave)
         {
-            waveState[element.enemySO.enemyName] = element.numberOfEnemies;
+            waveState[element.enemyUsed.name] = element.numberOfEnemies;   
         }
         Debug.Log(TotalEnemies + " + " + waveState.Values.Sum());
         TotalEnemies += waveState.Values.Sum();
@@ -73,7 +73,7 @@ public class WaveGenerator : MonoBehaviour
         } while (waveState[mobToSpawn] == 0);
         waveState[mobToSpawn]--;
 
-        GameObject myEnemy = EnemyPoolManager.Instance.GetPoolObject();
+        GameObject myEnemy = EnemyPoolManager.Instance.GetPoolObject(mobToSpawn);
         myEnemy.SetActive(true);
         SetDefaultPoolEnemy(myEnemy);
     }
@@ -83,9 +83,6 @@ public class WaveGenerator : MonoBehaviour
         Destroy(myEnemy.GetComponent<IABT>());
         //Destroy(myEnemy.GetComponent<BaseEnemy>());
         myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
-        myEnemy.GetComponent<EnemyManager>().SetStats(waveData.enemiesInWave[indexOfEnemy].enemySO.stats);
-        myEnemy.GetComponent<EnemyManager>().SetWeapon(waveData.enemiesInWave[indexOfEnemy].enemySO.weapon);
-
         var newEnemyIA = myEnemy.AddComponent<IABT>();
         newEnemyIA.waypoints = WayPoints;
         //var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
