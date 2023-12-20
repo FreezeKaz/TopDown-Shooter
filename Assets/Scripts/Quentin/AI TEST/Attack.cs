@@ -25,7 +25,6 @@ public class Attack : ActionNode
     public Attack(GameObject gameObject)
     {
         transform = gameObject.transform;
-        
     }
 
     public override NodeState Evaluate()

@@ -824,7 +824,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      swampObjects__0: 4295470448012708993
+      swampObjects__1: -1526508254349946853
+      swampObjects__10: -4488780023890690911
+      swampObjects__11: 5812964649859718422
+      swampObjects__12: -8070616117877587359
+      swampObjects__13: -4411929164118716191
+      swampObjects__14: -6909740064219619272
+      swampObjects__15: -9213044214920508196
+      swampObjects__16: 5472245531963961718
+      swampObjects__17: -1078257815799941370
+      swampObjects__18: 9184924407714674540
+      swampObjects__19: 3038325633511802945
+      swampObjects__2: -3740661475542879801
+      swampObjects__20: 2494544423319733115
+      swampObjects__21: 5823055816917579664
+      swampObjects__22: 7893208739722641260
+      swampObjects__23: -1486325183183916315
+      swampObjects__24: 2376807663000516783
+      swampObjects__25: 4478454016813430304
+      swampObjects__26: -5027610906843281650
+      swampObjects__27: 3970743625511622541
+      swampObjects__28: -2935520341834910761
+      swampObjects__29: -2955837572018051307
+      swampObjects__3: 3619582194374225408
+      swampObjects__4: 7140858718357456220
+      swampObjects__5: 9192794620416753771
+      swampObjects__6: 4438956383402439633
+      swampObjects__7: -405650165205240517
+      swampObjects__8: -8431174014315984409
+      swampObjects__9: -768653333561834372
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

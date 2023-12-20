@@ -392,7 +392,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      swampStructures_ [fountainPortalBridge]_0: 2693773808595881797
+      swampStructures_ [fountainPortalBridge]_1: -6986943682149191109
+      swampStructures_ [fountainPortalBridge]_10: -704527750584257218
+      swampStructures_ [fountainPortalBridge]_11: -1773896956128692558
+      swampStructures_ [fountainPortalBridge]_2: -2025199772123259081
+      swampStructures_ [fountainPortalBridge]_3: -6335700602070292428
+      swampStructures_ [fountainPortalBridge]_4: 6575709377648657444
+      swampStructures_ [fountainPortalBridge]_5: 802707654919798537
+      swampStructures_ [fountainPortalBridge]_6: -205975386726103762
+      swampStructures_ [fountainPortalBridge]_7: -309773793343112817
+      swampStructures_ [fountainPortalBridge]_8: -5834495310216604945
+      swampStructures_ [fountainPortalBridge]_9: -1296991505304639520
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

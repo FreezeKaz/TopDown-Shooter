@@ -368,7 +368,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      puddleObjects__0: 4134692146901334624
+      puddleObjects__1: 5416643184056656279
+      puddleObjects__10: 3482880658694672305
+      puddleObjects__2: -8516336030634157276
+      puddleObjects__3: 3467407027962728435
+      puddleObjects__4: 577837880790744069
+      puddleObjects__5: 5713362050864703446
+      puddleObjects__6: -3832392442024979405
+      puddleObjects__7: -1621410333179017500
+      puddleObjects__8: -3429000356072495459
+      puddleObjects__9: 9060165035078213082
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

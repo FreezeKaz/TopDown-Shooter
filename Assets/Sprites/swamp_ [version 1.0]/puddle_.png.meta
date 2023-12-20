@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      puddle__0: 7113062769630367946
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

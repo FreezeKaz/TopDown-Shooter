@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      swampStructures_ [bridgeAnimations]_0: 6993545846967874380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

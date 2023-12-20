@@ -368,7 +368,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      swampStructures_ [fenceGate]_0: 6163461749074857066
+      swampStructures_ [fenceGate]_1: 721139488124337709
+      swampStructures_ [fenceGate]_10: 2247723775135676353
+      swampStructures_ [fenceGate]_2: 5772267504267074802
+      swampStructures_ [fenceGate]_3: 1793698554074038007
+      swampStructures_ [fenceGate]_4: 6840088025766037468
+      swampStructures_ [fenceGate]_5: -6061428142499125502
+      swampStructures_ [fenceGate]_6: 7175658848378192682
+      swampStructures_ [fenceGate]_7: 4822891159997189052
+      swampStructures_ [fenceGate]_8: 7651148436064066866
+      swampStructures_ [fenceGate]_9: 7400134151947093348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
