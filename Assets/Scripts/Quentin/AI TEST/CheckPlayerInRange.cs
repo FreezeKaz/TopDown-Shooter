@@ -25,7 +25,7 @@ public class CheckPlayerInRange : Node
         object t = GetData("target");
         if (t == null)
         {   
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, IABT.fovRange, _playerLayer, minDepth, maxDepth);            
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, BTApp.fovRange, _playerLayer, minDepth, maxDepth);            
             
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)

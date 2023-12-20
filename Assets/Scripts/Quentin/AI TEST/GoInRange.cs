@@ -29,12 +29,12 @@ public class GoInRange : Node
             state = NodeState.FAILURE;
             return state;
         }
-        if (Vector3.Distance(transform.position, target.position) > IABT.range)
+        if (Vector3.Distance(transform.position, target.position) > BTApp.range)
         {
             _enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
             _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
-            transform.position = Vector3.MoveTowards(transform.position, target.position, IABT.speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, BTApp.speed * Time.deltaTime);
             state = NodeState.SUCCESS;
             return state;
         }
