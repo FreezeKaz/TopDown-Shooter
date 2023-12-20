@@ -10,6 +10,7 @@ public class Shooting : MonoBehaviour
 
     [SerializeField] private AudioClip[] shootingSoundClips;
     [SerializeField] private Entity shootingEntity;
+    [SerializeField] private Animator _animator;
     [SerializeField][Range(0, 1)] private float volumeSFX;
     [SerializeField][Range(7, 8)] private int shooter;
 
@@ -57,23 +58,24 @@ public class Shooting : MonoBehaviour
     }
     public void EnableShoot(InputAction.CallbackContext input)
     {
+        _animator.SetTrigger("isShooting");
         StartShooting();
     }
     
     public void DisableShoot(InputAction.CallbackContext input)
     {
+        _animator.ResetTrigger("isShooting");
+        _animator.ResetTrigger("isIdle");
         StopShooting(); //only for input
     }
 
     public void StartShooting()
     {
         _shooting = true;
-
     }
     public void StopShooting()
     {
         _shooting = false;
-
     }
     public void ChangeWeapon(Weapon newWeapon)
     {

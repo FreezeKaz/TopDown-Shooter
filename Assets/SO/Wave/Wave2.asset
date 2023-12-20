@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerUsed: []
   enemiesInWave:
-  - enemySO: {fileID: 11400000, guid: 605f59d566334ae4c89f9c6f2ed397aa, type: 2}
-    numberOfEnemies: 2
-  SpawnDelay: 5
+  - enemyUsed: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
+    numberOfEnemies: 5
+  SpawnDelay: 2
   TimeToClearAfterEverythingSpawn: 5
   BossRoom: 0
