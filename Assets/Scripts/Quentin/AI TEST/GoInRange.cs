@@ -33,6 +33,7 @@ public class GoInRange : Node
         Debug.Log("Je suis en GoInRange");
         Transform target = (Transform)DataContext["target"];
         //Debug.Log(Vector3.Distance(transform.position, target.position));
+        Debug.Log(target);
 
         if (target == null)
         {

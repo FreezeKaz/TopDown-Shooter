@@ -69,7 +69,7 @@ namespace BehaviorTree
 
         public void SetData(string key, object value)
         {
-            _dataContext[key] = value;
+            DataContext[key] = value;
         }
 
         public object GetData(string key)

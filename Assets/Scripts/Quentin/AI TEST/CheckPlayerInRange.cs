@@ -22,7 +22,7 @@ public class CheckPlayerInRange : Node
 
     public override NodeState Evaluate()
     {
-        //Debug.Log("Je suis en CheckInRange sale fdp");
+        Debug.Log("Je suis en CheckInRange");
         //Debug.Log(GetData("target"));
 
         object t = GetData("target");
@@ -33,7 +33,8 @@ public class CheckPlayerInRange : Node
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)
             {
-                parent.parent.SetData("target", colliders[0].transform);
+
+                SetData("target", colliders[0].transform);
                 state = NodeState.SUCCESS;
                 return state;
             }
