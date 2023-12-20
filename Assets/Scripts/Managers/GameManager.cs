@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance { get; private set; }
+    public Entity Player { get; private set; }
     public int Wave { get; set; }
     private float DelayBeforeWave { get; set; }
     public int mapID { get; set; }
@@ -32,6 +33,12 @@ public class GameManager : MonoBehaviour
         Wave = 0;
         PrepareNextWave(5f);
     }
+
+    public void RegisterPlayer(Entity player)
+    {
+        Player = player;
+        Debug.Log("my player is registered");
+    }
     public void PrepareNextWave(float timeBeforeWave)
     {
         DelayBeforeWave = timeBeforeWave;
@@ -53,6 +60,12 @@ public class GameManager : MonoBehaviour
         // When the timer reaches zero, start the wave
         Debug.Log("Wave started!");
         WaveGenerator.Instance.StartWave();
+    }
+
+    public void HandleEnemyDefeat(Entity enemyDefeated)
+    {
+        Player.XP += enemyDefeated.stat.XPGiven;
+        Debug.Log("I win " + enemyDefeated.stat.XPGiven + "XP");
     }
     public void GameOver()
     {

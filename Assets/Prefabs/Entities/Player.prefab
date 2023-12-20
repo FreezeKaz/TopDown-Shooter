@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rgBd: {fileID: 8031391593697665794}
+  EntityStat: {fileID: 2953153337305098188}
   speed: 10
 --- !u!114 &979417864185442029
 MonoBehaviour:
@@ -621,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingSoundClips: []
+  shootingEntity: {fileID: 2953153337305098188}
   volumeSFX: 0
   shooter: 7
   firePoint: {fileID: 8232341196782299981}
@@ -780,6 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: eee521b6373920b4390ee0d6505867f1, type: 2}
   myParent: {fileID: 2217757127003541112}
+  UpgradeManager: {fileID: 0}
 --- !u!1 &6852050820559140121
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 2953153337305098188}
+  myPlayerEntity: {fileID: 0}
 --- !u!50 &3483788773507088520
 Rigidbody2D:
   serializedVersion: 4

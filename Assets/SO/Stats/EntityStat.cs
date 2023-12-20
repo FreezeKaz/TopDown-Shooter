@@ -6,4 +6,5 @@ public class EntityStat : ScriptableObject
     public float MoveSpeedRatio;
     public float FireRateRatio;
     public float Attack;
+    public int XPGiven;
 }
