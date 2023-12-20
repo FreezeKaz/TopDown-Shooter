@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 namespace BehaviorTree
 {
@@ -10,6 +11,11 @@ namespace BehaviorTree
         private void Awake()
         {
             type = NodeType.VERIF;
+        }
+
+        private void Start()
+        {
+            children.Sort();
         }
 
         public override NodeState Evaluate()

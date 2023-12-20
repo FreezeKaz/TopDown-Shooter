@@ -16,6 +16,11 @@ namespace BehaviorTree
             type = NodeType.VERIF;
         }
 
+        private void Start()
+        {
+            children.Sort();
+        }
+
         public override NodeState Evaluate()
         {
             foreach (Node node in children)
