@@ -112,7 +112,9 @@ public class Entity : MonoBehaviour
             {
                 // enemy death
                 _onTakeDamage.Invoke();
-                SoundFXManager.instance.PlaySoundFXClip(SFXSoundClips[0], transform, _volumeSFX);
+                Debug.Log(SFXSoundClips[0]);
+                Debug.Log(_volumeSFX);
+                //SoundFXManager.instance.PlaySoundFXClip(SFXSoundClips[0], transform, _volumeSFX);
                // for (int i = 0; i < myParent.transform.childCount; i++)
                    myParent.transform.GetChild(0).gameObject.SetActive(false);
                 Invoke("KillEnemy", 0.3f);

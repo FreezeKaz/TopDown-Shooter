@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6347431522334094052}
   - component: {fileID: 4811056008075270941}
   - component: {fileID: 8031391593697665794}
+  - component: {fileID: 8691559904026397089}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -121,6 +122,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8691559904026397089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217757127003541112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429b464aef932934685be43b24968657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEntityStats: {fileID: 2953153337305098188}
 --- !u!1 &2220983591317867140
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,11 +671,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingSoundClips:
-  - {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
+  - {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
   - {fileID: 8300000, guid: 19ff18f316c48f14b9ff924e77cc4879, type: 3}
   shootingEntity: {fileID: 2953153337305098188}
   _animator: {fileID: 840473011343879406}
-  volumeSFX: 0.5
+  volumeShooting: 0
   shooter: 7
   audioSource: {fileID: 807901972691642399}
   firePoint: {fileID: 8232341196782299981}
@@ -959,6 +973,12 @@ MonoBehaviour:
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  _onHealthLow:
+    m_PersistentCalls:
+      m_Calls: []
+  _onLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
   SFXSoundClips: []
   _volumeSFX: 0
 --- !u!114 &4315248466801438541
@@ -1141,8 +1161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a9025a78dda246afb583e100ad0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 2953153337305098188}
-  myPlayerEntity: {fileID: 2953153337305098188}
 --- !u!1001 &9162575739538862210
 PrefabInstance:
   m_ObjectHideFlags: 0

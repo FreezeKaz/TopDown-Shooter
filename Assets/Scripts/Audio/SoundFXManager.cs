@@ -7,6 +7,8 @@ public class SoundFXManager : MonoBehaviour
     public static SoundFXManager instance;
 
     [SerializeField] private AudioSource soundFXObject;
+    [SerializeField] private AudioClip[] SoundClips;
+    [Range(0, 1)][SerializeField] private float volumeShooting;
 
     private void Awake()
     {
@@ -14,6 +16,11 @@ public class SoundFXManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    private void ShootSFX()
+    {
+        SoundFXManager.instance.PlaySoundFXClip(SoundClips[0], transform, volumeShooting);
     }
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)

@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private AudioClip[] shootingSoundClips;
     [SerializeField] private Entity shootingEntity;
     [SerializeField] private Animator _animator;
-    [SerializeField][Range(0, 1)] private float volumeSFX;
+    [SerializeField][Range(0, 1)] private float volumeShooting;
     [SerializeField][Range(7, 8)] private int shooter;
     [SerializeField] private AudioSource audioSource;
 
@@ -54,6 +54,7 @@ public class Shooting : MonoBehaviour
                     myBullet.layer = shooter;
                     float angulo = Mathf.Atan2(rigidBody.velocity.y, rigidBody.velocity.x) * Mathf.Rad2Deg;
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
+                    SoundFXManager.instance.PlaySoundFXClip(shootingSoundClips[0], transform, volumeShooting);
                 }
 
 
@@ -87,7 +88,7 @@ public class Shooting : MonoBehaviour
     {
         if (shootingSoundClips.Length > 1)
         {
-            SoundFXManager.instance.PlaySoundFXClip(shootingSoundClips[1], transform, volumeSFX);
+            SoundFXManager.instance.PlaySoundFXClip(shootingSoundClips[1], transform, volumeShooting);
             //audioSource.clip = shootingSoundClips[1];
             //audioSource.Play();
         }
