@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Gotta shoot fast
   Descritpion: Always wanted to become a living gunmachine ? Well try this and upgrade
     your firerate for all 3 of your weapons
-  Image: {fileID: 0}
+  Image: {fileID: 4392296171478678330, guid: cd31dbcfdf0ada0479e7a1b2596d9997, type: 3}
   Stat: 2
   percentage: 20
