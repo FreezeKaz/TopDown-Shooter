@@ -18,7 +18,6 @@ public class WaveGenerator : MonoBehaviour
     private WaveSO waveData;
     [SerializeField] private List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
-    [SerializeField] private GameObject enemy;
     [SerializeField] public List<Transform> WayPoints; //get them from the ennemy
 
     private Dictionary<string, int> waveState;
@@ -110,7 +109,6 @@ public class WaveGenerator : MonoBehaviour
 
             if (TotalEnemies == 0)
             {
-                // If all enemies are defeated before the time is up, break the loop
                 break;
             }
             yield return null;

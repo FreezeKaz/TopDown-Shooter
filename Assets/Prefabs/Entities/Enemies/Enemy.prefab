@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6416065341575298807}
   - component: {fileID: 5188139326345223804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   volumeSFX: 0
   shooter: 8
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3828373563742382358}
   firePoint: {fileID: 7243892082627063410}
   currentWeapon: {fileID: 11400000, guid: 49b0affe1e68d9043841bf939b289821, type: 2}
 --- !u!1 &524505479335311943
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4258751223013190458}
   - component: {fileID: 6222563230919909380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5117473658285657620}
   - component: {fileID: -3157580436511971936}
   - component: {fileID: 7595803491858947750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -245,7 +245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Actions: {fileID: 89613512760133084}
   Physics: {fileID: 8345524657035484085}
-  EntityBehaviour: {fileID: 4283806706271858856}
   myEntityStats: {fileID: 6307414538515139123}
   myShootingScript: {fileID: 5188139326345223804}
 --- !u!114 &-3157580436511971936
@@ -284,7 +283,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2590738222878651580}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -313,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 82236596337685591}
   - component: {fileID: 5180497642946217579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4690748459917677244}
   - component: {fileID: 7243892082627063410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8329483016166777361}
   - component: {fileID: 6307414538515139123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EntityBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162684092389482483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730186643379652322}
   - component: {fileID: 386243257884884967}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4134281045370712801}
   - component: {fileID: 8418940805860198599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 65158668680264171}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,8 +748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a9025a78dda246afb583e100ad0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 6307414538515139123}
-  myPlayerEntity: {fileID: 0}
 --- !u!61 &2392646242818963712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -807,7 +804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6962326817629761503}
   - component: {fileID: 3828373563742382358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,6 +930,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 65158668680264171}
     m_Modifications:
+    - target: {fileID: 355429821091026950, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1565506079972833602, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -944,6 +945,14 @@ PrefabInstance:
     - target: {fileID: 4035222792055163475, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035222792055163486, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112403345841327293, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5112403345841327294, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
       propertyPath: m_Range
@@ -1017,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR3 Hit Ice B (Air)
       objectReference: {fileID: 0}
+    - target: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5112403345868107899, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
       propertyPath: looping
       value: 0
@@ -1029,9 +1042,17 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5112403347238810573, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5112403347238810575, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531768400295773593, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7531768400295773595, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
       propertyPath: m_Materials.Array.size

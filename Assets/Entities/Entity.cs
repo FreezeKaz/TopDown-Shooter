@@ -20,6 +20,8 @@ public class Entity : MonoBehaviour
     [SerializeField] protected UpgradeManager UpgradeManager;
 
     [SerializeField] UnityEvent _onTakeDamage;
+    [SerializeField] UnityEvent _onHealthLow;
+    [SerializeField] UnityEvent _onLevelUp;
 
     [SerializeField] private AudioClip[] SFXSoundClips;
     [SerializeField][Range(0, 1)] private float _volumeSFX;
@@ -42,6 +44,8 @@ public class Entity : MonoBehaviour
     public float BaseXP { get; private set; }
     public float XPToGet { get; private set; }
 
+    private float maxHp;
+
     public void Awake()
     {
         initStats();
@@ -61,6 +65,7 @@ public class Entity : MonoBehaviour
         Stats[Attribute.MoveSpeedRatio] = new(MoveSpeedRatio);
 
         CurrentHP = Stats[Attribute.HP].Value;
+        maxHp = CurrentHP;
 
         XPToGet = 50;
         BaseXP = 50;
@@ -80,6 +85,7 @@ public class Entity : MonoBehaviour
     private void levelUp()
     {
         Level++;
+        _onLevelUp.Invoke();
         UpgradeManager.OnLevelUp();
     }
     
@@ -94,11 +100,14 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        //Debug.Log(CurrentHP);
         CurrentHP -= amount;
-
-        if (CurrentHP <= 0)
-        {
+        if (myParent.name == "Player")  {
+            if (CurrentHP <= maxHp / 2) {
+                _onHealthLow.Invoke();
+            }
+            _onTakeDamage.Invoke();
+        }
+            if (CurrentHP <= 0) {
             if(myParent.name != "Player")
             {
                 // enemy death
