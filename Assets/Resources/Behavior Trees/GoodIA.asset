@@ -13,15 +13,11 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   guid: 18aa735adf7f5b04f8791c2636745730
-  transform: {fileID: 0}
   type: 0
   positionOnView: {x: 378, y: 362}
   parent: {fileID: -1441210594850847429}
   children: []
   _executionOrder: 3
-  attackTime: 0
-  attackCounter: 0
-  bulletPrefab: {fileID: 0}
 --- !u!114 &-8397104472866332501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +31,6 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   guid: b91963e01d4b5e24f80015d6ae669493
-  transform: {fileID: 0}
   type: 1
   positionOnView: {x: 223, y: 102}
   parent: {fileID: 0}
@@ -56,7 +51,6 @@ MonoBehaviour:
   m_Name: Sequence
   m_EditorClassIdentifier: 
   guid: 208906db13df1f54f85d79bf637f4f54
-  transform: {fileID: 0}
   type: 1
   positionOnView: {x: 141, y: 239}
   parent: {fileID: -8397104472866332501}
@@ -78,15 +72,11 @@ MonoBehaviour:
   m_Name: Patrol
   m_EditorClassIdentifier: 
   guid: 3010d0cf0e2717548ad3f66d11095b78
-  transform: {fileID: 0}
   type: 0
   positionOnView: {x: 380, y: 241}
   parent: {fileID: -8397104472866332501}
   children: []
   _executionOrder: 2
-  _waypoints:
-  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
-  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!114 &-151221826750325341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +90,6 @@ MonoBehaviour:
   m_Name: GoInRange
   m_EditorClassIdentifier: 
   guid: 328061906665eca4c9b8309d6bac1d24
-  transform: {fileID: 0}
   type: 0
   positionOnView: {x: 176, y: 362}
   parent: {fileID: -1441210594850847429}
@@ -125,6 +114,7 @@ MonoBehaviour:
   - {fileID: 504726965231291779}
   - {fileID: -151221826750325341}
   - {fileID: -8858238579055606534}
+  state: 0
 --- !u!114 &504726965231291779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +128,6 @@ MonoBehaviour:
   m_Name: CheckPlayerInRange
   m_EditorClassIdentifier: 
   guid: d2b4f3126318f9443b90fd57adcec02b
-  transform: {fileID: 0}
   type: 0
   positionOnView: {x: -29, y: 363}
   parent: {fileID: -1441210594850847429}

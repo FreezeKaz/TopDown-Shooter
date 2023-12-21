@@ -20,12 +20,12 @@ namespace BehaviorTree
                 node.Init();
             }
         }
-        public override NodeState Evaluate()
+        public override NodeState Evaluate(BTApp app)
         {
             bool anyChildIsRunning = false;
             foreach(Node node in children)
             {
-                switch(node.Evaluate())
+                switch(node.Evaluate(app))
                 {
                     case NodeState.FAILURE:
                         state = NodeState.FAILURE;
