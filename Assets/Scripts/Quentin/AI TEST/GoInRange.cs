@@ -6,22 +6,13 @@ using BehaviorTree;
 
 public class GoInRange : Node
 {
-    private Rigidbody2D _rb;
-    private EnemyManager _enemyManager;
-
-
     public override void Init()
     {
         type = NodeType.TASK;
-        _rb = transform.GetComponent<Rigidbody2D>();
-        _enemyManager = transform.GetComponent<EnemyManager>();
     }
 
     public GoInRange(GameObject gameObject)
     {
-        transform = gameObject.transform;
-        _rb = transform.GetComponent<Rigidbody2D>();
-        _enemyManager = transform.GetComponent<EnemyManager>();
     }
 
     public override NodeState Evaluate(BTApp app)
@@ -35,12 +26,12 @@ public class GoInRange : Node
             state = NodeState.FAILURE;
             return state;
         }
-        if (Vector3.Distance(app.transform.position, target.position) > BTApp.range)
+        if (Vector3.Distance(transform.position, target.position) > BTApp.range)
         {
-            _enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
+            app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
-            _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
-            transform.position = Vector3.MoveTowards(transform.position, target.position, BTApp.speed * Time.deltaTime);
+            app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
+            app.transform.position = Vector3.MoveTowards(app.transform.position, target.position, BTApp.speed * Time.deltaTime);
             state = NodeState.SUCCESS;
             return state;
         }

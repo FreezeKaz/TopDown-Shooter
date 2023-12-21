@@ -15,35 +15,34 @@ namespace BehaviorTree
         public override void Init()
         {
             type = NodeType.TASK;
-            _rb = transform.GetComponent<Rigidbody2D>();
         }
 
-        public override NodeState Evaluate()
+        public override NodeState Evaluate(BTApp app)
         {
-            if (_waiting)
+            if (app.Waiting)
             {
-                _waitCounter += Time.deltaTime;
-                if (_waitCounter >= _waitTime)
+                app.WaitCounter += Time.deltaTime;
+                if (app.WaitCounter >= app.WaitTime)
                 {
-                    _waiting = false;
+                    app.Waiting = false;
                 }
             }
             else
             {
-                Transform wp = _waypoints[_currentWaypointIndex];
-                if (Vector3.Distance(transform.position, wp.position) < 0.01f)
+                Transform wp = app.waypoints[app.CurrentWaypointIndex];
+                if (Vector3.Distance(app.transform.position, wp.position) < 0.01f)
                 {
-                    transform.position = wp.position;
-                    _waitCounter = 0f;
-                    _waiting = true;
+                    app.transform.position = wp.position;
+                    app.WaitCounter = 0f;
+                    app.Waiting = true;
 
-                    _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count; 
+                    app.CurrentWaypointIndex = (app.CurrentWaypointIndex + 1) % app.waypoints.Count; 
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, wp.position, 5f * Time.deltaTime);
+                    app.transform.position = Vector3.MoveTowards(app.transform.position, wp.position, 5f * Time.deltaTime);
                     Vector2 vector2 = wp.position;
-                    _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
+                    app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
                     //_transform.LookAt(wp.position);
                 }
             }
