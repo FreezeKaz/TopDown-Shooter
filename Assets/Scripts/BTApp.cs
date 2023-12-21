@@ -11,7 +11,12 @@ public class BTApp : MonoBehaviour
     public static float speed = 5f;
     public static float fovRange = 15f;
     public static float range = 14f;
-    [HideInInspector] public List<Transform> waypoints;
+    public List<Transform> waypoints;
+    public Rigidbody2D Rb;
+    public int CurrentWaypointIndex = 0;
+    public float WaitTime = 1f; // in seconds
+    public float WaitCounter = 0f;
+    public bool Waiting = false;
 
     private Node _root = null;
     protected Transform GO;
@@ -20,6 +25,7 @@ public class BTApp : MonoBehaviour
     {
         _root = SetupTree();
         _root.Init();
+        Rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
