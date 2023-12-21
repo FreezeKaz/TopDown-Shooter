@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4811056008075270941}
   - component: {fileID: 8031391593697665794}
   - component: {fileID: 4218557013695897504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406993587132176508}
   - component: {fileID: 8232341196782299981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831041229951592997}
   - component: {fileID: 1737035615613934936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1851500734884887036}
   - component: {fileID: 8366228787164261957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3276208549863597770}
   - component: {fileID: 3588000660105172804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8209917215864495188}
   - component: {fileID: 5825599619699559309}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 361841044665876101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2446852187039968133}
   - component: {fileID: 8365676781871005655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 7237388022160125511}
   - component: {fileID: 979417864185442029}
   - component: {fileID: 3560063907371676143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5293524961781456494}
   - component: {fileID: 807901972691642399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129881145335696734}
   - component: {fileID: 172103732849189766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -882,7 +882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6636469816383536650}
   - component: {fileID: 2751097396334714755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 2953153337305098188}
   - component: {fileID: 4315248466801438541}
   - component: {fileID: 7538149846952271782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EntityBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324614935874961749}
   - component: {fileID: 358294068886779445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,13 +1219,33 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2698727279553589017, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011581064087282443, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3580754290339548742, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3701974765871949954, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4777879837052149199, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777879837052149199, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003366955900177820, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5564374731525014923, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
       propertyPath: m_Color.b
@@ -1238,6 +1258,14 @@ PrefabInstance:
     - target: {fileID: 5564374731525014923, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657415564540827410, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629797754560061070, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

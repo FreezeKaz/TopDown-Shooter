@@ -63,7 +63,6 @@ public class Shooting : MonoBehaviour
     }
     public void EnableShoot(InputAction.CallbackContext input)
     {
-        Debug.Log(this.transform.parent.name);
         _animator.SetTrigger("isShooting");
         audioSource.clip = currentWeapon._shootingSound.clip;
         audioSource.Play();

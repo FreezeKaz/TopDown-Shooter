@@ -25,7 +25,7 @@ namespace BehaviorTree
             bool anyChildIsRunning = false;
             foreach(Node node in children)
             {
-                switch(node.Evaluate(app))
+                switch (node.Evaluate(app))
                 {
                     case NodeState.FAILURE:
                         state = NodeState.FAILURE;
