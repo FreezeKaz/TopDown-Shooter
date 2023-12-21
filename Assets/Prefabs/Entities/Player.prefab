@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6347431522334094052}
   - component: {fileID: 4811056008075270941}
   - component: {fileID: 8031391593697665794}
+  - component: {fileID: 4218557013695897504}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -121,6 +122,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4218557013695897504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217757127003541112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429b464aef932934685be43b24968657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEntityStats: {fileID: 2953153337305098188}
 --- !u!1 &2220983591317867140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,8 +1153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a9025a78dda246afb583e100ad0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 2953153337305098188}
-  myPlayerEntity: {fileID: 2953153337305098188}
 --- !u!1001 &9162575739538862210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1212,6 +1224,18 @@ PrefabInstance:
     - target: {fileID: 4777879837052149199, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564374731525014923, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564374731525014923, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564374731525014923, guid: 792286b41022ab348a80ea5a2b57636a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
