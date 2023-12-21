@@ -5,18 +5,22 @@ using Unity.VisualScripting;
 
 public class BTApp : MonoBehaviour
 {
-    [SerializeField] private BTSave _save;
-    private BTSave _self;
+    public BTSave _save;
     Node root;
-    public static float speed = 5f;
-    public static float fovRange = 15f;
-    public static float range = 14f;
-    public List<Transform> waypoints;
+    public float Speed;
+    public float FovRange;
+    public float Range;
+    public List<Transform> Waypoints;
     public Rigidbody2D Rb;
-    public int CurrentWaypointIndex = 0;
-    public float WaitTime = 1f; // in seconds
-    public float WaitCounter = 0f;
-    public bool Waiting = false;
+    public int CurrentWaypointIndex;
+    public float WaitTime; // in seconds
+    public float WaitCounter;
+    public bool Waiting;
+
+    public float AttackTime;
+    public float AttackCounter;
+
+    public GameObject BulletPrefab;
 
     private Node _root = null;
     protected Transform GO;
@@ -26,6 +30,16 @@ public class BTApp : MonoBehaviour
         _root = SetupTree();
         _root.Init();
         Rb = GetComponent<Rigidbody2D>();
+        Speed = 5f;
+        FovRange = 15f;
+        Range = 14f;
+        CurrentWaypointIndex = 0;
+        WaitTime = 1f; // in seconds
+        WaitCounter = 0f;
+        Waiting = false;
+
+        AttackTime = 0.2f;
+        AttackCounter = 0f;
     }
 
     private void Update()
@@ -67,5 +81,5 @@ public class BTApp : MonoBehaviour
         applyChildren(root);
         return root;
     }
- 
+
 }

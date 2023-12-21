@@ -22,7 +22,7 @@ public class CheckPlayerInRange : Node
         //Debug.Log("Je suis en CheckInRange");
         if (GetData(GOType.TARGET) == null)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(app.transform.position, BTApp.fovRange, _playerLayer, minDepth, maxDepth);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(app.transform.position, app.FovRange, _playerLayer, minDepth, maxDepth);
 
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)
