@@ -5,19 +5,7 @@ using UnityEngine;
 namespace BehaviorTree
 {
     public class Patrol : Node
-    {
-
-        [SerializeField] private List<Transform> _waypoints;
-        private Rigidbody2D _rb;
-
-        private int _currentWaypointIndex = 0;
-
-        private float _waitTime = 1f; // in seconds
-        private float _waitCounter = 0f;
-        private bool _waiting = false;
-        private bool _first = true;
-
-        public Patrol(GameObject gameObject, List<Transform> waypoints) { }
+    {        public Patrol(GameObject gameObject, List<Transform> waypoints) { }
         
 
         private void Awake()
