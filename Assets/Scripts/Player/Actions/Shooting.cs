@@ -76,7 +76,7 @@ public class Shooting : MonoBehaviour
     public void DisableShoot(InputAction.CallbackContext input)
     {
         _animator.ResetTrigger("isShooting");
-        _animator.ResetTrigger("isIdle");
+        _animator.SetTrigger("isIdle");
         audioSource.Stop();
         StopShooting(); //only for input
     }
