@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 3828373563742382358, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 6362444041963737075, guid: 23e2654ba9c6b8b43aed740119718f6c, type: 2}
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: currentWeapon
       value: 
