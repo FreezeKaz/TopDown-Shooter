@@ -2,7 +2,7 @@ using UnityEngine;
 
 using BehaviorTree;
 
-public class Attack : ActionNode
+public class Attack : Node
 {
     public override void Init()
     {
