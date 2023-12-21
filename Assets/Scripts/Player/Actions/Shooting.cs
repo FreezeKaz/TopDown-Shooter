@@ -37,8 +37,7 @@ public class Shooting : MonoBehaviour
     {
         // Update is called once per frame
         if (_shooting)
-        {
-           
+        {             
             if (interval <= 0)
             {
                 interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
@@ -65,7 +64,11 @@ public class Shooting : MonoBehaviour
     }
     public void EnableShoot(InputAction.CallbackContext input)
     {
+        Debug.Log(this.transform.parent.name);
         _animator.SetTrigger("isShooting");
+        audioSource.clip = currentWeapon._shootingSound.clip;
+        audioSource.Play();
+        audioSource.loop = true;
         StartShooting();
     }
     
@@ -73,6 +76,7 @@ public class Shooting : MonoBehaviour
     {
         _animator.ResetTrigger("isShooting");
         _animator.ResetTrigger("isIdle");
+        audioSource.Stop();
         StopShooting(); //only for input
     }
 

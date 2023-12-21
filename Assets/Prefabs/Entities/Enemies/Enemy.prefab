@@ -50,7 +50,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   volumeSFX: 0
   shooter: 8
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3828373563742382358}
   firePoint: {fileID: 7243892082627063410}
   currentWeapon: {fileID: 11400000, guid: 49b0affe1e68d9043841bf939b289821, type: 2}
 --- !u!1 &524505479335311943
