@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class Shooting : MonoBehaviour
 {
@@ -37,8 +38,7 @@ public class Shooting : MonoBehaviour
     {
         // Update is called once per frame
         if (_shooting)
-        {
-           
+        {             
             if (interval <= 0)
             {
                 interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
@@ -56,7 +56,7 @@ public class Shooting : MonoBehaviour
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
                 }
 
-                //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+              //  SoundFXManager.instance.PlaySoundFXClip(audioClip, transform, volumeSFX)
 
                 return;
             }
@@ -65,14 +65,19 @@ public class Shooting : MonoBehaviour
     }
     public void EnableShoot(InputAction.CallbackContext input)
     {
+        Debug.Log(this.transform.parent.name);
         _animator.SetTrigger("isShooting");
+        audioSource.clip = currentWeapon._shootingSound.clip;
+        audioSource.Play();
+        audioSource.loop = true;
         StartShooting();
     }
     
     public void DisableShoot(InputAction.CallbackContext input)
     {
         _animator.ResetTrigger("isShooting");
-        _animator.ResetTrigger("isIdle");
+        _animator.SetTrigger("isIdle");
+        audioSource.Stop();
         StopShooting(); //only for input
     }
 
