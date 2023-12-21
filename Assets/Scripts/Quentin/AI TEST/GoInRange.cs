@@ -13,7 +13,6 @@ public class GoInRange : Node
 
     public GoInRange(GameObject gameObject)
     {
-        transform = gameObject.transform;
     }
 
     public override NodeState Evaluate(BTApp app)
@@ -32,7 +31,7 @@ public class GoInRange : Node
             app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
             app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
-            transform.position = Vector3.MoveTowards(app.transform.position, target.position, BTApp.speed * Time.deltaTime);
+            app.transform.position = Vector3.MoveTowards(app.transform.position, target.position, BTApp.speed * Time.deltaTime);
             state = NodeState.SUCCESS;
             return state;
         }

@@ -26,9 +26,9 @@ public class Attack : ActionNode
         Transform target = (Transform)GetData(GOType.TARGET);
         if (Vector3.Distance(app.transform.position, target.position) <= BTApp.range)
         {
-            _enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
+            app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
             Vector2 vector2 = target.position;
-            app.Rb.transform.up = vector2 - new Vector2(app.GetComponent<Rigidbody2D>().transform.position.x, app.Rb.transform.position.y);
+            app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
             state = NodeState.SUCCESS;
             return state;
         }

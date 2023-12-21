@@ -30,9 +30,9 @@ namespace BehaviorTree
             else
             {
                 Transform wp = app.waypoints[app.CurrentWaypointIndex];
-                if (Vector3.Distance(transform.position, wp.position) < 0.01f)
+                if (Vector3.Distance(app.transform.position, wp.position) < 0.01f)
                 {
-                    transform.position = wp.position;
+                    app.transform.position = wp.position;
                     app.WaitCounter = 0f;
                     app.Waiting = true;
 
@@ -40,7 +40,7 @@ namespace BehaviorTree
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, wp.position, 5f * Time.deltaTime);
+                    app.transform.position = Vector3.MoveTowards(app.transform.position, wp.position, 5f * Time.deltaTime);
                     Vector2 vector2 = wp.position;
                     app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
                     //_transform.LookAt(wp.position);
