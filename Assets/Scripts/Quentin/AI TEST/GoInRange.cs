@@ -24,7 +24,7 @@ public class GoInRange : Node
         _enemyManager = transform.GetComponent<EnemyManager>();
     }
 
-    public override NodeState Evaluate()
+    public override NodeState Evaluate(BTApp app)
     {            
 
         Transform target = (Transform)GetData(GOType.TARGET);
@@ -35,7 +35,7 @@ public class GoInRange : Node
             state = NodeState.FAILURE;
             return state;
         }
-        if (Vector3.Distance(transform.position, target.position) > BTApp.range)
+        if (Vector3.Distance(app.transform.position, target.position) > BTApp.range)
         {
             _enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
