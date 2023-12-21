@@ -56,7 +56,6 @@ public class Shooting : MonoBehaviour
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
                 }
 
-                //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
 
                 return;
             }
@@ -88,8 +87,9 @@ public class Shooting : MonoBehaviour
     {
         if (shootingSoundClips.Length > 1)
         {
-            audioSource.clip = shootingSoundClips[1];
-            audioSource.Play();
+            SoundFXManager.instance.PlaySoundFXClip(shootingSoundClips[1], transform, volumeSFX);
+            //audioSource.clip = shootingSoundClips[1];
+            //audioSource.Play();
         }
         currentWeapon = newWeapon;
         prefabBullet = currentWeapon.bullet;

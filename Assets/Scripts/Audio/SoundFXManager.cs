@@ -18,7 +18,7 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
     {
-
+        if(audioClip == null) { Debug.Log("SFX not played, Audio clip null."); return; }
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position ,Quaternion.identity);
 
         audioSource.clip = audioClip;
@@ -31,6 +31,8 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume)
     {
+        if (audioClip.Length <= 0) { Debug.Log("SFX not played, Audio clip null."); return; }
+
         int rand = Random.Range(0, audioClip.Length);
 
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
