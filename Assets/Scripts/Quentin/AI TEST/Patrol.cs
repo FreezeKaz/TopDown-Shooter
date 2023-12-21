@@ -28,8 +28,6 @@ namespace BehaviorTree
         {
             type = NodeType.TASK;
             _rb = transform.GetComponent<Rigidbody2D>();
-            Debug.Log("Je suis en Patrol sale fdp");
-
         }
 
         public override NodeState Evaluate()

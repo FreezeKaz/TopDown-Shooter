@@ -6,8 +6,16 @@ namespace BehaviorTree
 {
     public class Root : Node
     {
-        public Root() : base() {}
-        public Root(List<Node> children) : base(children) {}
+        
+
+        public Root() : base() 
+        {
+            _dataContext = new Dictionary<GOType, object>();
+        }
+        public Root(List<Node> children) : base(children) 
+        {
+            _dataContext = new Dictionary<GOType, object>();
+        }
 
         private void Awake()
         {
@@ -20,7 +28,6 @@ namespace BehaviorTree
         {
             type = NodeType.VERIF;
             children.Sort(SortByOrder);
-            _dataContext = new Dictionary<GOType, object>();
             foreach (Node node in children)
             {
                 //Debug.Log(node);
@@ -29,6 +36,7 @@ namespace BehaviorTree
         }
         public override NodeState Evaluate()
         {
+            GetData(GOType.TARGET);
             foreach (Node node in children)
             {
                 switch (node.Evaluate())

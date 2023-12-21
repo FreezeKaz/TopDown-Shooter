@@ -15,8 +15,6 @@ public class GoInRange : Node
         type = NodeType.TASK;
         _rb = transform.GetComponent<Rigidbody2D>();
         _enemyManager = transform.GetComponent<EnemyManager>();
-
-
     }
 
     public GoInRange(GameObject gameObject)
@@ -39,7 +37,6 @@ public class GoInRange : Node
         }
         if (Vector3.Distance(transform.position, target.position) > BTApp.range)
         {
-            Debug.Log("uwu");
             _enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
             _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);

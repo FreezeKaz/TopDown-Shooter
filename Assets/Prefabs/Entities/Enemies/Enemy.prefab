@@ -260,8 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18d04ff8bc322c4f9841481db3afb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _save: {fileID: 11400000, guid: 37b3c8c6335c1d14c870e85ba3865d44, type: 2}
+  _save: {fileID: 11400000, guid: b5a426b46a563894b82be76df1cee979, type: 2}
   GO: {fileID: 468718824198609346}
+  waypoints: []
 --- !u!50 &7595803491858947750
 Rigidbody2D:
   serializedVersion: 4

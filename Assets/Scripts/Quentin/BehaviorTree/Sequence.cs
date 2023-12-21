@@ -14,7 +14,6 @@ namespace BehaviorTree
         {
             type = NodeType.VERIF;
             children.Sort(SortByOrder);
-
             foreach (Node node in children)
             {
                 //Debug.Log(node);

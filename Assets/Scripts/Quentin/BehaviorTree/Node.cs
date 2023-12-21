@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace BehaviorTree
@@ -68,7 +69,7 @@ namespace BehaviorTree
 
         public virtual Node Clone()
         {
-            return Instantiate(this);
+            return ScriptableObject.CreateInstance(GetType()) as Node;
         }
         public virtual void Init()
         {

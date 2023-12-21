@@ -184,7 +184,7 @@ namespace BehaviorTree
 
         public BTSave Clone()
         {
-            BTSave tree = Instantiate(this);
+            BTSave tree =  ScriptableObject.CreateInstance<BTSave>();
             for (int i = 0; i < tree.nodes.Count; i++)
             {
                 if (tree.nodes[i] == null)

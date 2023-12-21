@@ -21,7 +21,6 @@ public class Attack : ActionNode
         type = NodeType.TASK;
         _enemyManager = transform.GetComponent<EnemyManager>();
         _rb = transform.GetComponent<Rigidbody2D>();
-
     }
 
     public Attack(GameObject gameObject)
