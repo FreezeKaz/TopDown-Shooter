@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_spritesheet_normalmap_front_0: 1341627384383968889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

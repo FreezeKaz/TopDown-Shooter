@@ -296,7 +296,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_spritesheet_0: 2819815934189153119
+      door_spritesheet_1: 3501540814251876656
+      door_spritesheet_2: 6999095617014317561
+      door_spritesheet_3: -6423995436355084650
+      door_spritesheet_4: 8963397274556278440
+      door_spritesheet_5: -5093223005092280381
+      door_spritesheet_6: -775292544018511369
+      door_spritesheet_7: 7670423398620426340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
