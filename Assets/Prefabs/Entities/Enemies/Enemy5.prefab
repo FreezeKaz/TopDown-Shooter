@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy5
       objectReference: {fileID: 0}
+    - target: {fileID: 5852042191808703198, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852042191832323610, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852042191832323610, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: HP
       value: 50
@@ -72,6 +84,14 @@ PrefabInstance:
       propertyPath: MoveSpeedRatio
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: _onTakeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7009604376107304476}
+    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: _onTakeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -83,6 +103,11 @@ PrefabInstance:
 --- !u!4 &2329223372499727152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1162684092389482483, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+  m_PrefabInstance: {fileID: 3490781556115336387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7009604376107304476 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5852042191808703199, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
   m_PrefabInstance: {fileID: 3490781556115336387}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4527269269192475677
