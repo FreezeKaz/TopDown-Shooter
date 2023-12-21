@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8641635095d04ac4abd5d447fceb394d
+guid: 8815cb42910dcaa469cea50c59f26eef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -676724561048150378
-    second: MenuTitle_0
+      213: -7352339073622421304
+    second: Title_0
+  - first:
+      213: 578584420991164872
+    second: Title_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -76,8 +79,8 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -98,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuTitle_0
+      name: Title_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1664
-        height: 960
+        y: 131
+        width: 656
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +115,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69e51ffd89acb96f0800000000000000
-      internalID: -676724561048150378
+      spriteID: 8c0d280219e37f990800000000000000
+      internalID: -7352339073622421304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 528
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c1e0c5277b870800800000000000000
+      internalID: 578584420991164872
       vertices: []
       indices: 
       edges: []
@@ -121,14 +145,16 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Title_0: -7352339073622421304
+      Title_1: 578584420991164872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UpdateUIBar : MonoBehaviour
@@ -7,6 +8,7 @@ public class UpdateUIBar : MonoBehaviour
     [SerializeField] private RectTransform _hpBar;
     [SerializeField] private RectTransform _xpBar;
     [SerializeField] private Entity _player;
+    [SerializeField] private TextMeshProUGUI _text;
 
     public void Awake()
     {
@@ -26,6 +28,7 @@ public class UpdateUIBar : MonoBehaviour
 
         float amount = 2f - (_player.CurrentHP / _player.Stats[Entity.Attribute.HP].Value) * 2f;
         _hpBar.localScale = new Vector3(amount, 1f, 1f);
+        _text.text = _player.CurrentHP + " | " + _player.Stats[Entity.Attribute.HP].Value;
     }
     private void SetXPBar()
     {
