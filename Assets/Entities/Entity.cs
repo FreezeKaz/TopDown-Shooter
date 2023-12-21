@@ -21,6 +21,10 @@ public class Entity : MonoBehaviour
 
     [SerializeField] UnityEvent _onTakeDamage;
 
+    [SerializeField] private AudioClip[] SFXSoundClips;
+    [SerializeField][Range(0, 1)] private float _volumeSFX;
+
+
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
     public enum Attribute
@@ -99,6 +103,7 @@ public class Entity : MonoBehaviour
             {
                 // enemy death
                 _onTakeDamage.Invoke();
+                SoundFXManager.instance.PlaySoundFXClip(SFXSoundClips[0], transform, _volumeSFX);
                // for (int i = 0; i < myParent.transform.childCount; i++)
                    myParent.transform.GetChild(0).gameObject.SetActive(false);
                 Invoke("KillEnemy", 0.3f);

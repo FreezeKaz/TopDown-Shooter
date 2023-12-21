@@ -1,6 +1,8 @@
 using System.Collections.Generic;
-
-
+using System.Linq;
+using Unity.XR.OpenVR;
+using UnityEditor.Rendering;
+using UnityEngine;
 namespace BehaviorTree
 {
     public class Sequence : Node
@@ -8,13 +10,22 @@ namespace BehaviorTree
         public Sequence() : base() { }
         public Sequence(List<Node> children) : base(children) { }
 
-        public override NodeState Evaluate()
+        public override void Init()
+        {
+            type = NodeType.VERIF;
+            children.Sort(SortByOrder);
+            foreach (Node node in children)
+            {
+                //Debug.Log(node);
+                node.Init();
+            }
+        }
+        public override NodeState Evaluate(BTApp app)
         {
             bool anyChildIsRunning = false;
-
             foreach(Node node in children)
             {
-                switch(node.Evaluate())
+                switch(node.Evaluate(app))
                 {
                     case NodeState.FAILURE:
                         state = NodeState.FAILURE;

@@ -675,7 +675,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19ff18f316c48f14b9ff924e77cc4879, type: 3}
   shootingEntity: {fileID: 2953153337305098188}
   _animator: {fileID: 840473011343879406}
-  volumeSFX: 0
+  volumeSFX: 0.5
   shooter: 7
   audioSource: {fileID: 807901972691642399}
   firePoint: {fileID: 8232341196782299981}
@@ -735,7 +735,7 @@ AudioSource:
   m_GameObject: {fileID: 5917539951999454633}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6362444041963737075, guid: 23e2654ba9c6b8b43aed740119718f6c, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -973,6 +973,8 @@ MonoBehaviour:
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  SFXSoundClips: []
+  _volumeSFX: 0
 --- !u!114 &4315248466801438541
 MonoBehaviour:
   m_ObjectHideFlags: 0

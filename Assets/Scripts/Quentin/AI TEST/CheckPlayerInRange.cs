@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
@@ -7,33 +5,41 @@ public class CheckPlayerInRange : Node
 {
     private static int _playerLayer = 1 << 6;
 
-    private Transform _transform;
-
     float minDepth = -Mathf.Infinity;
     float maxDepth = Mathf.Infinity;
-    public CheckPlayerInRange(GameObject gameObject)
+
+    public override void Init()
     {
-        _transform = gameObject.transform;
+        type = NodeType.TASK;
     }
 
-    public override NodeState Evaluate()
+    public CheckPlayerInRange(GameObject gameObject) : base()
     {
-        object t = GetData("target");
-        if (t == null)
-        {   
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(_transform.position, IABT.fovRange, _playerLayer, minDepth, maxDepth);            
-            
+    }
+
+    public override NodeState Evaluate(BTApp app)
+    {
+        //Debug.Log("Je suis en CheckInRange");
+        if (GetData(GOType.TARGET) == null)
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(app.transform.position, app.FovRange, _playerLayer, minDepth, maxDepth);
+
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)
             {
-                parent.parent.SetData("target", colliders[0].transform);
+                //Debug.Log(colliders[0].transform.parent);
+                SetData(GOType.TARGET, colliders[0].transform.parent);
                 state = NodeState.SUCCESS;
                 return state;
             }
             state = NodeState.FAILURE;
             return state;
         }
-        state = NodeState.SUCCESS;
-        return state;
+        else
+        {
+            state = NodeState.SUCCESS;
+            return state;
+        }
+      
     }
 }

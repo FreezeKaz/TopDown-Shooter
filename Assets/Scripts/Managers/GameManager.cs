@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     public void RegisterPlayer(Entity player)
     {
         Player = player;
-        Debug.Log("my player is registered");
     }
     public void PrepareNextWave(float timeBeforeWave)
     {
@@ -58,7 +57,6 @@ public class GameManager : MonoBehaviour
         }
 
         // When the timer reaches zero, start the wave
-        Debug.Log("Wave started!");
         WaveGenerator.Instance.StartWave();
     }
 
