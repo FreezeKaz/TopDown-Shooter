@@ -26,7 +26,8 @@ public class GoInRange : Node
             state = NodeState.FAILURE;
             return state;
         }
-        if (Vector3.Distance(transform.position, target.position) > app.Range)
+
+        if (Vector3.Distance(app.transform.position, target.position) > app.Range)
         {
             app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;

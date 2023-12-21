@@ -36,9 +36,10 @@ namespace BehaviorTree
         }
         public override NodeState Evaluate(BTApp app)
         {
-            GetData(GOType.TARGET);
             foreach (Node node in children)
             {
+
+                Debug.Log("root");
                 switch (node.Evaluate(app))
                 {
                     case NodeState.FAILURE:

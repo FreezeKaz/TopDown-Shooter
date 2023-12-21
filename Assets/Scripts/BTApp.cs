@@ -55,6 +55,7 @@ public class BTApp : MonoBehaviour
             //_root = SetupTree();
             //_root.Init();
             _root.Evaluate(this);
+            Debug.Log("BTapp");
             //applyChildren(_root);
         }
     }
@@ -67,7 +68,7 @@ public class BTApp : MonoBehaviour
             {
                 if (child.type == NodeType.TASK)
                 {
-                    child.transform = GO;
+                    //child.transform = GO;
                 }
                 else
                 {
