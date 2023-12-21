@@ -17,12 +17,12 @@ public class CheckPlayerInRange : Node
     {
     }
 
-    public override NodeState Evaluate()
+    public override NodeState Evaluate(BTApp app)
     {
         //Debug.Log("Je suis en CheckInRange");
         if (GetData(GOType.TARGET) == null)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, BTApp.fovRange, _playerLayer, minDepth, maxDepth);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(app.transform.position, BTApp.fovRange, _playerLayer, minDepth, maxDepth);
 
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)

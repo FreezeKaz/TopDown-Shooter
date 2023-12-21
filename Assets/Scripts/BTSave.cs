@@ -14,6 +14,20 @@ namespace BehaviorTree
         public Root root;
         public List<Node> nodes = new List<Node>();
 
+        public NodeState state = NodeState.RUNNING;
+
+
+        public NodeState BTUpdate(BTApp app)
+        {
+            switch (state)
+            {
+                case NodeState.RUNNING:
+                    state = root.BTUpdate(app);
+                    break;
+            }
+            return state;
+        }
+
         public Node CreateNode(Type type)
         {
             Node node = CreateInstance(type) as Node;

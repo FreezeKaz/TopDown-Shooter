@@ -75,7 +75,13 @@ namespace BehaviorTree
         {
 
         }
-        public virtual NodeState Evaluate() => NodeState.FAILURE;
+        public virtual NodeState Evaluate(BTApp app) => NodeState.FAILURE;
+
+        public NodeState BTUpdate(BTApp app)
+        {
+            state = Evaluate(app);
+            return state;
+        }
 
         public void SetData(GOType key, object value)
         {
