@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
@@ -20,7 +18,7 @@ public class Attack : ActionNode
     {
         Transform target = (Transform)GetData(GOType.TARGET);
 
-        if (Vector3.Distance(app.transform.position, target.position) <= BTApp.range)
+        if (Vector3.Distance(app.transform.position, target.position) <= app.Range)
         {
             app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
             Vector2 vector2 = target.position;
