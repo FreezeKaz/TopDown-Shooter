@@ -7,9 +7,8 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject Actions;
     public GameObject Physics;
-    public GameObject EntityBehaviour;
 
-    [SerializeField] Entity myEntityStats;
+    [SerializeField] public Entity myEntityStats;
     [SerializeField] Shooting myShootingScript;
     
 
