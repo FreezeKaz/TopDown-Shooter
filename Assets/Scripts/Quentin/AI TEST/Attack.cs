@@ -20,6 +20,7 @@ public class Attack : ActionNode
     {
         type = NodeType.TASK;
         _enemyManager = transform.GetComponent<EnemyManager>();
+        _rb = transform.GetComponent<Rigidbody2D>();
 
     }
 
@@ -30,13 +31,12 @@ public class Attack : ActionNode
 
     public override NodeState Evaluate()
     {
-
-   
-
         Transform target = (Transform)GetData(GOType.TARGET);
         if (Vector3.Distance(transform.position, target.position) <= BTApp.range)
         {
             _enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
+            Vector2 vector2 = target.position;
+            _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
             state = NodeState.SUCCESS;
             return state;
         }

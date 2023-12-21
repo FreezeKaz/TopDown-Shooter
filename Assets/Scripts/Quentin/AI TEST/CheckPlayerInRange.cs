@@ -27,7 +27,8 @@ public class CheckPlayerInRange : Node
             //Debug.Log(_playerLayer);
             if (colliders.Length > 0)
             {
-                SetData(GOType.TARGET, colliders[0].transform);
+                //Debug.Log(colliders[0].transform.parent);
+                SetData(GOType.TARGET, colliders[0].transform.parent);
                 state = NodeState.SUCCESS;
                 return state;
             }
