@@ -11,17 +11,18 @@ namespace BehaviorTree
         public Root() : base() 
         {
             _dataContext = new Dictionary<GOType, object>();
+            foreach (Node child in children)
+            {
+                Attach(child);
+            }
         }
         public Root(List<Node> children) : base(children) 
         {
             _dataContext = new Dictionary<GOType, object>();
-        }
-
-        private void Awake()
-        {
-            type = NodeType.VERIF;
-            children.Sort(SortByOrder);
-            _dataContext = new Dictionary<GOType, object>();
+            foreach (Node child in children)
+            {
+                Attach(child);
+            }
         }
 
         public override void Init()
@@ -38,8 +39,6 @@ namespace BehaviorTree
         {
             foreach (Node node in children)
             {
-
-                Debug.Log("root");
                 switch (node.Evaluate(app))
                 {
                     case NodeState.FAILURE:

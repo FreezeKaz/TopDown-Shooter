@@ -260,9 +260,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18d04ff8bc322c4f9841481db3afb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _save: {fileID: 11400000, guid: b5a426b46a563894b82be76df1cee979, type: 2}
-  GO: {fileID: 468718824198609346}
-  waypoints: []
+  _save: {fileID: 11400000, guid: e114c6e2991a9274fb510b42df766ece, type: 2}
+  Speed: 0
+  FovRange: 0
+  Range: 0
+  Waypoints:
+  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
+  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
+  Rb: {fileID: 0}
+  CurrentWaypointIndex: 0
+  WaitTime: 0
+  WaitCounter: 0
+  Waiting: 0
+  AttackTime: 0
+  AttackCounter: 0
+  BulletPrecondfab: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!50 &7595803491858947750
 Rigidbody2D:
   serializedVersion: 4

@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 public class BTApp : MonoBehaviour
 {
     public BTSave _save;
-    Node root;
+    //Node root;
     public float Speed;
     public float FovRange;
     public float Range;
@@ -20,20 +20,20 @@ public class BTApp : MonoBehaviour
     public float AttackTime;
     public float AttackCounter;
 
-    public GameObject BulletPrefab;
+    public GameObject BulletPrecondfab;
 
-    private Node _root = null;
     protected Transform GO;
 
     public EnemyManager enemyManager;
 
+    private Node _root = null;
     private void Awake()
     {
         Speed = 5f;
         FovRange = 15f;
         Range = 14f;
         CurrentWaypointIndex = 0;
-        WaitTime = 1f; // in seconds
+        WaitTime = 1f; // in ses
         WaitCounter = 0f;
         Waiting = false;
 
@@ -43,9 +43,12 @@ public class BTApp : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log(_save.root.children.Count);
         _root = SetupTree();
         _root.Init();
         Rb = GetComponent<Rigidbody2D>();
+        GO = GetComponent<Transform>();
+        enemyManager = GetComponent<EnemyManager>();
     }
 
     private void Update()
@@ -83,10 +86,9 @@ public class BTApp : MonoBehaviour
 
     protected Node SetupTree()
     {
-        GO = GetComponent<Transform>();
-        root = _save.Clone().root;
-        applyChildren(root);
-        return root;
+        _root = _save.Clone().root;
+        applyChildren(_root);
+        return _root;
     }
 
 }
