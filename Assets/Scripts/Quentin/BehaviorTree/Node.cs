@@ -68,7 +68,7 @@ namespace BehaviorTree
 
         public virtual Node Clone()
         {
-            return ScriptableObject.CreateInstance(GetType()) as Node;
+            return Instantiate(this);
         }
         public virtual void Init()
         {
