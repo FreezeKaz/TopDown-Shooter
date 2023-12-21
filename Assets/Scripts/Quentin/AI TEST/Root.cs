@@ -38,7 +38,7 @@ namespace BehaviorTree
         public override NodeState Evaluate(BTApp app)
         {
             foreach (Node node in children)
-            {
+            {                
                 switch (node.Evaluate(app))
                 {
                     case NodeState.FAILURE:

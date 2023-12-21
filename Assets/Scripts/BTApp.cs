@@ -2,6 +2,7 @@ using UnityEngine;
 using BehaviorTree;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.AI;
 
 public class BTApp : MonoBehaviour
 {
@@ -20,11 +21,19 @@ public class BTApp : MonoBehaviour
     public float AttackTime;
     public float AttackCounter;
 
+    public RaycastHit2D hit;
+
     public GameObject BulletPrecondfab;
 
     protected Transform GO;
 
     public EnemyManager enemyManager;
+
+    public LayerMask ignore;
+
+    public NavMeshAgent navMeshAgent;
+
+    //int mask = 1 << 0 | 1 << 9;
 
     private Node _root = null;
     private void Awake()
@@ -49,14 +58,19 @@ public class BTApp : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         GO = GetComponent<Transform>();
         enemyManager = GetComponent<EnemyManager>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        //hit = Physics2D.Raycast(transform.position, Vector2.up, FovRange, LayerMask.NameToLayer("Enemy"));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_root != null)
         {
             //_root = SetupTree();
             //_root.Init();
+            //Debug.Log(LayerMask.NameToLayer("Enemy"));
+            hit = Physics2D.Raycast(transform.position, Rb.transform.up, FovRange, ignore);
+            Debug.DrawLine(transform.position, transform.position  + Rb.transform.up * FovRange);
             _root.Evaluate(this);
             //applyChildren(_root);
         }
