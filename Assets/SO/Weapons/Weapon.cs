@@ -9,5 +9,7 @@ public class Weapon : ScriptableObject
     public GameObject bullet;
     public float Damage;
     public float bulletForce;
+    public AudioSource _shootingSound;
     public List<int> firePoints;
+
 }

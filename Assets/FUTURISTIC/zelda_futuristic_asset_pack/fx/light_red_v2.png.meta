@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      light_red_v2_0: 5674758895845042365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
