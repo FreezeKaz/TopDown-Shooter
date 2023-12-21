@@ -27,11 +27,8 @@ public class BTApp : MonoBehaviour
 
     public EnemyManager enemyManager;
 
-    private void Start()
+    private void Awake()
     {
-        _root = SetupTree();
-        _root.Init();
-        Rb = GetComponent<Rigidbody2D>();
         Speed = 5f;
         FovRange = 15f;
         Range = 14f;
@@ -42,6 +39,13 @@ public class BTApp : MonoBehaviour
 
         AttackTime = 0.2f;
         AttackCounter = 0f;
+    }
+
+    private void Start()
+    {
+        _root = SetupTree();
+        _root.Init();
+        Rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()

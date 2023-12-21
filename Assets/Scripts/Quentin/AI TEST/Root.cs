@@ -38,6 +38,7 @@ namespace BehaviorTree
         {
             foreach (Node node in children)
             {
+
                 Debug.Log("root");
                 switch (node.Evaluate(app))
                 {
