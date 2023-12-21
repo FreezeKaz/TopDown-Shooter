@@ -29,14 +29,14 @@ namespace BehaviorTree
             }
             else
             {
-                Transform wp = app.waypoints[app.CurrentWaypointIndex];
+                Transform wp = app.Waypoints[app.CurrentWaypointIndex];
                 if (Vector3.Distance(app.transform.position, wp.position) < 0.01f)
                 {
                     app.transform.position = wp.position;
                     app.WaitCounter = 0f;
                     app.Waiting = true;
 
-                    app.CurrentWaypointIndex = (app.CurrentWaypointIndex + 1) % app.waypoints.Count; 
+                    app.CurrentWaypointIndex = (app.CurrentWaypointIndex + 1) % app.Waypoints.Count; 
                 }
                 else
                 {

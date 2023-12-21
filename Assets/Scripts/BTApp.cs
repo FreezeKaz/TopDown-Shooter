@@ -63,7 +63,7 @@ public class BTApp : MonoBehaviour
             {
                 if (child.type == NodeType.TASK)
                 {
-                    child.transform = GO;
+                    //child.transform = GO;
                 }
                 else
                 {

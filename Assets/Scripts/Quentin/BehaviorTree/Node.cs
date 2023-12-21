@@ -21,7 +21,6 @@ namespace BehaviorTree
     {
         public string guid;
 
-        public Transform transform;
         public NodeType type;
 
         protected NodeState state;
