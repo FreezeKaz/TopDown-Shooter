@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class Shooting : MonoBehaviour
 {
@@ -55,7 +56,7 @@ public class Shooting : MonoBehaviour
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
                 }
 
-                //SoundFXManager.instance.PlayRandomSoundFXClip(shootingSoundClips, transform, volumeSFX);
+              //  SoundFXManager.instance.PlaySoundFXClip(audioClip, transform, volumeSFX)
 
                 return;
             }

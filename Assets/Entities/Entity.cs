@@ -92,8 +92,12 @@ public class Entity : MonoBehaviour
     {
         //Debug.Log(CurrentHP);
         CurrentHP -= amount;
+        if (myParent.name == "Player")
+        {
+            _onTakeDamage.Invoke();
+        }
 
-        if (CurrentHP <= 0)
+            if (CurrentHP <= 0)
         {
             if(myParent.name != "Player")
             {
