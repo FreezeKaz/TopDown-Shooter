@@ -6,8 +6,6 @@ using BehaviorTree;
 
 public class GoInRange : Node
 {
-
-
     public override void Init()
     {
         type = NodeType.TASK;
@@ -15,6 +13,7 @@ public class GoInRange : Node
 
     public GoInRange(GameObject gameObject)
     {
+        transform = gameObject.transform;
     }
 
     public override NodeState Evaluate(BTApp app)
@@ -28,9 +27,9 @@ public class GoInRange : Node
             state = NodeState.FAILURE;
             return state;
         }
-        if (Vector3.Distance(app.transform.position, target.position) > BTApp.range)
+        if (Vector3.Distance(transform.position, target.position) > BTApp.range)
         {
-            _enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
+            app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StopShooting();
             Vector2 vector2 = target.position;
             app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
             transform.position = Vector3.MoveTowards(app.transform.position, target.position, BTApp.speed * Time.deltaTime);

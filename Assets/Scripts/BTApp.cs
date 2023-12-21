@@ -21,6 +21,8 @@ public class BTApp : MonoBehaviour
     private Node _root = null;
     protected Transform GO;
 
+    public EnemyManager enemyManager;
+
     private void Start()
     {
         _root = SetupTree();
