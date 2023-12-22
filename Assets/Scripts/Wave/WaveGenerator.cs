@@ -12,12 +12,13 @@ public class WaveGenerator : MonoBehaviour
     public static WaveGenerator Instance => _instance;
 
     public int TotalEnemies = 0;
+    public int TotalWavesCompleted { get; private set; }
     private string mobToSpawn;
     public float timer = 0f;
     int indexOfEnemy;
 
     private WaveSO waveData;
-    [SerializeField] private List<WaveSO> waves;
+    [SerializeField] public List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
 
     public GameObject _playerSpawnPoint; //get them from the ennemy
@@ -111,9 +112,9 @@ public class WaveGenerator : MonoBehaviour
     IEnumerator CallingNextWave()
     {
         timer = 0f;
-      
 
-        if(!waveData.BossRoom && !CheckIfNextWaveIsBoss())
+
+        if (!waveData.BossRoom && !CheckIfNextWaveIsBoss())
         {
             while (timer < waveData.TimeToClearAfterEverythingSpawn && TotalEnemies != 0)
             {
@@ -136,6 +137,7 @@ public class WaveGenerator : MonoBehaviour
         }
 
         Debug.Log("Spawning next wave");
+        TotalWavesCompleted++;
         GameManager.Instance.Wave++;
         if (GameManager.Instance.Wave >= waves.Count)
         {

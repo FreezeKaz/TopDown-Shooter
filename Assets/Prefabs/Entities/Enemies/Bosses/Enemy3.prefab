@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 82236596337685591, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2107
+      objectReference: {fileID: 0}
+    - target: {fileID: 82236596337685591, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0452
+      objectReference: {fileID: 0}
+    - target: {fileID: 468718824198609346, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 49.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 468718824198609346, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 44.25
+      objectReference: {fileID: 0}
     - target: {fileID: 468718824198609346, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48,21 +64,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: m_Size.x
-      value: 0.1396905
+    - target: {fileID: 730186643379652322, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1386
       objectReference: {fileID: 0}
-    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: m_Size.y
-      value: 0.16059528
+    - target: {fileID: 730186643379652322, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0067
       objectReference: {fileID: 0}
-    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0017918423
-      objectReference: {fileID: 0}
-    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.024062654
+    - target: {fileID: 730186643379652322, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.084
       objectReference: {fileID: 0}
     - target: {fileID: 2590738222878651580, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_Name
@@ -76,10 +88,26 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 6362444041963737075, guid: 23e2654ba9c6b8b43aed740119718f6c, type: 2}
+    - target: {fileID: 4258751223013190458, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2702
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258751223013190458, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0266
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258751223013190458, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.083
+      objectReference: {fileID: 0}
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1895940278224195915}
+    - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: d12b8502ef30fd440b31d4dcfbbc0301, type: 2}
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: shootingSoundClips.Array.size
       value: 1
@@ -89,28 +117,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: d245652ee31787040a6f8565b0bd49e3, type: 3}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: HP
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: Attack
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: XPGiven
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: _volumeSFX
       value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: FireRateRatio
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: MoveSpeedRatio
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: SFXSoundClips.Array.size
