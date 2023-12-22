@@ -16,6 +16,8 @@ public class Entity : MonoBehaviour
     [SerializeField] public float FireRateRatio;
     [SerializeField] public float MoveSpeedRatio;
     [SerializeField] public float XPGiven;
+    [SerializeField] public float RangeOfSight = 15f;
+    [SerializeField] public float RangeofAttack = 10f;
 
     [SerializeField] protected GameObject myParent;
     [SerializeField] protected UpgradeManager UpgradeManager;
@@ -40,6 +42,8 @@ public class Entity : MonoBehaviour
     public virtual Dictionary<Attribute, Stat<float>> Stats { get; set; }
 
     public int Level { get; private set; }
+    private int nbOfLevel = 0;
+    private int nbOfLeveled = 0;
     public int XP { get; set; }
     public float BaseXP { get; private set; }
     public float XPToGet { get; private set; }
@@ -53,7 +57,11 @@ public class Entity : MonoBehaviour
 
     public void Update()
     {
-        checkLevel();
+        if (myParent.layer == 6 )
+        {
+            checkLevel();
+        }
+      
     }
 
     private void initStats()
@@ -73,15 +81,47 @@ public class Entity : MonoBehaviour
     }
     private void checkLevel()
     {
-        if (XP >= XPToGet)
+       
+        while (XP >= XPToGet)
         {
             XP = XP - (int)XPToGet;
             XPToGet = BaseXP * math.pow(1.5f, Level);
             XPToGet = (int)XPToGet; //take off decimal part
-            levelUp();
-        }
-    }
+            nbOfLevel++;
 
+        }
+        if(UpgradeManager.ChoseUpgrade == 0)
+        {
+            for (int i = 0; i < nbOfLevel; i++)
+            {
+                if (UpgradeManager.ChoseUpgrade == 0)
+                {
+                    levelUp();
+                }
+                StartCoroutine(LevelUpCoroutine());
+            }
+        }
+
+        if(nbOfLevel == nbOfLeveled )
+        {
+            nbOfLevel = 0;
+            nbOfLeveled = 0;
+            UpgradeManager.ChoseUpgrade = 0;
+        }
+
+    }
+    IEnumerator LevelUpCoroutine()
+    {
+
+        while (UpgradeManager.ChoseUpgrade == 1) 
+        {
+            yield return null;
+        }
+        levelUp();
+        nbOfLeveled++;
+        yield return null;
+
+    }
     private void levelUp()
     {
         Level++;
@@ -91,6 +131,7 @@ public class Entity : MonoBehaviour
 
     IEnumerator KillEnemy()
     {
+
         int originalLayer = EnemyManager.Physics.gameObject.layer;
         EnemyManager.Physics.layer = LayerMask.NameToLayer("Default");
         EnemyManager.myShootingScript.StopShooting();
