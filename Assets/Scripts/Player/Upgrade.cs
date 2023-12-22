@@ -16,6 +16,11 @@ public class Upgrade : MonoBehaviour
     public void AddUpgrade()
     {
         _modifiedStat = upgradeData.Stat;
+        if(_modifiedStat == Entity.Attribute.HP)
+        {
+            _playerStats.CurrentHP += _playerStats.Stats[_modifiedStat].Value * (float)(_percentage / (float)100);
+            _playerStats.CurrentHP = (int)_playerStats.CurrentHP;
+        }
         _percentage = upgradeData.percentage;
         _playerStats.Stats[_modifiedStat].AddModifier(AddPercent);
     }

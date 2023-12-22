@@ -68,6 +68,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         WaveGenerator.Instance.StopWaves();
-        EnemyPoolManager.Instance.ResetPool();
+        ObjectPoolManager.Instance.ResetPool();
     }
 }

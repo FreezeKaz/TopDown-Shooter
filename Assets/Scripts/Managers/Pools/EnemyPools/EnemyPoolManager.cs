@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPoolManager : MonoBehaviour
+public class ObjectPoolManager : MonoBehaviour
 {
-    private static EnemyPoolManager _instance;
-    public static EnemyPoolManager Instance => _instance;
+    private static ObjectPoolManager _instance;
+    public static ObjectPoolManager Instance => _instance;
 
     [System.Serializable]
     public class Pool

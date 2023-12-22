@@ -87,7 +87,7 @@ public class WaveGenerator : MonoBehaviour
         } while (waveState[mobToSpawn] == 0);
         waveState[mobToSpawn]--;
 
-        GameObject myEnemy = EnemyPoolManager.Instance.GetPoolObject(mobToSpawn);
+        GameObject myEnemy = ObjectPoolManager.Instance.GetPoolObject(mobToSpawn);
         myEnemy.SetActive(true);
         SetDefaultPoolEnemy(myEnemy);
     }
