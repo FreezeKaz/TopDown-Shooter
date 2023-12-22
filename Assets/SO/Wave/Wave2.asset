@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerUsed: []
   enemiesInWave:
-  - enemyUsed: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
-    numberOfEnemies: 1
+  - enemyUsed: {fileID: 1406699763684350079, guid: 7a0a5a8595924ab4db57a88150e31aae, type: 3}
+    numberOfEnemies: 5
+  - enemyUsed: {fileID: 8592128342942949089, guid: f350acd743d7bdf4898bc8a1be983959, type: 3}
+    numberOfEnemies: 15
+  - enemyUsed: {fileID: 1406699763684350079, guid: 7a0a5a8595924ab4db57a88150e31aae, type: 3}
+    numberOfEnemies: 5
   SpawnDelay: 1
-  TimeToClearAfterEverythingSpawn: 5
-  BossRoom: 1
+  TimeToClearAfterEverythingSpawn: 15
+  BossRoom: 0
   ChangeMap: 0
-  map: {fileID: 1778186459451643591, guid: 383b6ae982306d24e9a3c4cc3ee9a08c, type: 3}
+  map: {fileID: 4396914160527869015, guid: 0d6b4c79a99123147b28e015b663e98c, type: 3}
