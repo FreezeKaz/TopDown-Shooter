@@ -39,6 +39,8 @@ public class State
         shootDist = enemyManager.myEntityStats.RangeofAttack;
     }
 
+
+
     public virtual void Enter()
     {
         stage = EVENT.UPDATE;

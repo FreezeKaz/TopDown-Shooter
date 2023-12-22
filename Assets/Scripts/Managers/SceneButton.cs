@@ -17,4 +17,8 @@ public class SceneButton : MonoBehaviour
             GameManager.Instance.StartGame();
         }
     }
+    public void InitPool()
+    {
+        ObjectPoolManager.Instance.InitPool();
+    }
 }

@@ -12,7 +12,7 @@ public class WaveGenerator : MonoBehaviour
     public static WaveGenerator Instance => _instance;
 
     public int TotalEnemies = 0;
-    public int TotalWavesCompleted { get; private set; }
+    public int TotalWavesCompleted { get; set; }
     private string mobToSpawn;
     public float timer = 0f;
     int indexOfEnemy;
