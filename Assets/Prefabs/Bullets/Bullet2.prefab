@@ -56,7 +56,24 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7711273017415870912, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5863818
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711273017415870912, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4975405
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711273017415870912, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.014986113
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711273017415870912, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.038964033
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -3164165770607616541, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 881852338197275574, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
