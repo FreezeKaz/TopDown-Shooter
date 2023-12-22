@@ -45,7 +45,7 @@ public class Shooting : MonoBehaviour
                 foreach (var index in currentWeapon.firePoints)
                 {
                     
-                    GameObject myBullet = EnemyPoolManager.Instance.GetPoolObject(prefabBullet.name);
+                    GameObject myBullet = ObjectPoolManager.Instance.GetPoolObject(prefabBullet.name);
                     Rigidbody2D rigidBody = myBullet.GetComponent<Rigidbody2D>();
                     myBullet.transform.position = firePoint.points[index].transform.position;
                     myBullet.SetActive(true);

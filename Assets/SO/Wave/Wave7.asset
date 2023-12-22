@@ -30,5 +30,5 @@ MonoBehaviour:
   SpawnDelay: 1
   TimeToClearAfterEverythingSpawn: 30
   BossRoom: 0
-  ChangeMap: 1
+  ChangeMap: 0
   map: {fileID: 4396914160527869015, guid: 0d6b4c79a99123147b28e015b663e98c, type: 3}

@@ -388,8 +388,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: RangeOfSight
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: FireRateRatio
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: RangeofAttack
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: MoveSpeedRatio
