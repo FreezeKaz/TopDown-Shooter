@@ -24,7 +24,7 @@ public class State
 
 
     float visDist = 15.0f;
-   // float visAngle = 30.0f;
+    // float visAngle = 30.0f;
     float shootDist = 10f;
 
     public State(GameObject _npc, Animator _anim,
@@ -35,6 +35,8 @@ public class State
         player = _player;
         stage = EVENT.ENTER;
         enemyManager = _enemyManager;
+        visDist = enemyManager.myEntityStats.RangeOfSight;
+        shootDist = enemyManager.myEntityStats.RangeofAttack;
     }
 
     public virtual void Enter()
@@ -54,16 +56,17 @@ public class State
 
     public State Process()
     {
-        switch (stage) {
+        switch (stage)
+        {
             case EVENT.ENTER:
-            Enter();
-            break;
+                Enter();
+                break;
             case EVENT.UPDATE:
-            Update();
-            break;
+                Update();
+                break;
             case EVENT.EXIT:
-            Exit();
-            return nextState;
+                Exit();
+                return nextState;
         }
         return this;
     }
@@ -78,7 +81,7 @@ public class State
         Vector3 direction = player.position - npc.transform.position;
         float angle = Vector3.Angle(direction, npc.transform.forward);
 
-       // Debug.Log(angle + ";\n");
+        // Debug.Log(angle + ";\n");
         if (direction.magnitude < visDist /*&& angle < visAngle*/)
             return true;
         return false;
