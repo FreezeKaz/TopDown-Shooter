@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b10db616645c84f9a8d64af9f2005c, type: 3}
   m_Name: GoodIA
   m_EditorClassIdentifier: 
-  root: {fileID: 0}
+  root: {fileID: -8397104472866332501}
   nodes:
   - {fileID: -1441210594850847429}
   - {fileID: -794611143813061209}

@@ -8,12 +8,11 @@ using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
-    public static event Action<int> onShootingSFX;
-
-
-    [SerializeField] private AudioClip[] shootingSoundClips;
+    [SerializeField] private AudioClip weaponChangeSoundClips;
     [SerializeField] private Entity shootingEntity;
     [SerializeField] private Animator _animator;
+    [SerializeField][Range(0, 1)] private float _volumeShooting;
+    [SerializeField][Range(0, 1)] private float _volumeWeaponChange;
     [SerializeField][Range(7, 8)] private int shooter;
     [SerializeField] private AudioSource audioSource;
 
@@ -55,7 +54,7 @@ public class Shooting : MonoBehaviour
                     myBullet.layer = shooter;
                     float angulo = Mathf.Atan2(rigidBody.velocity.y, rigidBody.velocity.x) * Mathf.Rad2Deg;
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
-                    onShootingSFX?.Invoke(0);
+                    SoundFXManager.instance.PlaySoundFXClip(currentWeapon._shootingSound.clip, transform, _volumeShooting);
                 }
 
 
@@ -87,9 +86,9 @@ public class Shooting : MonoBehaviour
     }
     public void ChangeWeapon(Weapon newWeapon)
     {
-        if (shootingSoundClips.Length > 1)
+        if (weaponChangeSoundClips != null)
         {
-            onShootingSFX?.Invoke(1);
+            SoundFXManager.instance.PlaySoundFXClip(weaponChangeSoundClips, transform, _volumeWeaponChange);
         }
         currentWeapon = newWeapon;
         prefabBullet = currentWeapon.bullet;

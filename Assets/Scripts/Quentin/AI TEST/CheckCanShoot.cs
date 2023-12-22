@@ -56,7 +56,7 @@ namespace BehaviorTree
 
                     // Trouve un nouvel angle de tir en contournant l'obstacle
 
-                    app.navMeshAgent.SetDestination(target.position);
+                    //app.navMeshAgent.SetDestination(target.position);
 
                     Debug.Log("Can't shoot");
 

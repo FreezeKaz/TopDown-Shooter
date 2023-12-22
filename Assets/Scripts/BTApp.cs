@@ -31,7 +31,7 @@ public class BTApp : MonoBehaviour
 
     public LayerMask ignore;
 
-    public NavMeshAgent navMeshAgent;
+    //public NavMeshAgent navMeshAgent;
 
     //int mask = 1 << 0 | 1 << 9;
 
@@ -58,7 +58,7 @@ public class BTApp : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         GO = GetComponent<Transform>();
         enemyManager = GetComponent<EnemyManager>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        //navMeshAgent = GetComponent<NavMeshAgent>();
         //hit = Physics2D.Raycast(transform.position, Vector2.up, FovRange, LayerMask.NameToLayer("Enemy"));
     }
 
