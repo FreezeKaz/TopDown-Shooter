@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Settings.unity
     guid: d25d2d65c20103d4a9d73315e6beadc3
   - enabled: 1
-    path: Assets/Scenes/Tom.unity
+    path: Assets/Scenes/Game/Game.unity
     guid: 903caecc4e7fa4645ab5bcf97a217ee2
   - enabled: 0
     path: Assets/Scenes/Francesca.unity

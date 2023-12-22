@@ -1743,10 +1743,6 @@ MonoBehaviour:
   soundFXObject: {fileID: 0}
   SoundClips: []
   _enemyDiedVolume: 0
-  BGMsource: {fileID: 1344297831}
-  BGMClips:
-  - {fileID: 8300000, guid: d7b65e1802c0b2647a80b6a21246b486, type: 3}
-  _BGMVolume: 0.1
 --- !u!114 &1344297833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,7 +1823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0095fd5355576428825a8f09f78cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: Tom
+  Scene: Game
 --- !u!114 &1464901205
 MonoBehaviour:
   m_ObjectHideFlags: 0
