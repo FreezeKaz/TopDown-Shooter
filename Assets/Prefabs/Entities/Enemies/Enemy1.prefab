@@ -57,6 +57,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db95693bdd98254bacebbab64b4fb4e, type: 3}
+--- !u!95 &5479742970911036783 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8870817750932251956, guid: 5db95693bdd98254bacebbab64b4fb4e, type: 3}
+  m_PrefabInstance: {fileID: 3967825806080831579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9177217239258704797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5209691669175753670, guid: 5db95693bdd98254bacebbab64b4fb4e, type: 3}
@@ -145,6 +150,14 @@ PrefabInstance:
     - target: {fileID: 2590738222878651580, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995318111468951399, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 5479742970911036783}
+    - target: {fileID: 3638361864412481240, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3638361864412481240, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: Waypoints.Array.size

@@ -62,6 +62,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2909806446937304073, guid: 4d54850cd36d59048acabb15c0284b86, type: 3}
   m_PrefabInstance: {fileID: 3695107387729576360}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &4296630045393049318 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 641510971745457998, guid: 4d54850cd36d59048acabb15c0284b86, type: 3}
+  m_PrefabInstance: {fileID: 3695107387729576360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6109548078431955549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,6 +146,14 @@ PrefabInstance:
     - target: {fileID: 2590738222878651580, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_Name
       value: Enemy4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995318111468951399, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 4296630045393049318}
+    - target: {fileID: 3638361864412481240, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3638361864412481240, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: Waypoints.Array.size
