@@ -36,10 +36,9 @@ public class ObjectPoolManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(this);
-        InitPool();
     }
 
-    private void InitPool()
+    public void InitPool()
     {
         objectPool = new List<GameObjectPools>();
         foreach(Pool pool in pools)
@@ -73,8 +72,8 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         GameObject newEnemy = Instantiate(findGoodPool(name).prefab, transform);
-        newEnemy.GetComponent<EnemyManager>().myEntityStats.CurrentHP = newEnemy.GetComponent<EnemyManager>().myEntityStats.Stats[Entity.Attribute.HP].Value;
         newEnemy.SetActive(false);
+        newEnemy.GetComponent<EnemyManager>().myEntityStats.CurrentHP = newEnemy.GetComponent<EnemyManager>().myEntityStats.Stats[Entity.Attribute.HP].Value;
         findGoodPool(name).gameObjects.Add(newEnemy);
         return newEnemy;
 
@@ -98,7 +97,7 @@ public class ObjectPoolManager : MonoBehaviour
         {
             foreach (GameObject obj in lists.gameObjects)
             {
-                obj.SetActive(false);
+                Destroy(obj);
             }
         }
     }

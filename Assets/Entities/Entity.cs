@@ -164,13 +164,15 @@ public class Entity : MonoBehaviour
                 _onTakeDamage.Invoke();
                 _onEnemyDie?.Invoke();
                 EnemyManager.Render.SetActive(false);
-                StartCoroutine(KillEnemy()); 
-                //GameOverFromGameInstance;
+                StartCoroutine(KillEnemy());
+;
             }
             else
             {
                 myParent.SetActive(false);
                 GameManager.Instance.GameOver();
+                GameManager.Instance.Wave = 0;
+                WaveGenerator.Instance.TotalWavesCompleted = 0;
                 ScenesManager.Instance.SetScene("GameTitle");
                 ScenesManager.Instance.ChangeScene();
             }
