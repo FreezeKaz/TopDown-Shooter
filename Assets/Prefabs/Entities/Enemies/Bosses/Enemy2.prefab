@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1870883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.013978921
+      objectReference: {fileID: 0}
     - target: {fileID: 2497296095609528012, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.121394
@@ -292,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: HP
-      value: 50
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: Attack

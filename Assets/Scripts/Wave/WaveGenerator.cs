@@ -20,7 +20,6 @@ public class WaveGenerator : MonoBehaviour
     private WaveSO waveData;
     [SerializeField] public List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
-    [SerializeField] public List<Transform> WayPoints; //get them from the ennemy
 
     public GameObject _playerSpawnPoint; //get them from the ennemy
 

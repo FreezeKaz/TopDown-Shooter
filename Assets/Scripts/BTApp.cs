@@ -23,7 +23,6 @@ public class BTApp : MonoBehaviour
 
     public RaycastHit2D hit;
 
-    public GameObject BulletPrecondfab;
 
     protected Transform GO;
 

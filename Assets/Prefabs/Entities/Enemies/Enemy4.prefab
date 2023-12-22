@@ -122,6 +122,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.015
       objectReference: {fileID: 0}
+    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.18293843
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.21578562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.033326074
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392646242818963712, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.05396986
+      objectReference: {fileID: 0}
     - target: {fileID: 2590738222878651580, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_Name
       value: Enemy4
@@ -170,17 +186,29 @@ PrefabInstance:
       propertyPath: 'shootingSoundClips.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: d245652ee31787040a6f8565b0bd49e3, type: 3}
+    - target: {fileID: 5852042191808703202, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852042191832323610, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852042191832323610, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: HP
-      value: 1000
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: Attack
-      value: 2
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: XPGiven
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: _volumeSFX

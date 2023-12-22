@@ -123,7 +123,7 @@ public class Entity : MonoBehaviour
                 _onTakeDamage.Invoke();
                 _onEnemyDie?.Invoke();
                 EnemyManager.Render.SetActive(false);
-                StartCoroutine(KillEnemy()); //TO DO change for Coroutine
+                StartCoroutine(KillEnemy()); 
                 //GameOverFromGameInstance;
             }
             else
