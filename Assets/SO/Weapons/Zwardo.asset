@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireRate: 10
   bullet: {fileID: 5966514032611924648, guid: bf303831814ab3c4fa2f4b7f68b01da1, type: 3}
-  Damage: 2
+  Damage: 5
   bulletForce: 30
   _shootingSound: {fileID: 7168973688516496082, guid: 1b9c34327409b7a44a1a60f2f5d4ddd0, type: 3}
   firePoints: 00000000

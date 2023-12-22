@@ -23,7 +23,8 @@ public class IdleState : State
 
     public override void Exit()
     {
-        anim.ResetTrigger("isIdle");
+       
+        if(anim != null) anim.ResetTrigger("isIdle");
         base.Exit();
     }
 

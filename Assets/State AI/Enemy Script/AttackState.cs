@@ -25,7 +25,7 @@ public class AttackState : State
 
     public override void Enter()
     {
-        anim.SetTrigger("isShooting");
+        if (anim != null) anim.SetTrigger("isShooting");
         shooter.StartShooting();
         base.Enter();
     }
