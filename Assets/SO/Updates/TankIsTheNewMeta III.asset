@@ -16,4 +16,4 @@ MonoBehaviour:
   Descritpion: 'You''re so bad at dodging you need more chances ? '
   Image: {fileID: -5742113632988569310, guid: 2853f1f76784e63488df9a081344781c, type: 3}
   Stat: 0
-  percentage: 35
+  percentage: 15

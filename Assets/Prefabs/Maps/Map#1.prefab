@@ -20685,7 +20685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1645778919143887726, guid: 18048205b9863e240b595cddc4bb2ae9, type: 3}
       propertyPath: m_Name
-      value: BasicMap1
+      value: Map#1
       objectReference: {fileID: 0}
     - target: {fileID: 1846138800023040013, guid: 18048205b9863e240b595cddc4bb2ae9, type: 3}
       propertyPath: spawnPoints.Array.size

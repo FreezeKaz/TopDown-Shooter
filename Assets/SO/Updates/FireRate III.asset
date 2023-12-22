@@ -17,4 +17,4 @@ MonoBehaviour:
     your firerate for all 3 of your weapons
   Image: {fileID: 4392296171478678330, guid: cd31dbcfdf0ada0479e7a1b2596d9997, type: 3}
   Stat: 2
-  percentage: 35
+  percentage: 15
