@@ -1,3 +1,4 @@
+using System;
 using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ public class Entity : MonoBehaviour
     [SerializeField] UnityEvent _onTakeDamage;
     [SerializeField] UnityEvent _onHealthLow;
     [SerializeField] UnityEvent _onLevelUp;
+
+    public static event Action _onEnemyDie;
 
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
@@ -118,6 +121,7 @@ public class Entity : MonoBehaviour
             if (myParent.name != "Player")
             {
                 _onTakeDamage.Invoke();
+                _onEnemyDie?.Invoke();
                 EnemyManager.Render.SetActive(false);
                 StartCoroutine(KillEnemy()); //TO DO change for Coroutine
                 //GameOverFromGameInstance;

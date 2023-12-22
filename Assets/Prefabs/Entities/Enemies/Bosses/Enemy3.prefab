@@ -52,25 +52,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy3
       objectReference: {fileID: 0}
+    - target: {fileID: 3828373563742382358, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828373563742382358, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 6362444041963737075, guid: 23e2654ba9c6b8b43aed740119718f6c, type: 2}
+    - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1895940278224195915}
+    - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: shootingSoundClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: 'shootingSoundClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d245652ee31787040a6f8565b0bd49e3, type: 3}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: HP
-      value: 40
+      propertyPath: _volumeSFX
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: Attack
+      propertyPath: SFXSoundClips.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: XPGiven
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: 'SFXSoundClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bb2e2714f962491428dcb0b38598b251, type: 3}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: FireRateRatio
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
-      propertyPath: MoveSpeedRatio
-      value: 1.5
+      propertyPath: _onTakeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -80,6 +96,11 @@ PrefabInstance:
       addedObject: {fileID: 5986428833319440459}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+--- !u!82 &1895940278224195915 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3828373563742382358, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+  m_PrefabInstance: {fileID: 3417852629713483869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4561031372385003438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1162684092389482483, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}

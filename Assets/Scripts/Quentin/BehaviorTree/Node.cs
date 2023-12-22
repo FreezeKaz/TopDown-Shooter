@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BehaviorTree
 {
@@ -9,14 +10,36 @@ namespace BehaviorTree
         FAILURE
     }
 
-    public class Node
+    public enum NodeType
     {
+        TASK,
+        VERIF,
+    }
+
+    public class Node : ScriptableObject
+    {
+        public string guid;
+
+        public NodeType type;
+
         protected NodeState state;
 
-        public Node parent;
-        protected List<Node> children = new List<Node>();
+        public Vector2 positionOnView;
 
-        private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
+        public Node parent;
+        public List<Node> children = new List<Node>();
+
+        protected Dictionary<GOType, object> _dataContext;
+
+        public enum GOType
+        {
+            TARGET = 0,
+            NONE = 1
+        }
+
+        public Dictionary<GOType, object> DataContext => _dataContext == null ? parent.DataContext : _dataContext;
+
+        public int _executionOrder;
 
         public Node()
         {
@@ -30,38 +53,55 @@ namespace BehaviorTree
             }
         }
 
-        private void Attach(Node node) 
+        public void Attach(Node node) 
         {
             node.parent = this;
             children.Add(node);
         }
 
-        public virtual NodeState Evaluate() => NodeState.FAILURE;
-
-        public void SetData(string key, object value)
+        public void Remove(Node node)
         {
-            _dataContext[key] = value;
+            node.parent.Remove(this);
+            children.Remove(node);
         }
 
-        public object GetData(string key)
+        public virtual Node Clone()
+        {
+            return Instantiate(this);
+        }
+        public virtual void Init()
+        {
+
+        }
+        public virtual NodeState Evaluate(BTApp app) => NodeState.FAILURE;
+
+        public NodeState BTUpdate(BTApp app)
+        {
+            state = Evaluate(app);
+            return state;
+        }
+
+        public void SetData(GOType key, object value)
+        {
+            DataContext[key] = value;
+        }
+
+        public object GetData(GOType key)
         {
             object value = null;
 
-            if (_dataContext.TryGetValue(key, out value))
+            //if(_dataContext == null)
+            //    _dataContext = new Dictionary<string, object>();
+
+            //Debug.Log(_dataContext.Count);
+
+            if (DataContext.TryGetValue(key, out value))
                 return value;
 
-            Node node = parent;
-            while (node != null)
-            {
-                value = node.GetData(key);
-                if(value != null) 
-                    return value;
-                node = node.parent;
-            }
             return null;
         }
 
-        public bool ClearData(string key)
+        public bool ClearData(GOType key)
         {
             if (_dataContext.ContainsKey(key))
             {
@@ -78,6 +118,16 @@ namespace BehaviorTree
                 node = node.parent;
             }
             return false;
+        }
+
+        public virtual void CopyData(Node source)
+        {
+            positionOnView = source.positionOnView;
+        }
+
+        public int SortByOrder(Node n1, Node n2)
+        {
+            return n1._executionOrder.CompareTo(n2._executionOrder);
         }
     }
 }

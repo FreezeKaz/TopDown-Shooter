@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PursueState : State
 {
+    Transform player;
+    Rigidbody2D _rb;
+    GameObject _gameObject;
+    EnemyManager enemyManager;
     Vector3 destination =  new Vector3(0, 0, 0);
     public PursueState(GameObject _npc, Animator _anim,
                 EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
+        _rb = _npc.GetComponent<Rigidbody2D>();
+        player = _player;
         name = STATE.PURSUE;
+        _gameObject = _npc;
+        enemyManager = _enemyManager;
     }
 
     public override void Enter()
@@ -19,13 +27,9 @@ public class PursueState : State
 
     public override void Update()
     {
-        Debug.Log("Pursue\n");
-        destination = player.position;
-        npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 4 * Time.deltaTime);
-        if (npc.transform.position.x > destination.x)
-            npc.transform.rotation = Quaternion.Euler(0, 180, 0);
-        else
-            npc.transform.rotation = Quaternion.Euler(0, 0, 0);
+        Vector2 vector2 = player.position;
+        _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
+        _gameObject.transform.position = Vector3.MoveTowards(_gameObject.transform.position, player.position, enemyManager.myEntityStats.MoveSpeedRatio * Time.deltaTime);
     }
 
     public override void Exit()

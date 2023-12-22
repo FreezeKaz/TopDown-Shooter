@@ -7,21 +7,20 @@ public class BaseEnemy : MonoBehaviour
     Transform player;
     public List<Transform> waypoints;
 
-    Animator anim;
+
     public StateMachine stateMachine { get; set; }
     public IdleState idleState { get; set; }
    // public EnemyAttackState AttackState { get; set; }
     public PatrolState patrolState { get; set; }
     public PursueState pursueState { get; set; }
     public AttackState attackState { get; set; }
-    EnemyManager enemyManager;
+    [SerializeField] EnemyManager enemyManager;
+    [SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        anim = this.GetComponent<Animator>();
-        enemyManager = this.GetComponent<EnemyManager>();
 
         stateMachine = new StateMachine();
         idleState = new IdleState(this.gameObject, anim, enemyManager, player);
@@ -32,7 +31,6 @@ public class BaseEnemy : MonoBehaviour
         stateMachine.Initialize(idleState);
         stateMachine.addState(idleState);
         stateMachine.addState(patrolState);
-        stateMachine.addState(pursueState);
         stateMachine.addState(pursueState);
         stateMachine.addState(attackState);
     }
