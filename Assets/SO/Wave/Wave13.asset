@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18e532564b6571746b2f3cdb59788965, type: 3}
-  m_Name: Wave12
+  m_Name: Wave13
   m_EditorClassIdentifier: 
   SpawnerUsed: []
   enemiesInWave:
-  - enemyUsed: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
+  - enemyUsed: {fileID: 908179511781199073, guid: a05e81d70baf5e34493fa8cf473b30c4, type: 3}
     numberOfEnemies: 2
-  SpawnDelay: 5
+  - enemyUsed: {fileID: 7772294981654298822, guid: fdfaaf9ee80095942b630159fa0483c2, type: 3}
+    numberOfEnemies: 10
+  SpawnDelay: 3
   TimeToClearAfterEverythingSpawn: 5
   BossRoom: 1
   ChangeMap: 1

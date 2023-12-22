@@ -20,12 +20,12 @@ MonoBehaviour:
   - {fileID: 6613117550557393870, guid: ce4e301f3d7caa646a095afe76522eac, type: 3}
   enemiesInWave:
   - enemyUsed: {fileID: 1406699763684350079, guid: 8e65144074ec9d2479a605d7aa846da6, type: 3}
-    numberOfEnemies: 6
+    numberOfEnemies: 10
   - enemyUsed: {fileID: 8592128342942949089, guid: 2218891130d0ece4b802496afa5496e9, type: 3}
-    numberOfEnemies: 7
+    numberOfEnemies: 10
   - enemyUsed: {fileID: 5295143098812091305, guid: 4cd60aa8078d91341acf1aa6891b1161, type: 3}
-    numberOfEnemies: 8
-  SpawnDelay: 2
+    numberOfEnemies: 10
+  SpawnDelay: 1
   TimeToClearAfterEverythingSpawn: 20
   BossRoom: 0
   ChangeMap: 1

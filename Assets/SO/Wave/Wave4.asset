@@ -25,7 +25,7 @@ MonoBehaviour:
     numberOfEnemies: 5
   - enemyUsed: {fileID: 5295143098812091305, guid: 4cd60aa8078d91341acf1aa6891b1161, type: 3}
     numberOfEnemies: 5
-  SpawnDelay: 2
+  SpawnDelay: 1
   TimeToClearAfterEverythingSpawn: 10
   BossRoom: 0
   ChangeMap: 1
