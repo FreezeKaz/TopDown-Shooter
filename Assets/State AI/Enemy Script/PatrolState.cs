@@ -36,7 +36,7 @@ public class PatrolState : State
 
     public override void Enter()
     {
-        anim.SetTrigger("isWalking");
+        if (anim != null) anim.SetTrigger("isWalking");
         base.Enter();
         NewDestination();
     }
@@ -52,7 +52,7 @@ public class PatrolState : State
 
     public override void Exit()
     {
-        anim.ResetTrigger("isWalking");
+       if(anim != null) anim.ResetTrigger("isWalking");
         base.Exit();
     }
 
