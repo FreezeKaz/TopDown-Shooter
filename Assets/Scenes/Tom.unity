@@ -1031,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 2946807848803416064}
     - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
       propertyPath: 'allUpgrades.Array.data[1]'
