@@ -15,6 +15,6 @@ MonoBehaviour:
   FireRate: 4
   bullet: {fileID: 6806329815171241476, guid: 993f162e7ffbc474982e99e19fd1ffb3, type: 3}
   Damage: 50
-  bulletForce: 30
-  _shootingSound: {fileID: 0}
+  bulletForce: 10
+  _shootingSound: {fileID: 3645556234268752578, guid: cca7b6b9cb10eb748bef15477e2ccb9f, type: 3}
   firePoints: 000000000100000002000000

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9832c73239f53ac4480c92d575c39573, type: 3}
   m_Name: LaserGun 1
   m_EditorClassIdentifier: 
-  FireRate: 1
+  FireRate: 2
   bullet: {fileID: 4196278188506222133, guid: 45df6c5a4dd290848b6a85fc4c4a5d97, type: 3}
   Damage: 100
   bulletForce: 20
-  _shootingSound: {fileID: 0}
-  firePoints: 00000000
+  _shootingSound: {fileID: 3645556234268752578, guid: 5d2bcde033e02cf4dbdd41e0309f80f2, type: 3}
+  firePoints: 0100000002000000

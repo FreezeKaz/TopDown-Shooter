@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18e532564b6571746b2f3cdb59788965, type: 3}
-  m_Name: Wave2
+  m_Name: Wave5
   m_EditorClassIdentifier: 
   SpawnerUsed:
   - {fileID: 7443155965766978098, guid: 15edfc5e26a6d2949b473d8a2c69b36f, type: 3}
@@ -19,14 +19,14 @@ MonoBehaviour:
   - {fileID: 1335458711205175964, guid: 8a9b42aa13b7a6241ae4325f44d5c80f, type: 3}
   - {fileID: 6613117550557393870, guid: ce4e301f3d7caa646a095afe76522eac, type: 3}
   enemiesInWave:
-  - enemyUsed: {fileID: 5295143098812091305, guid: 4389ec1db6fe44c48adae9bc0627d5b7, type: 3}
+  - enemyUsed: {fileID: 1406699763684350079, guid: 8e65144074ec9d2479a605d7aa846da6, type: 3}
     numberOfEnemies: 10
-  - enemyUsed: {fileID: 8592128342942949089, guid: f350acd743d7bdf4898bc8a1be983959, type: 3}
+  - enemyUsed: {fileID: 8592128342942949089, guid: 2218891130d0ece4b802496afa5496e9, type: 3}
     numberOfEnemies: 10
-  - enemyUsed: {fileID: 1406699763684350079, guid: 7a0a5a8595924ab4db57a88150e31aae, type: 3}
-    numberOfEnemies: 5
+  - enemyUsed: {fileID: 5295143098812091305, guid: 4cd60aa8078d91341acf1aa6891b1161, type: 3}
+    numberOfEnemies: 10
   SpawnDelay: 1
-  TimeToClearAfterEverythingSpawn: 15
+  TimeToClearAfterEverythingSpawn: 20
   BossRoom: 0
   ChangeMap: 1
   map: {fileID: 4396914160527869015, guid: 0d6b4c79a99123147b28e015b663e98c, type: 3}
