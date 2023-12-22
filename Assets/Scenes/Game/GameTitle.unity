@@ -1743,6 +1743,9 @@ MonoBehaviour:
   soundFXObject: {fileID: 0}
   SoundClips: []
   _enemyDiedVolume: 0
+  BGMsource: {fileID: 0}
+  BGMClips: []
+  _BGMVolume: 0
 --- !u!114 &1344297833
 MonoBehaviour:
   m_ObjectHideFlags: 0
