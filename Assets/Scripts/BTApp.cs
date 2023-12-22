@@ -98,7 +98,7 @@ public class BTApp : MonoBehaviour
 
     protected Node SetupTree()
     {
-        _root = _save.Clone().root;
+        _root = _save.root;
         applyChildren(_root);
         return _root;
     }
