@@ -61,8 +61,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8281937515471659266, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
     - {fileID: 7711273017415870912, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
+    - {fileID: 8281937515471659266, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 881852338197275574, guid: 2ccea83e84cf895409bfac0a2e20a4a0, type: 3}
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

@@ -73,6 +73,7 @@ public class EnemyPoolManager : MonoBehaviour
         }
 
         GameObject newEnemy = Instantiate(findGoodPool(name).prefab, transform);
+        newEnemy.GetComponent<EnemyManager>().myEntityStats.CurrentHP = newEnemy.GetComponent<EnemyManager>().myEntityStats.Stats[Entity.Attribute.HP].Value;
         newEnemy.SetActive(false);
         findGoodPool(name).gameObjects.Add(newEnemy);
         return newEnemy;

@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 5117473658285657620}
   - component: {fileID: 7595803491858947750}
   - component: {fileID: 3638361864412481240}
+  - component: {fileID: 2995318111468951399}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -300,11 +301,25 @@ MonoBehaviour:
   Waiting: 0
   AttackTime: 0
   AttackCounter: 0
-  BulletPrecondfab: {fileID: 0}
   enemyManager: {fileID: 5117473658285657620}
   ignore:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &2995318111468951399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590738222878651580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ced1fca7264a2d4ba88e9dd38c7ea92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  enemyManager: {fileID: 5117473658285657620}
+  anim: {fileID: 0}
 --- !u!1 &3334985617367353272
 GameObject:
   m_ObjectHideFlags: 0
