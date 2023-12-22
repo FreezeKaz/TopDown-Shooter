@@ -15,6 +15,7 @@ public class Entity : MonoBehaviour
 
     [SerializeField] protected GameObject myParent;
     [SerializeField] protected UpgradeManager UpgradeManager;
+    [SerializeField] protected EnemyManager EnemyManager;
 
     public static event Action onEnemyDie;
 
@@ -84,13 +85,21 @@ public class Entity : MonoBehaviour
         UpgradeManager.OnLevelUp();
     }
 
-    private void KillEnemy()
-    {
-        myParent.transform.GetChild(0).gameObject.SetActive(true);
-        myParent.SetActive(false);
 
-        GameManager.Instance.HandleEnemyDefeat(this);
+    IEnumerator KillEnemy()
+    {
+        int originalLayer = EnemyManager.Physics.gameObject.layer;
+        EnemyManager.Physics.layer = LayerMask.NameToLayer("Default");
+        EnemyManager.myShootingScript.StopShooting();
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        EnemyManager.Physics.layer = originalLayer;
+        EnemyManager.Render.SetActive(true);
+        myParent.SetActive(false);
         WaveGenerator.Instance.TotalEnemies--;
+        GameManager.Instance.HandleEnemyDefeat(this);
+        yield return null;
     }
 
     public void TakeDamage(int amount)
@@ -108,12 +117,13 @@ public class Entity : MonoBehaviour
         {
             if (myParent.name != "Player")
             {
+
                 // enemy death
                 onEnemyDie.Invoke();
                 _onTakeDamage.Invoke();
-                // for (int i = 0; i < myParent.transform.childCount; i++)
-                myParent.transform.GetChild(0).gameObject.SetActive(false);
-                Invoke("KillEnemy", 0.3f);
+                EnemyManager.Render.SetActive(false);
+                StartCoroutine(KillEnemy()); //TO DO change for Coroutine
+
                 //GameOverFromGameInstance;
             }
             else
@@ -123,9 +133,6 @@ public class Entity : MonoBehaviour
                 ScenesManager.Instance.SetScene("GameTitle");
                 ScenesManager.Instance.ChangeScene();
             }
-
-
         }
-
     }
 }

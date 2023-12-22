@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour
@@ -12,13 +13,15 @@ public class WaveGenerator : MonoBehaviour
 
     public int TotalEnemies = 0;
     private string mobToSpawn;
-    float timer = 0f;
+    public float timer = 0f;
     int indexOfEnemy;
 
     private WaveSO waveData;
     [SerializeField] private List<WaveSO> waves;
     [SerializeField] private SpawnPoints spawnPoints;
     [SerializeField] public List<Transform> WayPoints; //get them from the ennemy
+
+    public GameObject _playerSpawnPoint; //get them from the ennemy
 
     private Dictionary<string, int> waveState;
 
@@ -33,10 +36,16 @@ public class WaveGenerator : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(this);
+        Debug.Log("Okay");
+       
+    }
+
+    private void Start()
+    {
+        MapManager.Instance.ChangeMap(waves[0].map);
     }
     private void InitWaveState()
     {
-
         waveData = waves[GameManager.Instance.Wave];
         waveState = new Dictionary<string, int>();
         foreach (var element in waveData.enemiesInWave)
@@ -46,6 +55,14 @@ public class WaveGenerator : MonoBehaviour
         TotalEnemies += waveState.Values.Sum();
     }
 
+    private void InitMap()
+    {
+
+        if (waves[GameManager.Instance.Wave].ChangeMap)
+        {
+            MapManager.Instance.ChangeMap(waves[GameManager.Instance.Wave].map);
+        }
+    }
     public void StartWave()
     {
         InitWaveState();
@@ -77,13 +94,8 @@ public class WaveGenerator : MonoBehaviour
 
     private void SetDefaultPoolEnemy(GameObject myEnemy)
     {
-        //Destroy(myEnemy.GetComponent<BTApp>());
-        //Destroy(myEnemy.GetComponent<BaseEnemy>());
-        myEnemy.transform.position = spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
-        //var newEnemyIA = myEnemy.AddComponent<BTApp>();
-        //newEnemyIA.waypoints = WayPoints;
-        //var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
 
+        myEnemy.transform.position = MapManager.Instance.map.spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
 
     }
     IEnumerator Spawn()
@@ -102,28 +114,49 @@ public class WaveGenerator : MonoBehaviour
     IEnumerator CallingNextWave()
     {
         timer = 0f;
-        while (timer < waveData.TimeToClearAfterEverythingSpawn && TotalEnemies != 0)
-        {
-            timer += Time.deltaTime;
-            Debug.Log("Waiting for " + (waveData.TimeToClearAfterEverythingSpawn - timer) + " seconds to start the next wave...");
+      
 
-            if (TotalEnemies == 0)
+        if(!waveData.BossRoom && !CheckIfNextWaveIsBoss())
+        {
+            while (timer < waveData.TimeToClearAfterEverythingSpawn && TotalEnemies != 0)
             {
-                break;
+                timer += Time.deltaTime;
+                Debug.Log("Waiting for " + (waveData.TimeToClearAfterEverythingSpawn - timer) + " seconds to start the next wave...");
+
+                if (TotalEnemies == 0)
+                {
+                    break;
+                }
+                yield return null;
             }
-            yield return null;
         }
+        else
+        {
+            while(TotalEnemies > 0)
+            {
+                yield return null;
+            }
+        }
+
+        Debug.Log("Spawning next wave");
         GameManager.Instance.Wave++;
         if (GameManager.Instance.Wave >= waves.Count)
         {
-            GameManager.Instance.Wave = 0;
+            GameManager.Instance.Wave = 0; //resetting wave count
         }
         Debug.Log("Calling wave " + GameManager.Instance.Wave);
+        InitMap();
         GameManager.Instance.PrepareNextWave(0f);
     }
 
+    private bool CheckIfNextWaveIsBoss()
+    {
+        bool nextRoomBoss = waves.ElementAtOrDefault(GameManager.Instance.Wave + 1)?.BossRoom ?? false;
+        return nextRoomBoss;
+    }
     public void StopWaves()
     {
+        Debug.Log("Stop");
         StopAllCoroutines();
         GameManager.Instance.Wave = 0;
         timer = 0f;
