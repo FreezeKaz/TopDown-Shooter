@@ -43,7 +43,6 @@ public class PatrolState : State
 
     public override void Update()
     {
-        Debug.Log("Patrol\n");
         if (Vector3.Distance(npc.transform.position, destination) < 1)
             NewDestination();
         _rb.transform.up = new Vector2(destination.x,   destination.y);
