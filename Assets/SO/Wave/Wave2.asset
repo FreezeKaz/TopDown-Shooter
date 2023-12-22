@@ -15,7 +15,9 @@ MonoBehaviour:
   SpawnerUsed: []
   enemiesInWave:
   - enemyUsed: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
-    numberOfEnemies: 5
-  SpawnDelay: 2
+    numberOfEnemies: 1
+  SpawnDelay: 1
   TimeToClearAfterEverythingSpawn: 5
-  BossRoom: 0
+  BossRoom: 1
+  ChangeMap: 0
+  map: {fileID: 1778186459451643591, guid: 383b6ae982306d24e9a3c4cc3ee9a08c, type: 3}
