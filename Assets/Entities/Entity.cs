@@ -90,7 +90,12 @@ public class Entity : MonoBehaviour
             nbOfLevel++;
 
         }
-        if(UpgradeManager.ChoseUpgrade == 0)
+        if(nbOfLevel == 1)
+        {
+            levelUp();
+            nbOfLevel--;
+        }
+        else if(UpgradeManager.ChoseUpgrade == 0)
         {
             for (int i = 0; i < nbOfLevel; i++)
             {
