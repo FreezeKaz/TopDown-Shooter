@@ -159,6 +159,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7054999744397378379}
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: _volumeShooting
+      value: 0.135
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: shootingSoundClips.Array.size
       value: 1
       objectReference: {fileID: 0}

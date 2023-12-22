@@ -673,8 +673,8 @@ MonoBehaviour:
   weaponChangeSoundClips: {fileID: 8300000, guid: 19ff18f316c48f14b9ff924e77cc4879, type: 3}
   shootingEntity: {fileID: 2953153337305098188}
   _animator: {fileID: 840473011343879406}
-  _volumeShooting: 0.144
-  _volumeWeaponChange: 0.147
+  _volumeShooting: 0.138
+  _volumeWeaponChange: 0.448
   shooter: 7
   audioSource: {fileID: 807901972691642399}
   firePoint: {fileID: 8232341196782299981}
@@ -969,6 +969,7 @@ MonoBehaviour:
   XPGiven: 0
   myParent: {fileID: 2217757127003541112}
   UpgradeManager: {fileID: 0}
+  EnemyManager: {fileID: 0}
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []

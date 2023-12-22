@@ -53,14 +53,14 @@ public class SoundFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-/*    private void OnEnable()
+    private void OnEnable()
     {
-        Entity.onEnemyDie += EnemyDiedSFX;
+        Entity._onEnemyDie += EnemyDiedSFX;
     }
 
     private void OnDisable()
     {
-        Entity.onEnemyDie -= EnemyDiedSFX;
-    }*/
+        Entity._onEnemyDie -= EnemyDiedSFX;
+    }
 
 }
