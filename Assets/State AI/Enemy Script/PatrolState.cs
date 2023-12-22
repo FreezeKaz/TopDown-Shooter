@@ -7,11 +7,15 @@ public class PatrolState : State
 {
     int currentIndex = -1;
     Vector3 destination =  new Vector3(0, 0, 0);
+    EnemyManager enemyManager;
 
+    Rigidbody2D _rb;
     public PatrolState(GameObject _npc, Animator _anim,
                 EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.PATROL;
+        enemyManager = _enemyManager;
+        _rb = _npc.GetComponent<Rigidbody2D>();
     }
 
     void NewDestination()
@@ -19,15 +23,15 @@ public class PatrolState : State
         currentIndex++;
         if (currentIndex < 0)
             currentIndex = 0;
-        if (currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1)
+        if (currentIndex >= MapManager.Instance.map.wayPoints.waypoints.Count - 1)
             currentIndex = 0;
         //int i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
 
        // while (i == currentIndex)
           //  i = Random.Range(0, GameEnvironment.Singleton.Checkpoints.Count - 1);
         //currentIndex = i;
-        if (GameEnvironment.Singleton.Checkpoints[currentIndex] != null)
-            destination = GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position;
+        if (MapManager.Instance.map.wayPoints.waypoints[currentIndex] != null)
+            destination = MapManager.Instance.map.wayPoints.waypoints[currentIndex].transform.position;
     }
 
     public override void Enter()
@@ -43,11 +47,9 @@ public class PatrolState : State
         Debug.Log("Patrol\n");
         if (Vector3.Distance(npc.transform.position, destination) < 1)
             NewDestination();
+        _rb.transform.up = new Vector2(destination.x,   destination.y);
         npc.transform.position = Vector3.MoveTowards(npc.transform.position, destination, 2 * Time.deltaTime);
-        if (npc.transform.position.x > destination.x)
-            npc.transform.rotation = Quaternion.Euler(0, 180, 0);
-        else
-            npc.transform.rotation = Quaternion.Euler(0, 0, 0);
+
     }
 
     public override void Exit()

@@ -23,9 +23,9 @@ public class State
     protected EnemyManager enemyManager;
 
 
-    float visDist = 10.0f;
+    float visDist = 15.0f;
    // float visAngle = 30.0f;
-    float shootDist = 5f;
+    float shootDist = 10f;
 
     public State(GameObject _npc, Animator _anim,
                 EnemyManager _enemyManager, Transform _player)

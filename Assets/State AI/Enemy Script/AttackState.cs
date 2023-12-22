@@ -6,44 +6,41 @@ public class AttackState : State
 {
     //float rotationSpeed = 2.0f;
     Shooting shooter;
-    GameObject firepoint;
+    Transform go;
+    Transform player;
+    Rigidbody2D _rb;
+    GameObject _gameObject;
+
 
     public AttackState(GameObject _npc, Animator _anim,
                 EnemyManager _enemyManager, Transform _player) : base( _npc, _anim, _enemyManager, _player)
     {
         name = STATE.ATTACK;
         shooter = enemyManager.Actions.gameObject.GetComponent<Shooting>();
-        firepoint = npc.transform.Find("FirePoints").gameObject;
+        go = npc.transform;
+        player = _player;
+        _rb = _npc.GetComponent<Rigidbody2D>();
+        _gameObject = _npc;
     }
 
     public override void Enter()
     {
         anim.SetTrigger("isShooting");
-       // shoot.Play();
+        shooter.StartShooting();
         base.Enter();
     }
 
     public override void Update()
     {
-        Debug.Log("Update\n");
-        
-        shooter.StartShooting();
-        Vector3 direction = player.position - npc.transform.position;
-        float angle = Mathf.Atan2(direction.y , direction.x) * Mathf.Rad2Deg + 45;
-        firepoint.transform.rotation = Quaternion.Euler(0, 0, angle -180);
-        /*Vector3 direction = player.position - npc.transform.position;
-        float angle = Vector3.Angle(direction, npc.transform.forward);
-
-        direction.y = 0;
-        npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation,
-                                Quaternion.LookRotation(direction), 
-                                Time.deltaTime * rotationSpeed);*/
+        Vector2 vector2 = player.position;
+        _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
+       
     }
 
     public override void Exit()
     {
         anim.ResetTrigger("isShooting");
-       // shoot.Stop();
+        shooter.StopShooting();
         base.Exit();
     }
 
