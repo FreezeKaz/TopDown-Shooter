@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562d2c255bead6649b621111fda3c4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingSoundClips: []
+  weaponChangeSoundClips: {fileID: 0}
   shootingEntity: {fileID: 6307414538515139123}
   _animator: {fileID: 0}
-  volumeSFX: 0
+  _volumeShooting: 0
+  _volumeWeaponChange: 0
   shooter: 8
   audioSource: {fileID: 3828373563742382358}
   firePoint: {fileID: 7243892082627063410}
@@ -147,9 +148,9 @@ GameObject:
   m_Component:
   - component: {fileID: 468718824198609346}
   - component: {fileID: 371009101215662659}
-  - component: {fileID: 6458622251550968776}
   - component: {fileID: 5117473658285657620}
   - component: {fileID: 7595803491858947750}
+  - component: {fileID: 3638361864412481240}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -231,21 +232,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6458622251550968776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2590738222878651580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77cc5839720d3468602f44f9b898cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 4889656772286957482, guid: 73d18cce843f4fd41b6ec8ec256c891e, type: 3}
-  - {fileID: 9134856336521948955, guid: 56b9e5b1c93f9734dbb129398a67563e, type: 3}
 --- !u!114 &5117473658285657620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +276,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3638361864412481240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590738222878651580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18d04ff8bc322c4f9841481db3afb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _save: {fileID: 11400000, guid: b5a426b46a563894b82be76df1cee979, type: 2}
+  Speed: 0
+  FovRange: 0
+  Range: 0
+  Waypoints: []
+  Rb: {fileID: 7595803491858947750}
+  CurrentWaypointIndex: 0
+  WaitTime: 0
+  WaitCounter: 0
+  Waiting: 0
+  AttackTime: 0
+  AttackCounter: 0
+  BulletPrecondfab: {fileID: 0}
+  enemyManager: {fileID: 5117473658285657620}
+  ignore:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3334985617367353272
 GameObject:
   m_ObjectHideFlags: 0

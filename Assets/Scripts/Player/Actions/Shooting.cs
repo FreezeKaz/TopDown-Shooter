@@ -54,7 +54,7 @@ public class Shooting : MonoBehaviour
                     myBullet.layer = shooter;
                     float angulo = Mathf.Atan2(rigidBody.velocity.y, rigidBody.velocity.x) * Mathf.Rad2Deg;
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
-                    SoundFXManager.instance.PlaySoundFXClip(currentWeapon._shootingSound.clip, transform, _volumeShooting);
+                    //SoundFXManager.instance.PlaySoundFXClip(currentWeapon._shootingSound.clip, transform, _volumeShooting);
                 }
 
 
@@ -88,7 +88,7 @@ public class Shooting : MonoBehaviour
     {
         if (weaponChangeSoundClips != null)
         {
-            SoundFXManager.instance.PlaySoundFXClip(weaponChangeSoundClips, transform, _volumeWeaponChange);
+            //SoundFXManager.instance.PlaySoundFXClip(weaponChangeSoundClips, transform, _volumeWeaponChange);
         }
         currentWeapon = newWeapon;
         prefabBullet = currentWeapon.bullet;
