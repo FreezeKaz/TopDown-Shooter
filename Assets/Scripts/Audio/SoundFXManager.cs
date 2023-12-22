@@ -8,7 +8,6 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundFXObject;
     [SerializeField] private AudioClip[] SoundClips;
-    [SerializeField][Range(0, 1)] private float _volumeShootingSFX;
     [SerializeField][Range(0, 1)] private float _enemyDiedVolume;
 
 
@@ -20,13 +19,9 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    private void ShootingSFX(int index)
-    {
-        PlaySoundFXClip(SoundClips[index], transform, _volumeShootingSFX);
-    }
     private void EnemyDiedSFX()
     {
-        PlaySoundFXClip(SoundClips[2], transform, _enemyDiedVolume);
+        PlaySoundFXClip(SoundClips[0], transform, _enemyDiedVolume);
     }
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
@@ -60,13 +55,11 @@ public class SoundFXManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Shooting.onShootingSFX += ShootingSFX;
         Entity.onEnemyDie += EnemyDiedSFX;
     }
 
     private void OnDisable()
     {
-        Shooting.onShootingSFX -= ShootingSFX;
         Entity.onEnemyDie -= EnemyDiedSFX;
     }
 

@@ -48,7 +48,8 @@ MonoBehaviour:
   shootingSoundClips: []
   shootingEntity: {fileID: 6307414538515139123}
   _animator: {fileID: 0}
-  volumeSFX: 0
+  _volumeShooting: 0
+  _volumeWeaponChange: 0
   shooter: 8
   audioSource: {fileID: 3828373563742382358}
   firePoint: {fileID: 7243892082627063410}
@@ -147,8 +148,8 @@ GameObject:
   m_Component:
   - component: {fileID: 468718824198609346}
   - component: {fileID: 371009101215662659}
-  - component: {fileID: 5117473658285657620}
   - component: {fileID: -3157580436511971936}
+  - component: {fileID: 5117473658285657620}
   - component: {fileID: 7595803491858947750}
   - component: {fileID: -6969363435912989894}
   m_Layer: 9
@@ -232,22 +233,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5117473658285657620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2590738222878651580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c65e459f6dc53a54ca31e59674e17d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Actions: {fileID: 89613512760133084}
-  Physics: {fileID: 8345524657035484085}
-  myEntityStats: {fileID: 6307414538515139123}
-  myShootingScript: {fileID: 5188139326345223804}
 --- !u!114 &-3157580436511971936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18d04ff8bc322c4f9841481db3afb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _save: {fileID: 11400000, guid: 5978fb01b734f274c9492dafdcfd5a0d, type: 2}
+  _save: {fileID: 11400000, guid: b5a426b46a563894b82be76df1cee979, type: 2}
   Speed: 0
   FovRange: 0
   Range: 0
@@ -279,6 +264,23 @@ MonoBehaviour:
   ignore:
     serializedVersion: 2
     m_Bits: 5184
+  navMeshAgent: {fileID: 0}
+--- !u!114 &5117473658285657620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590738222878651580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65e459f6dc53a54ca31e59674e17d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Actions: {fileID: 89613512760133084}
+  Physics: {fileID: 8345524657035484085}
+  myEntityStats: {fileID: 6307414538515139123}
+  myShootingScript: {fileID: 5188139326345223804}
 --- !u!50 &7595803491858947750
 Rigidbody2D:
   serializedVersion: 4
@@ -529,9 +531,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onHealthLow:
+    m_PersistentCalls:
+      m_Calls: []
+  _onLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
   SFXSoundClips:
   - {fileID: 8300000, guid: bb2e2714f962491428dcb0b38598b251, type: 3}
-  _volumeSFX: 0.1
 --- !u!1 &4519915058384877002
 GameObject:
   m_ObjectHideFlags: 0

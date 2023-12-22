@@ -151,8 +151,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundFXObject: {fileID: 2946807848803416066}
   SoundClips:
-  - {fileID: 8300000, guid: 343a6f93329767d4092f608f11a33dfa, type: 3}
-  volumeShooting: 1.06
+  - {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
+  _volumeShootingSFX: 0.123
+  _enemyDiedVolume: 0.13
 --- !u!4 &99548298
 Transform:
   m_ObjectHideFlags: 0

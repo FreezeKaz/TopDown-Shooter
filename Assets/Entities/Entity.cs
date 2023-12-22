@@ -22,9 +22,6 @@ public class Entity : MonoBehaviour
     [SerializeField] UnityEvent _onHealthLow;
     [SerializeField] UnityEvent _onLevelUp;
 
-    [SerializeField] private AudioClip[] SFXSoundClips;
-
-
     //Entity just holds statwise, weapon will be handled with player or enemy object
 
     public enum Attribute
@@ -113,6 +110,7 @@ public class Entity : MonoBehaviour
             {
                 // enemy death
                 onEnemyDie.Invoke();
+                _onTakeDamage.Invoke();
                 // for (int i = 0; i < myParent.transform.childCount; i++)
                 myParent.transform.GetChild(0).gameObject.SetActive(false);
                 Invoke("KillEnemy", 0.3f);

@@ -73,7 +73,7 @@ PrefabInstance:
     - target: {fileID: -3157580436511971936, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: _save
       value: 
-      objectReference: {fileID: 11400000, guid: 5978fb01b734f274c9492dafdcfd5a0d, type: 2}
+      objectReference: {fileID: 11400000, guid: b5a426b46a563894b82be76df1cee979, type: 2}
     - target: {fileID: 82236596337685591, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.060284786
@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: currentWeapon
       value: 
       objectReference: {fileID: 11400000, guid: abb6cc7d9da9f4b4da60e5fc6d13438d, type: 2}
+    - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
+      propertyPath: weaponChangeSoundClips
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: shootingSoundClips.Array.size
       value: 1

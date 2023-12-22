@@ -670,12 +670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562d2c255bead6649b621111fda3c4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingSoundClips:
-  - {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
-  - {fileID: 8300000, guid: 19ff18f316c48f14b9ff924e77cc4879, type: 3}
+  weaponChangeSoundClips: {fileID: 8300000, guid: 19ff18f316c48f14b9ff924e77cc4879, type: 3}
   shootingEntity: {fileID: 2953153337305098188}
   _animator: {fileID: 840473011343879406}
-  volumeShooting: 0
+  _volumeShooting: 0.144
+  _volumeWeaponChange: 0.147
   shooter: 7
   audioSource: {fileID: 807901972691642399}
   firePoint: {fileID: 8232341196782299981}
@@ -979,8 +978,6 @@ MonoBehaviour:
   _onLevelUp:
     m_PersistentCalls:
       m_Calls: []
-  SFXSoundClips: []
-  _volumeSFX: 0
 --- !u!114 &4315248466801438541
 MonoBehaviour:
   m_ObjectHideFlags: 0
