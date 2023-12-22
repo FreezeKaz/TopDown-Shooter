@@ -12,6 +12,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<CardManager> _cards;
     [SerializeField] private List<UpgradeSO> allUpgrades;
     [SerializeField] public Upgrade _playerUpgrade;
+    public int ChoseUpgrade = 0;
 
 
     public void Start()
@@ -20,6 +21,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void OnLevelUp()
     {
+        ChoseUpgrade = 1;
         List<UpgradeSO> choosenUpgrades = SelectRandomItems(allUpgrades, 3);
         Debug.Log("dispalying");
         _cardPanel.SetActive(true);
@@ -38,6 +40,7 @@ public class UpgradeManager : MonoBehaviour
     public void CardSelected()
     {
         Debug.Log("not dispalying");
+        ChoseUpgrade = 2;
         _cardPanel.SetActive(false);
         Time.timeScale = 1.0f; //pause the game
     }
