@@ -93,12 +93,7 @@ public class WaveGenerator : MonoBehaviour
 
     private void SetDefaultPoolEnemy(GameObject myEnemy)
     {
-        //Destroy(myEnemy.GetComponent<BaseEnemy>());
         myEnemy.transform.position = MapManager.Instance.map.spawnPoints.spawnPoints[UnityEngine.Random.Range(0, waveData.SpawnerUsed.Count)].transform.position;
-
-        //var newEnemyIA = myEnemy.AddComponent<BaseEnemy>();
-
-
     }
     IEnumerator Spawn()
     {
