@@ -10,6 +10,10 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] private AudioClip[] SoundClips;
     [SerializeField][Range(0, 1)] private float _enemyDiedVolume;
 
+    [SerializeField] private AudioSource BGMsource;
+    [SerializeField] private AudioClip[] BGMClips;
+    [SerializeField][Range(0, 1)] private float _BGMVolume;
+
 
     private void Awake()
     {
@@ -51,6 +55,19 @@ public class SoundFXManager : MonoBehaviour
         float clipLength = audioSource.clip.length;
 
         Destroy(audioSource.gameObject, clipLength);
+    }
+
+    public void PlayBGM(int index)
+    {
+        if (BGMClips == null) { Debug.Log("BGM not played, Audio clip null."); return; }
+
+        BGMsource.clip = BGMClips[index];
+        BGMsource.volume = _BGMVolume;
+        BGMsource.Play();
+    }
+    public void StopBGM()
+    {
+        BGMsource.Stop();
     }
 
     private void OnEnable()
