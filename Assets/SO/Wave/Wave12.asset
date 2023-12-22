@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e532564b6571746b2f3cdb59788965, type: 3}
+  m_Name: Wave12
+  m_EditorClassIdentifier: 
+  SpawnerUsed: []
+  enemiesInWave:
+  - enemyUsed: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
+    numberOfEnemies: 2
+  SpawnDelay: 10
+  TimeToClearAfterEverythingSpawn: 5
+  BossRoom: 1
+  ChangeMap: 1
+  map: {fileID: 1778186459451643591, guid: 383b6ae982306d24e9a3c4cc3ee9a08c, type: 3}

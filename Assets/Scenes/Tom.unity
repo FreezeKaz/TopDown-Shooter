@@ -839,20 +839,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
       propertyPath: waves.Array.size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
       propertyPath: 'waves.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 99cafb2adfe3b064ea8778cc2c25907a, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c235c2a0649e2a49bb4f69b584f91a4, type: 2}
     - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
       propertyPath: 'waves.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c235c2a0649e2a49bb4f69b584f91a4, type: 2}
+      objectReference: {fileID: 11400000, guid: fb20db1e2bea66e47b7940c3e7fd889d, type: 2}
     - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
       propertyPath: 'waves.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: fb20db1e2bea66e47b7940c3e7fd889d, type: 2}
+      objectReference: {fileID: 11400000, guid: 99cafb2adfe3b064ea8778cc2c25907a, type: 2}
+    - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
+      propertyPath: 'waves.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d839638e5bb74284db48ef0567ba1f26, type: 2}
+    - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
+      propertyPath: 'waves.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c14533d3b9ca594a911b0510b47e3dc, type: 2}
+    - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
+      propertyPath: 'waves.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7442d5d1bf01c134b88893d1798e86c4, type: 2}
+    - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
+      propertyPath: 'waves.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cff624919e4f9648a809b7ca85ff240, type: 2}
+    - target: {fileID: 5481769753063829191, guid: da33662e16ce9ef4b950ac3f509465bd, type: 3}
+      propertyPath: 'waves.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 45790ed1ca35cfe4599f6529da7338b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

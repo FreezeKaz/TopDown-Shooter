@@ -24,7 +24,7 @@ MonoBehaviour:
   - enemyUsed: {fileID: 8592128342942949089, guid: f350acd743d7bdf4898bc8a1be983959, type: 3}
     numberOfEnemies: 2
   - enemyUsed: {fileID: 1406699763684350079, guid: 7a0a5a8595924ab4db57a88150e31aae, type: 3}
-    numberOfEnemies: 2
+    numberOfEnemies: 10
   SpawnDelay: 2
   TimeToClearAfterEverythingSpawn: 5
   BossRoom: 0
