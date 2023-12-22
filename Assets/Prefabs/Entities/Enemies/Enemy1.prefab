@@ -377,11 +377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: HP
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: Attack
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: XPGiven
@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: RangeOfSight
-      value: 15
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: FireRateRatio
@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: RangeofAttack
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: MoveSpeedRatio

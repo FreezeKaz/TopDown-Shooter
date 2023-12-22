@@ -25,6 +25,17 @@ public class MapManager : MonoBehaviour
 
     public void ChangeMap(GameObject newMap)
     {
+        SoundFXManager.instance.StopBGM();
+        string[] mapName = newMap.name.Split("#");
+        switch (mapName[1])
+        {
+            case "0":
+                SoundFXManager.instance.PlayBGM(0);
+                break;
+            case "1":
+                SoundFXManager.instance.PlayBGM(1);
+                break;
+        }
         if (MapObject != null) Destroy(MapObject);
         Debug.Log("Changing map");
         MapObject = Instantiate(newMap, transform.position, Quaternion.identity);

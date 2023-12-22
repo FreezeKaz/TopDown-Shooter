@@ -381,19 +381,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: Attack
-      value: 0.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: XPGiven
-      value: 120
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: RangeOfSight
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: FireRateRatio
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: RangeofAttack
@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: MoveSpeedRatio
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: _onTakeDamage.m_PersistentCalls.m_Calls.Array.size

@@ -12,7 +12,7 @@ public class SceneButton : MonoBehaviour
     public void ChangeScene()
     {
         ScenesManager.Instance.SetScene(Scene);
-        if(Scene == "Tom")
+        if(Scene == "Game")
         {
             GameManager.Instance.StartGame();
         }
