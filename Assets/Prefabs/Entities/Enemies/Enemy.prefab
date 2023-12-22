@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Actions: {fileID: 89613512760133084}
   Physics: {fileID: 8345524657035484085}
+  Render: {fileID: 4519915058384877002}
   myEntityStats: {fileID: 6307414538515139123}
   myShootingScript: {fileID: 5188139326345223804}
 --- !u!50 &7595803491858947750
@@ -475,6 +476,7 @@ MonoBehaviour:
   XPGiven: 0
   myParent: {fileID: 2590738222878651580}
   UpgradeManager: {fileID: 0}
+  EnemyManager: {fileID: 5117473658285657620}
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -502,6 +504,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onHealthLow:
+    m_PersistentCalls:
+      m_Calls: []
+  _onLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4519915058384877002
 GameObject:
   m_ObjectHideFlags: 0

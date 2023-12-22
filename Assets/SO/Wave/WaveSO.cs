@@ -19,5 +19,7 @@ public class WaveSO : ScriptableObject
     public float TimeToClearAfterEverythingSpawn;
 
     public bool BossRoom;
+    public bool ChangeMap;
+    public GameObject map;
     //public BossSO
 }

@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 public class Entity : MonoBehaviour
 {
-    
+
     [SerializeField] public float HP;
     [SerializeField] public float Attack;
     [SerializeField] public float FireRateRatio;
@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
 
     [SerializeField] protected GameObject myParent;
     [SerializeField] protected UpgradeManager UpgradeManager;
+    [SerializeField] protected EnemyManager EnemyManager;
 
     [SerializeField] UnityEvent _onTakeDamage;
     [SerializeField] UnityEvent _onHealthLow;
@@ -84,33 +85,41 @@ public class Entity : MonoBehaviour
         _onLevelUp.Invoke();
         UpgradeManager.OnLevelUp();
     }
-    
-    private void KillEnemy()
-    {
-        myParent.transform.GetChild(0).gameObject.SetActive(true);
-        myParent.SetActive(false);
 
-        GameManager.Instance.HandleEnemyDefeat(this);
+    IEnumerator KillEnemy()
+    {
+        int originalLayer = EnemyManager.Physics.gameObject.layer;
+        EnemyManager.Physics.layer = LayerMask.NameToLayer("Default");
+        EnemyManager.myShootingScript.StopShooting();
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        EnemyManager.Physics.layer = originalLayer;
+        EnemyManager.Render.SetActive(true);
+        myParent.SetActive(false);
         WaveGenerator.Instance.TotalEnemies--;
+        GameManager.Instance.HandleEnemyDefeat(this);
+        yield return null;
     }
 
     public void TakeDamage(int amount)
     {
         CurrentHP -= amount;
-        if (myParent.name == "Player")  {
-            if (CurrentHP <= maxHp / 2) {
+        if (myParent.name == "Player")
+        {
+            if (CurrentHP <= maxHp / 2)
+            {
                 _onHealthLow.Invoke();
             }
             _onTakeDamage.Invoke();
         }
-            if (CurrentHP <= 0) {
-            if(myParent.name != "Player")
+        if (CurrentHP <= 0)
+        {
+            if (myParent.name != "Player")
             {
-                // enemy death
                 _onTakeDamage.Invoke();
-               // for (int i = 0; i < myParent.transform.childCount; i++)
-                   myParent.transform.GetChild(0).gameObject.SetActive(false);
-                Invoke("KillEnemy", 0.3f);
+                EnemyManager.Render.SetActive(false);
+                StartCoroutine(KillEnemy()); //TO DO change for Coroutine
                 //GameOverFromGameInstance;
             }
             else
@@ -120,9 +129,6 @@ public class Entity : MonoBehaviour
                 ScenesManager.Instance.SetScene("GameTitle");
                 ScenesManager.Instance.ChangeScene();
             }
-            
-           
         }
-
     }
 }

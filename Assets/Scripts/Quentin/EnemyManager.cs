@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
 
-    public GameObject Actions;
-    public GameObject Physics;
+    [SerializeField] public GameObject Actions;
+    [SerializeField] public GameObject Physics;
+    [SerializeField] public GameObject Render;
 
     [SerializeField] public Entity myEntityStats;
-    [SerializeField] Shooting myShootingScript;
+    [SerializeField] public Shooting myShootingScript;
     
 
     public void OnDisable()

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-      
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this);
-      
+
     }
 
     public void StartGame()
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartWave()
     {
         float timer = DelayBeforeWave;
-       
+
         while (timer > 0f)
         {
             // Update the timer display (you can replace this with updating a UI Text component)
