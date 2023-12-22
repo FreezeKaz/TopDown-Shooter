@@ -1031,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 2946807848803416064}
     - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
       propertyPath: 'allUpgrades.Array.data[1]'
@@ -1831,10 +1831,26 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 2946807848803416065}
+    - target: {fileID: 2488646930442417361, guid: 27d4a3ca18d9f394bb76a405c2693c0a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5433500208194158530, guid: 27d4a3ca18d9f394bb76a405c2693c0a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933551919887894527, guid: 27d4a3ca18d9f394bb76a405c2693c0a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8406889677580523840, guid: 27d4a3ca18d9f394bb76a405c2693c0a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 546939356}
+    - target: {fileID: 8406889677580523840, guid: 27d4a3ca18d9f394bb76a405c2693c0a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

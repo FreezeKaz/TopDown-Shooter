@@ -31,7 +31,7 @@ public class UpdateUIBar : MonoBehaviour
 
         float amount = 2f - (_player.CurrentHP / _player.Stats[Entity.Attribute.HP].Value) * 2f;
         _hpBar.localScale = new Vector3(amount, 1f, 1f);
-        _text.text = _player.CurrentHP + " | " + _player.Stats[Entity.Attribute.HP].Value;
+        _text.text = _player.CurrentHP + " | " + (int)_player.Stats[Entity.Attribute.HP].Value;
     }
     private void SetLevel()
     {
