@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: abb6cc7d9da9f4b4da60e5fc6d13438d, type: 2}
+      objectReference: {fileID: 11400000, guid: 657783e2a2d49d943ba51b6ef1d894a1, type: 2}
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: _volumeShooting
       value: 0.13

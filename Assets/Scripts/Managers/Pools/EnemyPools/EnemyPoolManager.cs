@@ -49,7 +49,7 @@ public class EnemyPoolManager : MonoBehaviour
             {
                 
                 GameObject enemy = Instantiate(pool.prefab, transform);
-                enemy.name = pool.name;
+                enemy.name = pool.prefab.name;
                 gameObjectList.name = enemy.name;
                 gameObjectList.prefab = pool.prefab;
                 enemy.SetActive(false);

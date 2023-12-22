@@ -69,6 +69,5 @@ public class GameManager : MonoBehaviour
     {
         WaveGenerator.Instance.StopWaves();
         EnemyPoolManager.Instance.ResetPool();
-        BulletPoolManager.Instance.ResetPool();
     }
 }

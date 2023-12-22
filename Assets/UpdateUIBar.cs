@@ -10,6 +10,7 @@ public class UpdateUIBar : MonoBehaviour
     [SerializeField] private Entity _player;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private TextMeshProUGUI _level;
+    [SerializeField] private Material _screenEffect;
 
     public void Awake()
     {
@@ -41,5 +42,9 @@ public class UpdateUIBar : MonoBehaviour
 
        float amount = 1.82f - (_player.XP / _player.XPToGet) * 1.82f;
        _xpBar.localScale = new Vector3(amount, 1f, 1f);
+    }
+
+    private void SetScreenEffect()
+    {
     }
 }
