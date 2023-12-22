@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4369823471172221661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8119199494258528376}
+  - component: {fileID: 3073719567424235699}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8119199494258528376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4369823471172221661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3073719567424235699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4369823471172221661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503f8600f604cf642947e9c3d158194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - name: Enemy2
+    prefab: {fileID: 3509242755498608795, guid: 808b753b36dfee54a9214cd5902f2846, type: 3}
+    poolSize: 20
+  - name: Enemy3
+    prefab: {fileID: 908179511781199073, guid: a05e81d70baf5e34493fa8cf473b30c4, type: 3}
+    poolSize: 50
+  - name: Enemy1
+    prefab: {fileID: 5295143098812091305, guid: 4389ec1db6fe44c48adae9bc0627d5b7, type: 3}
+    poolSize: 50
+  - name: Enemy4
+    prefab: {fileID: 8592128342942949089, guid: f350acd743d7bdf4898bc8a1be983959, type: 3}
+    poolSize: 50
+  - name: Enemy5
+    prefab: {fileID: 1406699763684350079, guid: 7a0a5a8595924ab4db57a88150e31aae, type: 3}
+    poolSize: 50
+  - name: Enemy6
+    prefab: {fileID: 1406699763684350079, guid: 8e65144074ec9d2479a605d7aa846da6, type: 3}
+    poolSize: 20
+  - name: Enemy7
+    prefab: {fileID: 8592128342942949089, guid: 2218891130d0ece4b802496afa5496e9, type: 3}
+    poolSize: 20
+  - name: Enemy8
+    prefab: {fileID: 5295143098812091305, guid: 4cd60aa8078d91341acf1aa6891b1161, type: 3}
+    poolSize: 20
+  - name: Bullet1
+    prefab: {fileID: 5966514032611924648, guid: bf303831814ab3c4fa2f4b7f68b01da1, type: 3}
+    poolSize: 50
+  - name: Bullet2
+    prefab: {fileID: 2165864957932784126, guid: 32b1ff3d09afb8245be286ab6298ddd5, type: 3}
+    poolSize: 50
+  - name: Bullet3
+    prefab: {fileID: 784160622316908585, guid: 98422ea8775aec3449d1a04a9e8c9871, type: 3}
+    poolSize: 50
+  - name: BulletLaserOS
+    prefab: {fileID: 4196278188506222133, guid: 45df6c5a4dd290848b6a85fc4c4a5d97, type: 3}
+    poolSize: 20
+  - name: CrabBullet
+    prefab: {fileID: 6806329815171241476, guid: 993f162e7ffbc474982e99e19fd1ffb3, type: 3}
+    poolSize: 50
+  - name: SlowBullet
+    prefab: {fileID: 5966514032611924648, guid: aae63d5b7f5169c41af5372a7b0dfc51, type: 3}
+    poolSize: 50
