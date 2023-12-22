@@ -5,15 +5,14 @@ using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class Shooting : MonoBehaviour
 {
-
-    [SerializeField] private AudioClip[] shootingSoundClips;
+    [SerializeField] private AudioClip weaponChangeSoundClips;
     [SerializeField] private Entity shootingEntity;
     [SerializeField] private Animator _animator;
-    [SerializeField][Range(0, 1)] private float volumeSFX;
+    [SerializeField][Range(0, 1)] private float _volumeShooting;
+    [SerializeField][Range(0, 1)] private float _volumeWeaponChange;
     [SerializeField][Range(7, 8)] private int shooter;
     [SerializeField] private AudioSource audioSource;
 
@@ -38,7 +37,8 @@ public class Shooting : MonoBehaviour
     {
         // Update is called once per frame
         if (_shooting)
-        {             
+        {
+           
             if (interval <= 0)
             {
                 interval = 1 / (fireRate * shootingEntity.Stats[Entity.Attribute.FireRateRatio].Value);
@@ -54,9 +54,9 @@ public class Shooting : MonoBehaviour
                     myBullet.layer = shooter;
                     float angulo = Mathf.Atan2(rigidBody.velocity.y, rigidBody.velocity.x) * Mathf.Rad2Deg;
                     myBullet.transform.rotation = Quaternion.AngleAxis(angulo - 90, Vector3.forward);
+                    SoundFXManager.instance.PlaySoundFXClip(currentWeapon._shootingSound.clip, transform, _volumeShooting);
                 }
 
-              //  SoundFXManager.instance.PlaySoundFXClip(audioClip, transform, volumeSFX)
 
                 return;
             }
@@ -65,19 +65,14 @@ public class Shooting : MonoBehaviour
     }
     public void EnableShoot(InputAction.CallbackContext input)
     {
-        Debug.Log(this.transform.parent.name);
         _animator.SetTrigger("isShooting");
-        audioSource.clip = currentWeapon._shootingSound.clip;
-        audioSource.Play();
-        audioSource.loop = true;
         StartShooting();
     }
     
     public void DisableShoot(InputAction.CallbackContext input)
     {
         _animator.ResetTrigger("isShooting");
-        _animator.SetTrigger("isIdle");
-        audioSource.Stop();
+        _animator.ResetTrigger("isIdle");
         StopShooting(); //only for input
     }
 
@@ -91,10 +86,9 @@ public class Shooting : MonoBehaviour
     }
     public void ChangeWeapon(Weapon newWeapon)
     {
-        if (shootingSoundClips.Length > 1)
+        if (weaponChangeSoundClips != null)
         {
-            audioSource.clip = shootingSoundClips[1];
-            audioSource.Play();
+            SoundFXManager.instance.PlaySoundFXClip(weaponChangeSoundClips, transform, _volumeWeaponChange);
         }
         currentWeapon = newWeapon;
         prefabBullet = currentWeapon.bullet;

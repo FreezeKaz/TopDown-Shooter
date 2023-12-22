@@ -125,6 +125,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6636469816383536650, guid: ef2141d0677d11744aa4df884747b33b, type: 3}
   m_PrefabInstance: {fileID: 2946807848803416063}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &223107401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223107403}
+  - component: {fileID: 223107402}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &223107402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223107401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013d434970eade94b9549785c6e14daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 2946807848803416066}
+  SoundClips:
+  - {fileID: 8300000, guid: 78419f98379502c4dbfb2774bc94e7c1, type: 3}
+  _enemyDiedVolume: 0.174
+--- !u!4 &223107403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223107401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 934.84784, y: 834.9801, z: 33903.156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228789626
 GameObject:
   m_ObjectHideFlags: 3
@@ -423,7 +471,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapObject: {fileID: 0}
   map: {fileID: 0}
-  _player: {fileID: 2946807848803416066}
+  _player: {fileID: 1867287344}
+--- !u!1 &701721685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701721687}
+  - component: {fileID: 701721686}
+  m_Layer: 0
+  m_Name: MixerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &701721686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701721685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18068c5bda434a4db4d176bad65089a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 23e2654ba9c6b8b43aed740119718f6c, type: 2}
+--- !u!4 &701721687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701721685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 934.84784, y: 834.9801, z: 33903.156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &717684372
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +815,54 @@ PrefabInstance:
       propertyPath: _playerUpgrade
       value: 
       objectReference: {fileID: 2946807848803416064}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: allUpgrades.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a8124d5d3d8b74448b705885b67fb893, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 668123357e9e4ea43897c0f458b872fb, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 11ca51be7f9ef89489d2f6b0a8137ff9, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d91747878da3b740bb45b90b1eebeb8, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7340ef03fde58594a9b5e014a55771f0, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 04e679a2779baa94a9fab944a68b8b8d, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a6648efdc9febf5419c98f6294aad585, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d38a3482c847624b8529a6a3ba238df, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ce1fdb60b93bcac4aa68fdcdb8bc6937, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 81642ae5fd784cd4690d8848077e542a, type: 2}
+    - target: {fileID: 885285807824198566, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
+      propertyPath: 'allUpgrades.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f730f9899e7f25b45b1bdc791c47de3e, type: 2}
     - target: {fileID: 912029362137335895, guid: c48eb20f1a33a5645a264642cbe42a93, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -852,6 +993,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e384601e2c5b9cc4c9c335cd49a2e371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1867287344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8691559904026397089, guid: ef2141d0677d11744aa4df884747b33b, type: 3}
+  m_PrefabInstance: {fileID: 2946807848803416063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429b464aef932934685be43b24968657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1957369896
@@ -1048,17 +1200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07cf630d6572514f9f92226aee6c714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2946807848803416066 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4218557013695897504, guid: ef2141d0677d11744aa4df884747b33b, type: 3}
+--- !u!82 &2946807848803416066 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 807901972691642399, guid: ef2141d0677d11744aa4df884747b33b, type: 3}
   m_PrefabInstance: {fileID: 2946807848803416063}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 429b464aef932934685be43b24968657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6560339786447283686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1297,3 +1443,5 @@ SceneRoots:
   - {fileID: 1712983379}
   - {fileID: 557095672}
   - {fileID: 1111788447}
+  - {fileID: 223107403}
+  - {fileID: 701721687}

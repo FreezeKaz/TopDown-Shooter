@@ -11,7 +11,6 @@ public class SceneButton : MonoBehaviour
     // Start is called before the first frame update
     public void ChangeScene()
     {
-        Debug.Log(Scene);
         ScenesManager.Instance.SetScene(Scene);
         if(Scene == "Tom")
         {

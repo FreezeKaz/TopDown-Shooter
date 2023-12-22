@@ -5,50 +5,44 @@ using UnityEngine;
 namespace BehaviorTree
 {
     public class Patrol : Node
-    {
-        private Transform _transform;
-        private List<Transform> _waypoints;
-        private Rigidbody2D _rb;
+    {        public Patrol(GameObject gameObject, List<Transform> waypoints) { }
+        
 
-        private int _currentWaypointIndex = 0;
-
-        private float _waitTime = 1f; // in seconds
-        private float _waitCounter = 0f;
-        private bool _waiting = false;
-
-        public Patrol(GameObject gameObject, List<Transform> waypoints)
+        private void Awake()
         {
-            _transform = gameObject.transform;          
-            _waypoints = waypoints;
-            _rb = _transform.GetComponent<Rigidbody2D>();
         }
 
-        public override NodeState Evaluate()
+        public override void Init()
         {
-            if (_waiting)
+            type = NodeType.TASK;
+        }
+
+        public override NodeState Evaluate(BTApp app)
+        {
+            if (app.Waiting)
             {
-                _waitCounter += Time.deltaTime;
-                if (_waitCounter >= _waitTime)
+                app.WaitCounter += Time.deltaTime;
+                if (app.WaitCounter >= app.WaitTime)
                 {
-                    _waiting = false;
+                    app.Waiting = false;
                 }
             }
             else
             {
-                Transform wp = _waypoints[_currentWaypointIndex];
-                if (Vector3.Distance(_transform.position, wp.position) < 0.01f)
+                Transform wp = app.Waypoints[app.CurrentWaypointIndex];
+                if (Vector3.Distance(app.transform.position, wp.position) < 0.01f)
                 {
-                    _transform.position = wp.position;
-                    _waitCounter = 0f;
-                    _waiting = true;
+                    app.transform.position = wp.position;
+                    app.WaitCounter = 0f;
+                    app.Waiting = true;
 
-                    _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count; 
+                    app.CurrentWaypointIndex = (app.CurrentWaypointIndex + 1) % app.Waypoints.Count; 
                 }
                 else
                 {
-                    _transform.position = Vector3.MoveTowards(_transform.position, wp.position, IABT.speed * Time.deltaTime);
+                    app.transform.position = Vector3.MoveTowards(app.transform.position, wp.position, 5f * Time.deltaTime);
                     Vector2 vector2 = wp.position;
-                    _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
+                    app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
                     //_transform.LookAt(wp.position);
                 }
             }

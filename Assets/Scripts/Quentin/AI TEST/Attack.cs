@@ -1,42 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
 
 public class Attack : Node
 {
-    private Transform _transform;
-    private Rigidbody2D _rb;
-
-    public float attackTime = 0.2f;
-    public float attackCounter = 0f;
-
-    public GameObject bulletPrefab;
-
-    public EnemyManager _enemyManager;
+    public override void Init()
+    {
+        type = NodeType.TASK;
+    }
 
     public Attack(GameObject gameObject)
     {
-        _transform = gameObject.transform;
-        _enemyManager = _transform.GetComponent<EnemyManager>(); 
-        _rb = _transform.GetComponent<Rigidbody2D>();
+
     }
 
-    public override NodeState Evaluate()
+    public override NodeState Evaluate(BTApp app)
     {
+        Transform target = (Transform)GetData(GOType.TARGET);
 
-        Transform target = (Transform)GetData("target");
-        if (Vector3.Distance(_transform.position, target.position) <= IABT.range)
+        //Debug.Log(app.hit.transform);
+
+        //if(app.hit.collider != null) 
+        //{
+        //    if (Vector3.Distance(app.transform.position, target.position) <= app.Range && app.hit.collider.CompareTag(LayerMask.LayerToName(6)))
+        //    {
+        //        app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
+        //        Vector2 vector2 = target.position;
+        //        app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
+
+        //        state = NodeState.SUCCESS;
+        //        return state;
+        //    }
+        //    else
+        //    {
+        //        state = NodeState.RUNNING;
+        //        return state;
+        //    }
+        //}
+        //else
+        //{
+        //    state = NodeState.RUNNING;
+        //    return state;
+        //}
+
+        if (Vector3.Distance(app.transform.position, target.position) <= app.Range)
         {
+            app.enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
             Vector2 vector2 = target.position;
-            _rb.transform.up = vector2 - new Vector2(_rb.transform.position.x, _rb.transform.position.y);
-            _enemyManager.Actions.gameObject.GetComponent<Shooting>().StartShooting();
-            state = NodeState.SUCCESS;
+            app.Rb.transform.up = vector2 - new Vector2(app.Rb.transform.position.x, app.Rb.transform.position.y);
+            state = NodeState.SUCCESS; 
             return state;
         }
         state = NodeState.RUNNING;
         return state;
+
     }
 
 }

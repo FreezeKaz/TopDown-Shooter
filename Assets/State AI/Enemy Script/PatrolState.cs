@@ -36,7 +36,6 @@ public class PatrolState : State
 
     public override void Enter()
     {
-        float lastDist = Mathf.Infinity;
         anim.SetTrigger("isWalking");
         base.Enter();
         NewDestination();
