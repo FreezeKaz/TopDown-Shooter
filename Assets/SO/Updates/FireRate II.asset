@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf90b859c02c8b2499591c101ef7ba18, type: 3}
-  m_Name: GodSpeed
+  m_Name: FireRate II
   m_EditorClassIdentifier: 
-  Name: GodSpeed
-  Descritpion: 'zel biyqeg iubeyrt '
-  Image: {fileID: 0}
+  Name: Gotta shoot fast II
+  Descritpion: Always wanted to become a living gunmachine ? Well try this and upgrade
+    your firerate for all 3 of your weapons
+  Image: {fileID: 4392296171478678330, guid: cd31dbcfdf0ada0479e7a1b2596d9997, type: 3}
   Stat: 2
-  percentage: 100
+  percentage: 15

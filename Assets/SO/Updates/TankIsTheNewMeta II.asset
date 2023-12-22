@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf90b859c02c8b2499591c101ef7ba18, type: 3}
-  m_Name: MoveSpeed
+  m_Name: TankIsTheNewMeta II
   m_EditorClassIdentifier: 
-  Name: Run pretty boy
-  Descritpion: Run... faster... FASTER
-  Image: {fileID: -6762113930615902215, guid: 5c296239ebb942646b79a6a653fdb486, type: 3}
-  Stat: 3
-  percentage: 10
+  Name: Tank Is the new Meta II
+  Descritpion: 'You''re so bad at dodging you need more chances ? '
+  Image: {fileID: -5742113632988569310, guid: 2853f1f76784e63488df9a081344781c, type: 3}
+  Stat: 0
+  percentage: 15
