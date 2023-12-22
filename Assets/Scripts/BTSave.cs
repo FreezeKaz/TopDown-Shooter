@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using System.Linq;
 using UnityEditor;
+#endif
 using UnityEngine;
 
 
@@ -27,7 +29,7 @@ namespace BehaviorTree
             }
             return state;
         }
-
+#if UNITY_EDITOR
         public Node CreateNode(Type type)
         {
             Node node = CreateInstance(type) as Node;
@@ -211,5 +213,6 @@ namespace BehaviorTree
             tree.root = (Root)tree.root.Clone();
             return tree;
         }
+#endif
     }
 }
