@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 5188139326345223804, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: 'shootingSoundClips.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: ca167d3d1a61deb40a330c77fbbea46a, type: 3}
+      objectReference: {fileID: 8300000, guid: 19ff18f316c48f14b9ff924e77cc4879, type: 3}
     - target: {fileID: 5422159300376134482, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: playOnAwake
       value: 1
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: _volumeSFX
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6307414538515139123, guid: de4e704cbbdf77d4c89fd539cffeb0d5, type: 3}
       propertyPath: FireRateRatio

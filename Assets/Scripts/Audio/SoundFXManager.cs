@@ -8,7 +8,9 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundFXObject;
     [SerializeField] private AudioClip[] SoundClips;
-    [Range(0, 1)][SerializeField] private float volumeShooting;
+    [SerializeField][Range(0, 1)] private float _volumeShootingSFX;
+    [SerializeField][Range(0, 1)] private float _enemyDiedVolume;
+
 
     private void Awake()
     {
@@ -18,9 +20,13 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    private void ShootSFX()
+    private void ShootingSFX(int index)
     {
-        SoundFXManager.instance.PlaySoundFXClip(SoundClips[0], transform, volumeShooting);
+        PlaySoundFXClip(SoundClips[index], transform, _volumeShootingSFX);
+    }
+    private void EnemyDiedSFX()
+    {
+        PlaySoundFXClip(SoundClips[2], transform, _enemyDiedVolume);
     }
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
@@ -50,6 +56,18 @@ public class SoundFXManager : MonoBehaviour
         float clipLength = audioSource.clip.length;
 
         Destroy(audioSource.gameObject, clipLength);
+    }
+
+    private void OnEnable()
+    {
+        Shooting.onShootingSFX += ShootingSFX;
+        Entity.onEnemyDie += EnemyDiedSFX;
+    }
+
+    private void OnDisable()
+    {
+        Shooting.onShootingSFX -= ShootingSFX;
+        Entity.onEnemyDie -= EnemyDiedSFX;
     }
 
 }
